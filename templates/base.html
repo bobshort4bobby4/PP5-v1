@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+{% block meta %}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+{% endblock %}
+
+{% block extra_meta %}
+{% endblock %}
+
+{% block corecss %} 
+    <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dpudxnll7/image/upload/v1652886940/media/flowerico_vvvnvr.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
+    <link rel="stylesheet" href="{% static 'css/prefixed.css' %}">  
+{% endblock %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block corejs %}
+    <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}
+    
+<title>{% block title%}{% endblock title %}</title>
+</head>
+
+<body class="d-flex flex-column dark main-bg h-100">
+    <div class="">
+      
+    <!--===============================navbar section=======================================-->
+    <header>
+        <div class="container barsty">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <a class="navbar-brand" href="{% url 'home:home' %}"><img  src="https://res.cloudinary.com/dpudxnll7/image/upload/v1652783737/media/flowernewheader_eohbd5.png" alt="hotel logo"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown mt-2 {% if user.is_authenticated %} ml-3 {% endif%}" >
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             Pages
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="">Home</a>
+                            <a class="dropdown-item" href="">Information</a>
+                            <a class="dropdown-item" href="">Reviews</a>
+                            {% if user.is_staff %}
+                            <a class="dropdown-item" href="" aria-label="dropdowm menu contact page">Staff Page</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item cus-nav-p">
+                            <a class="nav-link" href="" aria-label="logout button">Logout</a>
+                        </li>
+                        <li class="nav-item cus-nav-p">
+                            <a class="nav-link" href="" aria-label="myaccount button">My Account</a>
+                        </li>
+                        <li class="cus-nav-p">
+                            <p class="nav-link float-right blacktext" aria-label="logged in as ">Logged in as User: {{ request.user.username }}</p>
+                        </li>
+                    {% else %}
+                        <li class="nav-link cus-nav-p">
+                            <a class="nav-link" href="" aria-label="log in button">Login</a>
+                        </li>
+                        <li class="nav-link cus-nav-p">
+                            <a class="nav-link" href="" aria-label="sign up button">Register</a>
+                        </li>
+                    {% endif%}
+                      
+                  </ul>
+                </div>
+            </nav>  
+        </div>            
+    </header>
+
+     <!--======================Messages section=============================-->
+     <div class="container ">
+        <div class="row no-gutters">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show text-center" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    
+            
+   
+        <!--=========================Block section====================-->
+    <main class="flex-shrink-0 main-bg cusp" >
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+    </main>
+    
+
+    
+    <!--===================script for closing messages=============-->
+    <!--===========this script is taken from CI course material====-->
+    <script>
+        setTimeout(function () {
+            let messages = document.getElementById('msg');
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 10000);
+    </script>
+    </div>
+    <!--===================Footer=================-->
+    <footer class="foot">
+        
+    </footer>
+    
+</body>
+</html>
