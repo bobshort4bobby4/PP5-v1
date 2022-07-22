@@ -65,7 +65,7 @@
                     </li>
                     {% if user.is_authenticated %}
                         <li class="nav-item cus-nav-p">
-                            <a class="nav-link" href="" aria-label="logout button">Logout</a>
+                            <a class="nav-link" href="{% url 'account_logout' %}" aria-label="logout button">Logout</a>
                         </li>
                         <li class="nav-item cus-nav-p">
                             <a class="nav-link" href="" aria-label="myaccount button">My Account</a>
@@ -75,7 +75,7 @@
                         </li>
                     {% else %}
                         <li class="nav-link cus-nav-p">
-                            <a class="nav-link" href="" aria-label="log in button">Login</a>
+                            <a class="nav-link" href="{% url 'account_login' %}" aria-label="log in button">Login</a>
                         </li>
                         <li class="nav-link cus-nav-p">
                             <a class="nav-link" href="" aria-label="sign up button">Register</a>
