@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 
     'home',
 ]
@@ -119,9 +120,8 @@ WSGI_APPLICATION = 'pp5_carsales.wsgi.application'
 
 
 DATABASES = {
-    'default': 
+    'default':
         dj_database_url.parse(os.environ.get("DATABASE_URL"))
-    
 }
 
 # Password validation
@@ -166,3 +166,4 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
