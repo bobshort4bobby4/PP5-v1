@@ -14,17 +14,19 @@
 {% endblock %}
 
 {% block corecss %} 
-    <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dpudxnll7/image/upload/v1652886940/media/flowerico_vvvnvr.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dpudxnll7/image/upload/v1658847796/media/pp5/pp5-favicon_uynn8j.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
-    <link rel="stylesheet" href="{% static 'css/prefixed.css' %}">  
+    <!-- <link rel="stylesheet" href="{% static 'css/prefixed.css' %}">   -->
 {% endblock %}
 
 {% block extra_css %}
 {% endblock %}
 
 {% block corejs %}
-    <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script> -->
+    <script src="https://kit.fontawesome.com/081f6ba32a.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://use.fontawesome.com/a9ef3e2825.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -32,18 +34,19 @@
 
 {% block extra_js %}
 {% endblock %}
+
     
 <title>{% block title%}{% endblock title %}</title>
 </head>
 
-<body class="d-flex flex-column dark main-bg h-100">
+<body class="d-flex flex-column dark main-bg h-100" style="background:#92e2da;">
     <div class="">
       
     <!--===============================navbar section=======================================-->
     <header>
         <div class="container barsty">
-            <nav class="navbar navbar-expand-lg navbar-light ">
-                <a class="navbar-brand" href="{% url 'home:home' %}"><img  src="https://res.cloudinary.com/dpudxnll7/image/upload/v1652783737/media/flowernewheader_eohbd5.png" alt="hotel logo"></a>
+            <!-- <nav class="navbar navbar-expand-lg navbar-light ">
+                <a class="navbar-brand" href="{% url 'home:home' %}"><img  src="https://res.cloudinary.com/dpudxnll7/image/upload/v1658846450/media/pp5/pp5-logov3resized_nolpid.png" alt="hotel logo" style="height:auto; width:100%;"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -84,7 +87,50 @@
                       
                   </ul>
                 </div>
-            </nav>  
+            </nav>   -->
+            <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #92e2da;">
+                <a class="navbar-brand" href="/">
+                    <!-- <img  src="https://res.cloudinary.com/dpudxnll7/image/upload/v1658848875/media/pp5/pp5-logov3resizedlong_tj2c3g.png" alt="hotel logo" style="height:auto; width:100%;"> -->
+                    <div>
+                      
+                      <!-- <h1><i class="fa-solid fa-car"></i>Car4u</h1> -->
+                      <h1><span><i class="fa fa-car" aria-hidden="true"></i></i></span>Car4u</h1>
+                    </div>
+                    
+                  </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+                </div>
+              </nav>
         </div>            
     </header>
 
@@ -111,11 +157,12 @@
     <main class="flex-shrink-0 main-bg cusp" >
         {% block content %}
         <!-- Content Goes here -->
+       
         {% endblock content %}
     </main>
     
 
-    
+    <script src="https://kit.fontawesome.com/081f6ba32a.js" crossorigin="anonymous"></script><!--link to Fontawesome-->
     <!--===================script for closing messages=============-->
     <!--===========this script is taken from CI course material====-->
     <script>
