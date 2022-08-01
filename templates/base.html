@@ -17,8 +17,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dpudxnll7/image/upload/v1658847796/media/pp5/pp5-favicon_uynn8j.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
     <style type="text/css">
-      #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; margin:auto;  width:80vw;}
+      #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; margin:20px; }
       /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
         We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
     </style>
@@ -45,130 +46,100 @@
 <title>{% block title%}{% endblock title %}</title>
 </head>
 
-<body class="d-flex flex-column dark main-bg h-100" style="background:#92e2da;">
-    <div class="">
+<body class="d-flex flex-column dark main-bg h-100" >
+  <header>
+    <!--Contact info section top-->
+    <div id="contact-top" class="d-flex justify-content-around" style="background-color:black; border-bottom:solid 2px #e5e5e5;">
+      <div class="p-2 text-white" >
+        <p><i class="fa fa-map-marker-alt"></i> Dublin, Ireland</p>
+      </div>
+
+      <div class="p-2 text-white">
+        <p><i class="fa fa-phone"></i><a href="tel:+35389999999" class="text-white" > +35389999999</a></p>
+      </div>
+    </div>
+
+
+    <!--======================Messages section=============================-->
+    <div class="container ">
+      <div class="row no-gutters">
+          <div class="col-md-8 offset-md-2">
+              {% for message in messages %}
+              <div class="alert {{ message.tags }} alert-dismissible fade show text-center" id="msg" role="alert">
+                  {{ message | safe }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+  </div>
+
+    <!--Logo section-->
+
+    <div id="logo-main" style="background-color:black; border-bottom:solid 2px #e5e5e5;">
+      <h1 class="text-white text-center" style="font-size:4rem;"><a href="/"><i class="fa fa-car " aria-hidden="true"></i> Car4u</a></h1>
+    </div>
+
+
+    <!--navbar-->
+    <div id="navbar"  class="text-white navbar-light bg-light" style="background-color:black; border-bottom:solid 2px #e5e5e5;">
+      <nav class="navbar navbar-expand-lg text-white" style="background-color:black;">
+        
+        {% if user.is_authenticated %}
+          <ul>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user" style="list-style:none ;"></i>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
+        {% endif %}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
       
-    <!--===============================navbar section=======================================-->
-    <header>
-        <div class="container barsty">
-            <!-- <nav class="navbar navbar-expand-lg navbar-light ">
-                <a class="navbar-brand" href="{% url 'home:home' %}"><img  src="https://res.cloudinary.com/dpudxnll7/image/upload/v1658846450/media/pp5/pp5-logov3resized_nolpid.png" alt="hotel logo" style="height:auto; width:100%;"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item dropdown mt-2 {% if user.is_authenticated %} ml-3 {% endif%}" >
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                             Pages
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="">Home</a>
-                            <a class="dropdown-item" href="">Information</a>
-                            <a class="dropdown-item" href="">Reviews</a>
-                            {% if user.is_staff %}
-                            <a class="dropdown-item" href="" aria-label="dropdowm menu contact page">Staff Page</a>
-                            {% endif %}
-                        </div>
-                    </li>
-                    {% if user.is_authenticated %}
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              {% if user.is_authenticated %}
                         <li class="nav-item cus-nav-p">
                             <a class="nav-link" href="{% url 'account_logout' %}" aria-label="logout button">Logout</a>
-                        </li>
-                        <li class="nav-item cus-nav-p">
-                            <a class="nav-link" href="" aria-label="myaccount button">My Account</a>
-                        </li>
-                        <li class="cus-nav-p">
-                            <p class="nav-link float-right blacktext" aria-label="logged in as ">Logged in as User: {{ request.user.username }}</p>
                         </li>
                     {% else %}
                         <li class="nav-link cus-nav-p">
                             <a class="nav-link" href="{% url 'account_login' %}" aria-label="log in button">Login</a>
                         </li>
                         <li class="nav-link cus-nav-p">
-                            <a class="nav-link" href="" aria-label="sign up button">Register</a>
+                            <a class="nav-link" href="{% url 'account_signup' %}" aria-label="sign up button">Register</a>
                         </li>
                     {% endif%}
-                      
-                  </ul>
-                </div>
-            </nav>   -->
-            <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #92e2da;">
-                <a class="navbar-brand" href="/">
-                    <!-- <img  src="https://res.cloudinary.com/dpudxnll7/image/upload/v1658848875/media/pp5/pp5-logov3resizedlong_tj2c3g.png" alt="hotel logo" style="height:auto; width:100%;"> -->
-                    <div>
-                      
-                      <!-- <h1><i class="fa-solid fa-car"></i>Car4u</h1> -->
-                      <h1><span><i class="fa fa-car" aria-hidden="true"></i></i></span>Car4u</h1>
-                    </div>
-                    
-                  </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                    {% if user.is_authenticated %}
-                      <li class="cus-nav-p">
-                        <p class="nav-link" aria-label="logged in as ">Logged in as User: {{ request.user.username }}</p>
-                      </li>
-                      <li class="cus-nav-p">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout <span class="sr-only">(current)</span></a>
-                      </li>
-                    {% else %}
-                      <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'account_login' %}">Login <span class="sr-only">(current)</span></a>
-                      </li>
-                    {% endif %}
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                      </div>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                  </ul>
-                  <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                  </form>
-                </div>
-              </nav>
-        </div>            
-    </header>
-
-    <hr>
-
-     <!--======================Messages section=============================-->
-     <div class="container ">
-        <div class="row no-gutters">
-            <div class="col-md-8 offset-md-2">
-                {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible fade show text-center" id="msg" role="alert">
-                    {{ message | safe }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-
-    
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
             
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </div>
+    <!--------------endof navbar-->
+  </header>
+   
    
         <!--=========================Block section====================-->
     <main class="flex-shrink-0 main-bg cusp" >
@@ -180,7 +151,60 @@
         {% endblock content %}
     </main>
     
+    
+    
+    <!--===================Footer=================-->
+    <footer class="foot" style="display:flex; flex-direction:column; background-color:white;">
+       <div class="row">
+          
 
+            <div id="social links" class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-0 col-lg-4">
+                <p class="mt-2 ml-md-5">Check us out on:</p>
+                <div class="mt-2 ml-md-5"><a><i class="fa fa-facebook-square " style="color:black;"> Facebook</i></a></div>
+                <div class="mt-2 ml-md-5"><a><i class="fab fa-instagram-square" style="color:black;"> Instagram</i></a></div>
+                <div class="mt-2 ml-md-5"><a><i class="fa fa-youtube-square " style="color:black;"> Youtube</i></a></div>
+                <div class="mt-2 ml-md-5"><a style="color:black!important;" href="https://www.privacypolicygenerator.info/live.php?token=rQK4jPx2wbwfIZvigWGXDwMUEKFrJtwj"><span ><i style="color:black;" class="fas fa-book"></i></span style="color:black;">Privacy Policy</a></div>
+            </div>
+
+            <div id="privacy" style="margin:auto; text-align: center;" class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-0 col-lg-4">
+              
+            </div>
+
+            <div id="chimp" class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-0 col-lg-4">           <!-- Begin Mailchimp Signup Form -->
+              <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7_dtp.css" rel="stylesheet" type="text/css">
+              <div id="mc_embed_signup">
+                <form action="https://herokuapp.us18.list-manage.com/subscribe/post?u=2b7ae258d7c30951cc8861826&amp;id=37f61f894b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                  <h2>Subscribe to Our Newsletter to get news of all new models direct to your inbox.</h2>
+                <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                <div class="mc-field-group">
+                  <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+                </label>
+                  <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                </div>
+                  <div id="mce-responses" class="clear foot">
+                    <div class="response" id="mce-error-response" style="display:none"></div>
+                    <div class="response" id="mce-success-response" style="display:none"></div>
+                  </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                   <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2b7ae258d7c30951cc8861826_37f61f894b" tabindex="-1" value=""></div>
+                        <div class="optionalParent">
+                            <div class="clear foot">
+                                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+                                <p class="brandingLogo"><a href="http://eepurl.com/h7PUCD" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+              </div>
+            </div>
+          
+          <!--End mc_embed_signup-->
+        
+      </div>
+        
+    </footer>
+
+    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
     <script src="https://kit.fontawesome.com/081f6ba32a.js" crossorigin="anonymous"></script><!--link to Fontawesome-->
     <!--===================script for closing messages=============-->
     <!--===========this script is taken from CI course material====-->
@@ -191,40 +215,6 @@
             alert.close();
         }, 10000);
     </script>
-    </div>
-    <!--===================Footer=================-->
-    <footer class="foot">
-        <div id="chimp" >           <!-- Begin Mailchimp Signup Form -->
-          <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7_dtp.css" rel="stylesheet" type="text/css">
-          <div id="mc_embed_signup">
-            <form action="https://herokuapp.us18.list-manage.com/subscribe/post?u=2b7ae258d7c30951cc8861826&amp;id=37f61f894b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                <div id="mc_embed_signup_scroll">
-              <h2>Subscribe to Our Newsletter to get news of all new models direct to your inbox.</h2>
-            <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-            <div class="mc-field-group">
-              <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
-            </label>
-              <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-            </div>
-              <div id="mce-responses" class="clear foot">
-                <div class="response" id="mce-error-response" style="display:none"></div>
-                <div class="response" id="mce-success-response" style="display:none"></div>
-              </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2b7ae258d7c30951cc8861826_37f61f894b" tabindex="-1" value=""></div>
-                    <div class="optionalParent">
-                        <div class="clear foot">
-                            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-                            <p class="brandingLogo"><a href="http://eepurl.com/h7PUCD" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"></a></p>
-                        </div>
-                    </div>
-                </div>
-            </form>
-          </div>
-          <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-          <!--End mc_embed_signup-->
-        </div>
-        
-    </footer>
     
 </body>
 </html>
