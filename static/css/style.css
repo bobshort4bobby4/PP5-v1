@@ -47,6 +47,16 @@ li.nav-item.dropdown {
 }
 
 
+/*mailchimp*/
+
+#mc_embed_signup{
+    background:#fff;
+    clear:left;
+    font:14px Helvetica,Arial,sans-serif;
+    margin:20px;
+ }
+
+
 
 
 /*-----media queries----*/
