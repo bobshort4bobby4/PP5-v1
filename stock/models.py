@@ -55,7 +55,7 @@ class Vehicle(models.Model):
     fuel = models.ForeignKey(FuelType, on_delete=models.CASCADE)
     featured = models.BooleanField(default=True)
     preowned = models.BooleanField(null=False)
-    price = models.DecimalField(decimal_places=2, null=False)
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=False)
     odometer = models.IntegerField()
     colour = models.CharField(max_length=25)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
