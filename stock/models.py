@@ -38,7 +38,7 @@ class FuelType(models.Model):
         ('Electric', 'Electric'),
     )
 
-    fuel = models.CharField(max_lenght=15, null=False, choices=Fuel_Types)
+    fuel = models.CharField(max_length=15, null=False, choices=Fuel_Types)
 
     def __str__(self):
         return f'{self.fuel}'
@@ -50,7 +50,7 @@ class Vehicle(models.Model):
     """
     stock_num = models.AutoField(primary_key=True, editable=False)
     maker = models.ForeignKey(Maker, on_delete=models.CASCADE)
-    model = models.CharField(max_lenght=20, null=False)
+    model = models.CharField(max_length=20, null=False)
     year = models.IntegerField(null=False)
     fuel = models.ForeignKey(FuelType, on_delete=models.CASCADE)
     featured = models.BooleanField(default=True)
