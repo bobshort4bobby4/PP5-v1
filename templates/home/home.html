@@ -6,7 +6,50 @@
     <div>
         <div id="image" >
         <!-- <img src="https://res.cloudinary.com/dpudxnll7/image/upload/v1659352141/media/pp5/ferrari-v2-pp5_x7sigb.jpg" alt="luxury car" height="400px">  -->
-
         </div>
+        <div class="text-center text-white p-1">
+            <h3>Featured Vehicles</h3>
+        </div>
+          <div id="carowrap">
+            <div id="carousel">
+                <div id="caro"  class="mb-2  p-2">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="5000">
+                        <div class="carousel-inner" >
+                          
+                          {% for vehicle in vehicles %}
+                            {% if forloop.first %}
+                              <div class="carousel-item active">
+                                <div class="imagewrap">
+                                <img class="d-block w-100 img-height" src="{{vehicle.image_url}}" alt=" slide">
+                                </div>
+                                <div class="text-white text-center bg-dark cardetail">
+                                    <h5>{{vehicle.maker}} {{vehicle.model}}</h5>
+                                    <p> Fuel: {{ vehicle.fuel }} ~  Year: {{ vehicle.year }}..</p>
+                                </div>
+                              </div>
+                              
+                            {% else %}
+                              <div class="carousel-item " aria-label="vehicle {{forloop.counter}}">
+                                <div class="imagewrap">
+                                  <img class="d-block w-100 img-height" src="{{vehicle.image_url}}" alt=" slide">
+                                </div>
+                                <div class="text-white text-center bg-dark cardetail">
+                                  <h5>{{vehicle.maker}} {{vehicle.model}}</h5>
+                                  <p> Fuel: {{ vehicle.fuel }} ~  Year: {{ vehicle.year }}</p>
+                                </div>
+                              </div>
+
+                            {% endif %}
+                          {% empty %}
+                              <div class="carousel-item active" aria-label="no vehicles yet" >
+                                
+                              </div>
+                          {% endfor %}
+                          
+                        </div>
+                    </div>
+                </div> 
+            </div>
+          </div>
     </div>
 {% endblock content %}

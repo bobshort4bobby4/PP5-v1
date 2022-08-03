@@ -51,18 +51,153 @@ li.nav-item.dropdown {
 
 #mc_embed_signup{
     background:#fff;
-    clear:left;
+    /* clear:left; */
     font:14px Helvetica,Arial,sans-serif;
     margin:20px;
  }
+
+ /*--carousel--*/
+
+#carousel{
+    min-height: 270px;
+}
+
+.img-height {
+    min-height:200px;
+    border:2px solid white;
+    object-fit: contain;
+}
+
+.cardetail {
+    min-height:60px;
+    border:2px solid white;
+    border-top: none;
+}
 
 
 
 
 /*-----media queries----*/
 
+@media screen and (min-width:375px) {
+    #carousel{
+        min-height: 320px;
+    }
+    
+    .img-height {
+        min-height:280px;
+        object-fit: fill;
+    }
+}
+
+
+@media screen and (min-width:425px) {
+    #carousel{
+        min-height: 425px;
+    }
+    
+    .img-height {
+        min-height:350px;
+        object-fit: contain;
+    }
+}
+
 @media screen and (min-width:768px) {
     #image {
         background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/v1659363121/media/pp5/ferrari-wide-pp5_txvw8g.jpg");
+    }
+
+    #carousel{
+        min-height: 550px;
+    }
+    
+    .img-height {
+        min-height:480px;
+        object-fit: contain;
+    }
+
+    #footer-row {
+        flex-wrap: nowrap;
+    }
+    
+    
+
+}
+
+@media screen and (min-width:1024px) {
+    #carowrap{
+        min-height: 700px;
+        max-height: 700px;
+    }
+
+    #caro {
+        min-height: 684px;
+        max-height:684px;
+    }
+
+    #carouselExampleSlidesOnly {
+        min-height: 684px;
+        max-height:684px;
+    }
+
+    .carousel-inner {
+        min-height: 684px;
+        max-height:684px;
+    }
+
+    #carousel {
+        height: auto;
+    }
+
+    .imagewrap{
+        min-height: 624px;
+        max-height: 624px;
+    }
+    
+    .img-height {
+        min-height: 624px;
+        max-height: 624px;
+        object-fit: contain;
+    }
+
+   
+
+}
+
+@media screen and (min-width:1440px) {
+
+    #carowrap{
+        min-height: 700px;
+        max-height: 700px;
+    }
+
+    #caro {
+        min-height: 684px;
+        max-height:684px;
+    }
+   
+
+    #carousel{
+        height:auto;
+        width:70%;
+        margin:0 auto;
+    }
+
+    .img-height {
+        min-height: 624px;
+        max-height: 624px;
+        object-fit: fill;
+    }
+
+}
+
+@media screen and (min-width:2000px) {
+    #carousel {
+        min-height:1556px;
+    }
+
+    .img-height {
+        min-height: 1500px;
+        max-height:1501px;
     }
 }

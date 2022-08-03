@@ -4,7 +4,7 @@ Admin configuration for Stock app
 
 
 from django.contrib import admin
-from .models import Maker, FuelType, Vehicle 
+from .models import Maker, FuelType, Vehicle
 
 
 @admin.register(Maker)
@@ -28,4 +28,4 @@ class VehicleAdmin(admin.ModelAdmin):
     """
     config for Vehicle admin panel
     """
-    list_display = ('stock_num', 'maker', 'model', 'year', 'fuel',)
+    list_display = ('stock_num', 'maker', 'model', 'year', 'fuel','featured',)

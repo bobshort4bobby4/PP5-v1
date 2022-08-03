@@ -149,22 +149,29 @@
     
     <!--===================Footer=================-->
     <footer class="foot" style="display:flex; flex-direction:column; background-color:white;">
-       <div class="row">
+       <div id="footer-row" class="row">
           
-
-            <div id="social links" class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-0 col-lg-4">
+        <!-- offset-1 col-10 offset-md-2 col-md-8 offset-lg-0 col-lg-4 -->
+            <div id="social links" class="m-2 offset-md-3 col-md-4 col-lg-3">
                 <p class="mt-2 ml-md-5">Check us out on:</p>
-                <div class="mt-2 ml-md-5"><a><i class="fa fa-facebook-square " style="color:black;"> Facebook</i></a></div>
+                <div class="mt-2 ml-md-5 "><a><i class="fa fa-facebook-square " style="color:black;"> Facebook</i></a></div>
                 <div class="mt-2 ml-md-5"><a><i class="fab fa-instagram-square" style="color:black;"> Instagram</i></a></div>
                 <div class="mt-2 ml-md-5"><a><i class="fa fa-youtube-square " style="color:black;"> Youtube</i></a></div>
                 <div class="mt-2 ml-md-5"><a style="color:black!important;" href="https://www.privacypolicygenerator.info/live.php?token=rQK4jPx2wbwfIZvigWGXDwMUEKFrJtwj"><span ><i style="color:black;" class="fas fa-book"></i></span style="color:black;">Privacy Policy</a></div>
             </div>
 
-            <div id="privacy" style="margin:auto; text-align: center;" class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-0 col-lg-4">
-              
-            </div>
+            <div id="openhours" class="d-none d-lg-block col-lg-3">
 
-            <div id="chimp" class="offset-1 col-10 offset-md-2 col-md-8 offset-lg-0 col-lg-4">           <!-- Begin Mailchimp Signup Form -->
+              <h5>Hours of Business</h5>
+              <p>Monday - Thursday:9am-5pm</p>
+              <p>Friday   :9am-8pm</p>
+              <p>Saturday :10am-2pm</p>
+              <p>Sunday   :Closed</p>
+              <p>Bank Holiday:Closed</p>
+            </div>
+            
+            <!-- Begin Mailchimp Signup Form -->
+            <div id="chimp" class="col-md-8 col-lg-6">           
               <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7_dtp.css" rel="stylesheet" type="text/css">
               <div id="mc_embed_signup">
                 <form action="https://herokuapp.us18.list-manage.com/subscribe/post?u=2b7ae258d7c30951cc8861826&amp;id=37f61f894b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -198,9 +205,9 @@
 
       <div class="btt-button shadow-sm rounded-0 ">
         <a class="btt-link d-flex justify-content-end h-100 mr-3">
-          <i class="fa fa-caret-square-up" style="color: black !important;"></i>
+          <i class="fa fa-caret-square-up" style="color: black !important; font-size: 3rem;"></i>
         </a>	
-    </div>
+      </div>
         
     </footer>
 
@@ -209,10 +216,18 @@
     <!--===================script for closing messages=============-->
     <!--===========this script is taken from CI course material====-->
     <script>
+        // let alertsound = new Audio("media/sounds/notification-sound-7062.mp3");
+        // $('#msg').(function(e){
+        //   alertsound.volume=.02;
+        //   alertsound.play();
+
+        // })
+
         setTimeout(function () {
             let messages = document.getElementById('msg');
-            let alert = new bootstrap.Alert(messages);
+            let alert = new bootstrap.Alert(messages); 
             alert.close();
+
         }, 10000);
     </script>
     <!--script for back to page top taken from CI course material-->

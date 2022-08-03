@@ -9,6 +9,16 @@
             "request": "launch",
             "program": "${file}",
             "console": "internalConsole"
-        }
+        },
+
+        {
+
+          "name": "pp5_carsales",
+          "type": "python",
+          "request": "launch",
+          "program": "manage.py",
+          "console": "internalConsole",
+          "args": ["runserver"]
+          },
   ]
 }

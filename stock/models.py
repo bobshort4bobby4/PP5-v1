@@ -25,6 +25,8 @@ class Maker(models.Model):
     def __str__(self):
         return f'{self.type}'
 
+    objects = models.Manager()
+
 
 class FuelType(models.Model):
     '''
@@ -42,6 +44,8 @@ class FuelType(models.Model):
 
     def __str__(self):
         return f'{self.fuel}'
+
+    objects = models.Manager()
 
 
 class Vehicle(models.Model):
@@ -63,3 +67,5 @@ class Vehicle(models.Model):
 
     def __str__(self):
         return f'{self.maker}, {self.model}'
+
+    objects = models.Manager()
