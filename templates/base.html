@@ -88,14 +88,27 @@
                 <i class="fa fa-user" style="list-style:none ;"></i>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                <a class="dropdown-item" href="#">My Profile</a>
+                {% if request.user.is_superuser %}
+                  <div class="dropdown-divider"></div>                
+                  <a class="dropdown-item" href="#">Product Management</a>
+                {% endif %}
+                
               </div>
             </li>
           </ul>
         {% endif %}
+        <!-- <span class="my-0  d-lg-none mr-1"><i class="fa fa-shopping-bag fa-lg"></i></span> -->
+        <p class="my-0 d-lg-none" >
+          {% if grand_total %}
+              <i class="fa fa-shopping-bag fa-lg"></i>
+              €{{ grand_total|floatformat:2 }}
+          {% else %}
+              <i class="fa fa-shopping-bag fa-lg"></i>
+              €0.00
+          {% endif %}
+        </p>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -104,9 +117,9 @@
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               {% if user.is_authenticated %}
-                        <li class="nav-item cus-nav-p">
+                        <!-- <li class="nav-item cus-nav-p">
                             <a class="nav-link" href="{% url 'account_logout' %}" aria-label="logout button">Logout</a>
-                        </li>
+                        </li> -->
                     {% else %}
                         <li class="nav-link cus-nav-p">
                             <a class="nav-link" href="{% url 'account_login' %}" aria-label="log in button">Login</a>
@@ -117,13 +130,23 @@
                     {% endif%}
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#">Vehicles</a>
             </li>
             
             <li class="nav-item">
               <a class="nav-link disabled" href="#">Disabled</a>
             </li>
           </ul>
+
+          <div class="my-0 d-none d-lg-block mr-1"><i class="fa fa-shopping-bag fa-lg"></i></div>
+          <p class="my-0 d-none d-lg-block mr-5" >
+            {% if grand_total %}
+                €{{ grand_total|floatformat:2 }}
+            {% else %}
+                €0.00
+            {% endif %}
+          </p>
+
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

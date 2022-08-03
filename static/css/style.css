@@ -36,6 +36,10 @@ a {
 li.nav-item.dropdown {
     list-style-type: none;
 }
+
+.dropdown-item {
+    color: black !important;
+}
 #image{
     vertical-align: top;
     height:35vh;
