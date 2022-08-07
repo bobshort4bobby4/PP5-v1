@@ -1,5 +1,5 @@
 html {
-    height:100%;
+    /* height:100%; */
 }
 
 body {
@@ -76,6 +76,12 @@ li.nav-item.dropdown {
     min-height:60px;
     border:2px solid white;
     border-top: none;
+}
+
+#image-vehicle {
+    width: 100%;
+    object-fit: fill;
+
 }
 
 
@@ -164,6 +170,11 @@ li.nav-item.dropdown {
         object-fit: contain;
     }
 
+    /* foramt images on 1024 screens
+    #img-wrapper {
+        margin-left:300px;
+    } */
+
    
 
 }
@@ -192,6 +203,15 @@ li.nav-item.dropdown {
         max-height: 624px;
         object-fit: fill;
     }
+
+    /*increse image size on larger screens for list vehicles screen*/
+    .card-img-top {
+        width:600px;
+        height:330px;
+        object-fit: fill;
+    }
+
+    
 
 }
 

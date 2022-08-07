@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title%}Vehicles{% endblock title %}
+
+{% block content  %}
+
+<h1 class="text-center">0000000000000000000011111111111111111111</h1>
+<div class="row no-gutters">
+    {% for vehicle in object_list %}
+        <div id="img-wrapp" class=" col-sm-10  offset-md-2 col-md-8 offset-lg-0 col-lg-4 d-flex " >
+            <div id="image-vehicle" class="card border-0  px-5 my-2"  style="background-color: black;">
+                
+                <a  href="#">
+                    <img class="card-img-top img-fluid " src="{{ vehicle.image_url }}" alt="#" style="border:1px solid white;">
+                </a>
+                <!--
+                <a href="#">
+                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                </a> -->
+                
+                
+            </div>
+        </div>
+    {% empty %}
+        <p>no vehicles to display</p>
+    {% endfor %}
+        
+</div>
+{% endblock content %}
