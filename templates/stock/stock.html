@@ -4,12 +4,12 @@
 {% block content  %}
 
 <div class="row no-gutters"></div>
-<div class="row no-gutters">
+<div class="container-fluid row no-gutters">
     {% for vehicle in object_list %}
         <div id="card-container" class=" offset-xs-0 offset-sm-1 col-sm-10 offset-lg-2 col-lg-8 offset-xl-0 col-xl-6" >
             <div class="card h-100  m-1" style="border:1px solid white!important; border-bottom: none;">
                 {% if vehicle.image_url %}
-                <a href="#" class="h-100">
+                <a href="{% url 'stock:stock_detail' vehicle.pk %}" class="h-100">
                     <img style="max-width:100%; max-height:100%; width:100%; height:100%; object-fit:cover;" src="{{ vehicle.image_url }}" alt="{{vehicle.make}} {{vehicle.model}}">
                 </a>
                 

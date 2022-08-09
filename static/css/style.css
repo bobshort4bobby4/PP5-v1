@@ -36,11 +36,20 @@ a {
 #logo-main a {
     text-decoration: none;
 }
+
 #logo-main a:hover {
     cursor: pointer;
-    color: aqua !important;
-    
+    color: aqua !important;  
 }
+
+.hoverblue:hover {
+    cursor: pointer;
+    background-color: aqua !important;  
+    color:black;
+    border-radius: 10px;
+}
+
+
 
 .navbar-toggler {
     background-color: white!important;

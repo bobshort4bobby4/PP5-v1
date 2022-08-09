@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from stock.models import Vehicle
 # from stock.models import Vehicle
 
@@ -15,3 +15,12 @@ class StockView(ListView):
     #     return context
     model = Vehicle
     template_name = "stock/stock.html"
+
+
+class StockDetailView(DetailView):
+    """
+    Generic class used to display vehicle detail page
+
+    """
+    model=Vehicle
+    template_name = "stock/stock_detail.html"

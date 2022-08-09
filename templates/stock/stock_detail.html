@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title%}Vehicle Detail{% endblock title %}
+{% load static %}
+
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            <div class="image-container my-5">
+                {% if object.image_url %}
+                    <a href="{{ object.image_url }}" target="_blank">
+                        <img class="card-img-top img-fluid" src="{{ object.image_url }}" alt="{{ product.name }}">
+                    </a>
+                {% else %}
+                    <a href="">
+                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    </a>
+                {% endif %}
+            </div>
+
+            <div class="container d-none d-md-block">
+                <a href="{% url 'stock:stock' %}" class="btn btn-outline-black rounded-0 mt-3">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase">Back To ALL Vehicles</span>
+                </a>
+            </div>
+            
+        </div><!--end image div-->
+
+        <div class=" container text-white col-12 col-md-6 col-lg-4 text-center my-5">
+            <h1>  {{ object.year }}  {{ object.maker }}  {{ object.model }}</h1>
+            <h3>  Fuel: {{ object.fuel}} </h3>
+            <h3>  Colour: {{ object.colour}} </h3>
+            <h3>  Odometer:  {{ object.odometer }} km</h3>
+            <form class="form my-3" action="#" method="POST">
+                {% csrf_token %}
+                <button class=" btn btn-black rounded-0 hoverblue" style="background:white;">
+                    Buy This Vehicle
+                </button>
+            </form>
+        </div>
+
+            
+    </div> <!--end row here-->
+
+
+    <div class="container d-md-none">
+        <a href="{% url 'stock:stock' %}" class="btn btn-outline-black rounded-0 mt-5">
+            <span class="icon">
+                <i class="fas fa-chevron-left"></i>
+            </span>
+            <span class="text-uppercase">Back To ALL Vehicles</span>
+        </a>
+    </div>
+</div>
+
+{% endblock content %}
