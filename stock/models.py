@@ -20,10 +20,10 @@ class Maker(models.Model):
         ('Mercedes', 'Mercedes'),
     )
 
-    type = models.CharField(max_length=10, null=False, choices=Maker_Types)
+    maker = models.CharField(max_length=10, null=False, choices=Maker_Types)
 
     def __str__(self):
-        return f'{self.type}'
+        return f'{self.maker}'
 
     objects = models.Manager()
 
