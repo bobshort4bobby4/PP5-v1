@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'home',
     'stock',
     'profiles',
+    'bag',
 ]
 
 MIDDLEWARE = [
@@ -116,6 +117,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',  # all-auth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'bag.contexts.bag_contents',
+                
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',

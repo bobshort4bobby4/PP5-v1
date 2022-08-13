@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title%}Shopping Bag{% endblock title %}
+
+
+{% block content%}
+
+<h3 class=" text-white text-center m-2 p-0">Shopping Bag </h3>
+
+<div class="row no-gutters">
+    <div class="col ">
+        <div class="table-responsive rounded d-md-block container">  
+            {% if bag_items %}
+                <table class="table table-sm table-borderless ">
+                    <thead class="text-white border-bottom">
+                        <tr>
+                            <th scope="col" class="px-3">MAKE </th>
+                            <th scope="col" class="px-3">Model</th>
+                            <th scope="col" class="px-3">Price</th>  
+                            <th scope="col" class="px-3 d-none d-lg-block ml-5 text-center">Image</th>
+                        </tr>
+
+                    </thead>
+                    
+                    <tbody id="body-bag">
+                    {% for item in bag_items %}
+                        <tr>
+                            <td class="py-3  text-white align-middle">
+                                {{ item.maker|upper}}
+                            </td>
+                            <td class="py-3 text-white align-middle">
+                                {{ item.model|upper }}
+                            </td>
+                            <td class="py-3 text-white align-middle text-right">
+                                €{{ item.price|upper|floatformat:0}}
+                            </td>
+                            <td class="p-3  text-white d-none d-lg-block text-right">
+                                <img class="d-block ml-5 mx-auto"  style="width:120px;" src="{{item.image_url}}" alt="pic">
+                            </td>
+                            <td class="py-3 text-white align-middle text-center">
+                                <span><a href="{% url 'bag:remove_from_bag' item.pk %}" aria-label=""><u>REMOVE</u></a></span>
+                            </td>  
+                        </tr>
+                       
+                    {% endfor %}
+                        <tr>
+                            <td class="  text-white align-middle">
+                                Sub-Total
+                            </td>
+                            <td class="py-3  text-white">
+                                
+                            </td>
+                            <td class="py-3  text-white align-middle text-right">
+                                €{{ grand_total|floatformat:0 }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="  text-white align-middle">
+                                Trade-in Allowance
+                            </td>
+                            <td class="py-3  text-white">
+                                
+                            </td>
+                            
+                            <td class="py-3  text-white align-middle text-right">
+                                €0
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="  text-white align-middle">
+                                Total Payable
+                            </td>
+                            
+                            <td class="py-3  text-white">
+                                
+                            </td>
+                            <td class="py-3  text-white align-middle text-right">
+                                €0
+                            </td>
+                        </tr>
+                    </tbody>
+
+            {% else %}
+                <h3 class="text-white text-center">No Vehicles in Bag Yet.</h3>
+            {% endif %}
+
+                </table>
+        </div>
+      
+
+    </div>
+</div>
+{% endblock content %}

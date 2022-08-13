@@ -64,7 +64,7 @@ li.nav-item.dropdown {
 .dropdown-item {
     color: black !important;
 }
-#image{
+#image {
     vertical-align: top;
     height:35vh;
     width:100vw;
@@ -74,6 +74,11 @@ li.nav-item.dropdown {
 */
 }
 
+/* bag */
+
+#body-bag {
+    font-size:0.8rem;
+}
 
 /*mailchimp*/
 
@@ -121,6 +126,10 @@ li.nav-item.dropdown {
     .img-height {
         min-height:280px;
         object-fit: fill;
+    }
+
+    #body-bag {
+        font-size:initial;
     }
 }
 

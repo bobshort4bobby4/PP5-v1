@@ -19,24 +19,28 @@
                           {% for vehicle in vehicles %}
                             {% if forloop.first %}
                               <div class="carousel-item active">
-                                <div class="imagewrap">
-                                <img class="d-block w-100 img-height" src="{{vehicle.image_url}}" alt=" slide">
-                                </div>
-                                <div class="text-white text-center bg-dark cardetail">
-                                    <h5>{{vehicle.maker}} {{vehicle.model}}</h5>
-                                    <p> Fuel: {{ vehicle.fuel }} ~  Year: {{ vehicle.year }}..</p>
-                                </div>
+                                <a href="{% url 'stock:stock_detail' vehicle.pk %}">
+                                  <div class="imagewrap">
+                                  <img class="d-block w-100 img-height" src="{{vehicle.image_url}}" alt=" slide">
+                                  </div>
+                                  <div class="text-white text-center bg-dark cardetail">
+                                      <h5>{{vehicle.maker}} {{vehicle.model}}</h5>
+                                      <p> Fuel: {{ vehicle.fuel }} ~  Year: {{ vehicle.year }}..</p>
+                                  </div>
+                                </a>
                               </div>
                               
                             {% else %}
                               <div class="carousel-item " aria-label="vehicle {{forloop.counter}}">
-                                <div class="imagewrap">
-                                  <img class="d-block w-100 img-height" src="{{vehicle.image_url}}" alt=" slide">
-                                </div>
-                                <div class="text-white text-center bg-dark cardetail">
-                                  <h5>{{vehicle.maker}} {{vehicle.model}}</h5>
-                                  <p> Fuel: {{ vehicle.fuel }} ~  Year: {{ vehicle.year }}</p>
-                                </div>
+                                <a href="{% url 'stock:stock_detail' vehicle.pk %}">
+                                  <div class="imagewrap">
+                                    <img class="d-block w-100 img-height" src="{{vehicle.image_url}}" alt=" slide">
+                                  </div>
+                                  <div class="text-white text-center bg-dark cardetail">
+                                    <h5>{{vehicle.maker}} {{vehicle.model}}</h5>
+                                    <p> Fuel: {{ vehicle.fuel }} ~  Year: {{ vehicle.year }}</p>
+                                  </div>
+                                </a>
                               </div>
 
                             {% endif %}

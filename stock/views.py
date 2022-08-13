@@ -71,5 +71,5 @@ class StockDetailView(DetailView):
     Generic class used to display vehicle detail page
 
     """
-    model=Vehicle
+    model = Vehicle
     template_name = "stock/stock_detail.html"
