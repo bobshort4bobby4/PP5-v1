@@ -92,7 +92,7 @@
                 <a class="dropdown-item" href="{% url 'profile' %}">My Profile ({{ user.username }})</a>
                 <a class="dropdown-item" href="{% url 'bag:bag' %}">My Shopping Bag</a>
                 <a class="dropdown-item" href="#">My Account</a>
-                {% if request.user.is_superuser %}
+                {% if request.user.is_staff %}
                   <div class="dropdown-divider"></div>                
                   <a class="dropdown-item" href="#">Product Management</a>
                 {% endif %}
