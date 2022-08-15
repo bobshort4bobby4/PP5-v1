@@ -21,7 +21,7 @@ def profile(request):
                             'the form is valid.'))
     else:
         form = UserProfileForm(instance=profile)
-    
+
 
     template = 'profiles/profile.html'
     context = {

@@ -4,17 +4,30 @@
 
 
 {% block content%}
-    
-    <div class="row">
-        
-        <div class=" offset-1 col-10 offset-lg-3 col-lg-6 p-5">
-            <h1 class=""> My Profile</h1>
-            <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+    <div class="w-100">
+        <h1 class="w-100 text-white text-center"> My Profile</h1>
+    </div>
+
+    <div class="row container-fluid no gutters">
+        <!-- offset-1 col-10 offset-lg-3 col-lg-6 p-5 -->
+        <div class="small lead-md col-12 offset-md-1 col-md-10 offset-lg-0 col-lg-6 ">
+            
+            <p class=" text-white"> Address Details</p>
+            <hr class="text-white" style="border:1px solid white">
+            
+
+            <form class="mt-3 text-white" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
-            </form>
-            
+                <button class="btn text-white rounded-0 text-uppercase float-right">Update Information</button>
+            </form>    
         </div> 
+
+        <div class=" small lead-md col-12 offset-md-1 col-md-10 offset-lg-0 col-lg-6 mt-5 mt-lg-0 ">
+            <p class=" text-white"> Order History</p>
+            <hr class="text-white" style="border:1px solid white">
+        </div>
+    
+        
     </div>
 {% endblock content %}

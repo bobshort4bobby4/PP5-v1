@@ -26,8 +26,8 @@ a {
 
 * {
     box-sizing: border-box;
-    /* outline:1px solid limegreen !important;
-    background:rgb(0 100 0 / 0.1) !important; */
+    /* outline:1px solid limegreen !important; */
+    /* background:rgb(0 100 0 / 0.1) !important; */
     padding:0;
     border:none;
     margin:0;
@@ -37,7 +37,9 @@ a {
     text-decoration: none;
 }
 
-#logo-main a:hover {
+#logo-main a:hover,
+#allvehlink:hover,
+#checkout-btn:hover {
     cursor: pointer;
     color: aqua !important;  
 }

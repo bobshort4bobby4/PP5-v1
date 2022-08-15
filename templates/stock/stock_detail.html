@@ -35,7 +35,7 @@
             <h3>  Fuel: {{ object.fuel}} </h3>
             <h3>  Colour: {{ object.colour}} </h3>
             <h3>  Odometer:  {{ object.odometer }} km</h3>
-            <h3>  Price: € {{ object.price }}</h3>
+            <h3>  Price: € {{ object.price|floatformat:0}}</h3>
             <form class="form my-3" action="{% url 'bag:add_to_bag' object.pk %}" method="POST">
                 {% csrf_token %}
                 <button class=" btn btn-black rounded-0 hoverblue" style="background:white;">

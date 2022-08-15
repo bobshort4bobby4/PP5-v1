@@ -1,7 +1,6 @@
-from functools import reduce
-import operator
+
 from django.views.generic import ListView, DetailView
-from django.shortcuts import redirect, reverse, get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.contrib import messages
 
 from django.db.models import Q
@@ -17,12 +16,8 @@ class StockView(ListView):
     """
 
     def get_queryset(self):
-        queryset = super().get_queryset()
-        vehicles = Vehicle.objects.all()
-
-    #     idseq = request.POST['tag'].split(',')
-    # tag_qs = reduce(operator.or_, (Q(tag__id=x) for x in idseq))
-    # Customers.objects.filter(..., tag_qs)
+        queryset = Vehicle.objects.filter(available_sale=True)
+        super().get_queryset()
 
         if 'q' in self.request.GET:
             query = self.request.GET['q']
@@ -33,7 +28,7 @@ class StockView(ListView):
             # attempt to implement muli-term search
             terms = self.request.GET['q'].split(' ')
 
-            field_names= ["maker__maker", "model", "fuel__fuel", "year"]
+            field_names = ["maker__maker", "model", "fuel__fuel", "year"]
             or_query = None
             query = None
             for term in terms:
@@ -48,17 +43,8 @@ class StockView(ListView):
                 else:
                     query = query and or_query
             queries = query
+            vehicles = Vehicle.objects.filter(available_sale=True)
             queryset = vehicles.filter(queries)
-
-
-
-                    
-
-
-            # ques = [(Q(maker__maker__icontains=x) for x in terms), (Q(model__icontains=x) for x in terms) ]
-            # queries = reduce(operator.or_, ques)
-            # queries = Q(maker__maker__icontains=query) | Q(model__icontains=query) | Q(fuel__fuel__icontains=query) |Q(year__icontains=query)
-            # queryset = vehicles.filter(queries)
 
         return queryset
 
