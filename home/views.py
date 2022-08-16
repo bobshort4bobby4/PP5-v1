@@ -7,6 +7,7 @@ home app views
 from django.views.generic import TemplateView
 from stock.models import Vehicle
 
+
 # Create your views here.
 
 
