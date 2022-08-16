@@ -35,6 +35,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+
 ALLOWED_HOSTS = ['pp5-carsales.herokuapp.com', 'localhost']
 
 
@@ -88,7 +89,7 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 3
 
-SOCIALACCOUNT_PROVIDERS = {
+SOCIALACCOUNT_PROVIDERS = { # this is optional according to docs
     'google': {
         'SCOPE': [
             'profile',
@@ -99,6 +100,9 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+SOCIALACCOUNT_EMAIL_REQUIRED = True
+SOCIALACCOUNT_AUTO_SIGNUP = False
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
@@ -191,13 +195,13 @@ USE_L10N = True
 USE_TZ = True
 
 # leaving commented out code as is needed for testing locally run site
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_USE_TLS = True
-# EMAIL_PORT = 587
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
 # DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
 
