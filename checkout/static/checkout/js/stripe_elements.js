@@ -25,6 +25,7 @@ var style = {
     }
 };
 var card = elements.create('card', {style: style});
+console.log("before card mount")
 card.mount('#card-element');
 
 // Handle realtime validation errors on the card element
@@ -45,10 +46,11 @@ card.addEventListener('change', function (event) {
 
 // Handle form submit
 var form = document.getElementById('payment-form');
-
+debugger;
 form.addEventListener('submit', function(ev) {
     ev.preventDefault();
     card.update({ 'disabled': true});
+    console.log("insubmit listener")
     $('#submit-button').attr('disabled', true);
     $('#payment-form').fadeToggle(100);
     $('#loading-overlay').fadeToggle(100);
@@ -56,13 +58,14 @@ form.addEventListener('submit', function(ev) {
     var saveInfo = Boolean($('#id-save-info').attr('checked'));
     // From using {% csrf_token %} in the form
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+    debugger;
     var postData = {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
         'save_info': saveInfo,
     };
     var url = '/checkout/cache_checkout_data/';
-
+    debugger;
     $.post(url, postData).done(function () {
         stripe.confirmCardPayment(clientSecret, {
             payment_method: {

@@ -24,7 +24,7 @@ class Order(models.Model):
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2,
+    delivery_cost = models.DecimalField(max_digits=10, decimal_places=2,
                                         null=False, default=0) #  may not be used remove if neccessary
     order_total = models.DecimalField(max_digits=10, decimal_places=2,
                                       null=False, default=0)
@@ -75,7 +75,7 @@ class OrderLineItem(models.Model):
     product = models.ForeignKey(Vehicle, null=False, blank=False,
                                 on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=1)
-    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
+    lineitem_total = models.DecimalField(max_digits=10, decimal_places=2,
                                          null=False, blank=False,
                                          editable=False)
     # wont be need ed as each vechicle is unique in our models
@@ -84,7 +84,7 @@ class OrderLineItem(models.Model):
         Override the original save method to set the lineitem total
         and update the order total.
         """
-        self.lineitem_total = self.product.price * self.quantity
+        self.lineitem_total = round(self.product.price * self.quantity)
         super().save(*args, **kwargs)
 
     def __str__(self):
