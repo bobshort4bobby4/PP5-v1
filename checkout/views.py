@@ -63,6 +63,9 @@ def checkout(request):
                         quantity=1,
                     )
                 order_line_item.save()
+            
+            return redirect(reverse('checkout:checkout_success',
+                                    args=[order.order_number]))
 
             #     except car.DoesNotExist:
             #         messages.error(request, (
