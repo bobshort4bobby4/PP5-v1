@@ -10,7 +10,6 @@ from .models import Order, OrderLineItem
 from stock.models import Vehicle
 
 
-
 @require_POST
 def cache_checkout_data(request):
     try:
@@ -53,6 +52,9 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.original_bag = json.dumps(bag)
+            order.stripe_pid = pid
             for thing in bag:
                
                 # try:
@@ -94,7 +96,7 @@ def checkout(request):
                 amount=stripe_total,
                 currency=settings.STRIPE_CURRENCY,
             )
-        print(intent)
+
 
         order_form = OrderForm()
 
