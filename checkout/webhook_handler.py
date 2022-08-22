@@ -1,3 +1,6 @@
+import json
+import time
+
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
@@ -7,8 +10,7 @@ from .models import Order, OrderLineItem
 from stock.models import Vehicle
 from profiles.models import UserProfile
 
-import json
-import time
+
 
 
 class StripeWH_Handler:

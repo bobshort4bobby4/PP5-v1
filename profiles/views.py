@@ -21,12 +21,14 @@ def profile(request):
                             'the form is valid.'))
     else:
         form = UserProfileForm(instance=profile)
-
+    
+    orders = profile.orders.all()
 
     template = 'profiles/profile.html'
     context = {
         'form': form,
-        'on_profile_page': True
+        'on_profile_page': True,
+        'orders': orders,
     }
 
     return render(request, template, context)

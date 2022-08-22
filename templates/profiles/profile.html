@@ -26,6 +26,46 @@
         <div class=" small lead-md col-12 offset-md-1 col-md-10 offset-lg-0 col-lg-6 mt-5 mt-lg-0 ">
             <p class=" text-white"> Order History</p>
             <hr class="text-white" style="border:1px solid white">
+            <div class="col-12 ">
+                
+                <div class="order-history table-responsive ">
+                    <table class="table table-sm table-borderless text-white">
+                        <thead>
+                            <tr>
+                                <th>Order Number</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Order Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in orders %}
+                                <tr>
+                                    <td>
+                                        <a href="#"
+                                        title="{{ order.order_number }}">
+                                            {{ order.order_number|truncatechars:6 }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{ order.date.day }}/{{ order.date.month}}/{{ order.date.year}}
+                                    </td>
+                                    <td>
+                                        <ul class="list-unstyled">
+                                            {% for item in order.lineitems.all %}
+                                                <li class="">
+                                                    {{ item.product.maker }} {{ item.product.model }}
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>${{ order.grand_total|floatformat:0 }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     
         
