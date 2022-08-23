@@ -1,0 +1,3 @@
+User-agents: *
+Disallow:
+Sitemap:https://pp5-carsales.herokuapp.com/sitemap.xml
