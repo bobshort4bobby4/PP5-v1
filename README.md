@@ -1,4 +1,9 @@
-SEO
+* SEO
+
+Potential customers needs: Value, good range of vehicles to choose from, Reputation of seller, after-sales service
+
+Look at other websites serving the same market see what is good and question if it would be appropriate to implement similiar features on your website.
+
 
 Initial list of keywords
 
@@ -22,6 +27,23 @@ The social links were given the rel="noopener" attribute to ensure their content
 A link to SIMI was provided to further boost rankings.
 The meta data tags were created in the html head.
 
-h1 make sitemap.xml file and palce in root when finished www.xml-sitemaps.com
-h1 make robots.txt in root directory
-h1 registering sitemap and testing robots.txt not required for this project
+** make sitemap.xml file and palce in root when finished www.xml-sitemaps.com
+** make robots.txt in root directory
+** registering sitemap and testing robots.txt not required for this project  
+  
+    
+    
+https://www.privacypolicygenerator.info/
+
+
+* Marketing 
+
+It is planned that the main methods of marketing the business will be through SEO optimisation, via  organic social media marketing, principally Facebook and a weekly email newsletter.
+The reasons these methods were choosen was largely due to budget constraints.
+Whilst there is plenty of scope for content marketing such as articles/guides to buying vehicles, maintainance tips,  weekly video's of new stock, a valuer for trade-in vehicles (api), there are insufficent resources available currently to implement.
+Paid adds for social media sites and search engines were not considered at this stage due to the cost/value.
+
+
+FaceBook Page URL https://www.facebook.com/Car4U-103831232458420
+
+
