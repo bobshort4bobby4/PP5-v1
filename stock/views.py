@@ -1,10 +1,11 @@
 
 from django.views.generic import ListView, DetailView
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render, redirect, reverse
 from django.contrib import messages
 
 from django.db.models import Q
 from stock.models import Vehicle
+from .forms import VehicleForm
 
 # from stock.models import Vehicle
 
@@ -59,3 +60,26 @@ class StockDetailView(DetailView):
     """
     model = Vehicle
     template_name = "stock/stock_detail.html"
+
+
+def add_stock(request):
+
+    if request.method == 'POST':
+        form = VehicleForm(request.POST, request.FILES)
+        if form.is_valid():
+            veh= form.save()
+            messages.success(request, 'Successfully added Vehicle!')
+            return redirect(reverse('stock:stock_detail', args=[veh.stock_num]))
+        else:
+            messages.error(request,
+                           ('Failed to add product. '
+                            'Please ensure the form is valid.'))
+    else:
+        form = VehicleForm()
+
+    template = 'stock/add_stock.html'
+    context = {
+        'form': form
+    }
+
+    return render(request, template, context)

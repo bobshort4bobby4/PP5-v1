@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title%} Add Vehicle{% endblock title %}
+
+{% block content  %}
+<h1 class="text-center text-white">Add A Vehicle</h1>
+
+
+<div class="row">
+    <div class="col-12 col-md-6">
+        <form method="POST" action="{% url 'stock:add_stock' %}" class="form mb-2" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+                {% if field.name != 'image' %}
+                    {{ field | as_crispy_field }}
+                {% else %}
+                    {{ field }}
+                {% endif %}
+            {% endfor %}
+            <div class="text-right">
+                <a class="btn btn-outline-black rounded-0" href="{% url 'stock:stock' %}">Cancel</a>
+                <button class="btn btn-black rounded-0" type="submit">Add Product</button>
+            </div>
+        </form>
+    </div>            
+</div>
+{% endblock content%}
