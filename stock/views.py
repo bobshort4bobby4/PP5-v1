@@ -118,11 +118,12 @@ def edit_vehicle(request, vehicle_id):
 
     veh = get_object_or_404(Vehicle, pk=vehicle_id)
     if request.method == 'POST':
+        veh = get_object_or_404(Vehicle, pk=vehicle_id)
         form = VehicleForm(request.POST, request.FILES, instance=veh)
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated Vehicle!')
-            return redirect(reverse('stock:stock_detail', args=[veh.id]))
+            return redirect(reverse('stock:stock_detail', args=[veh.pk]))
         else:
             messages.error(request,
                            ('Failed to update Vehicle. '
@@ -135,6 +136,7 @@ def edit_vehicle(request, vehicle_id):
     context = {
         'form': form,
         'vehicle': veh,
+        'vehicle_id':veh.pk,
     }
 
     return render(request, template, context)
