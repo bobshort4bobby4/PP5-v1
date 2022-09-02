@@ -14,8 +14,15 @@
                     </a>
                 {% else %}
                     <a href="">
-                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        <img class="card-img-top img-fluid" src="https://res.cloudinary.com/dpudxnll7/image/upload/v1660076458/media/pp5/noimage-pp5_wohtub.png" alt="{{ product.name }}">
                     </a>
+                {% endif %}
+            </div>
+
+            <div class="container d-none d-md-block">
+                {% if request.user.is_staff %}
+                <a class ="mx-1" href="{% url 'stock:editvehicle' object.pk %}">Edit</a>
+                <a class="text-danger mx-1" href="{% url 'stock:delete_vehicle' object.pk %}">Delete</a>
                 {% endif %}
             </div>
 
@@ -48,6 +55,13 @@
             
     </div> <!--end row here-->
 
+    <div class="container d-md-none">
+        {% if request.user.is_staff %}
+        <a class ="mx-1" href="{% url 'stock:editvehicle' object.pk %}">Edit</a>
+            <a class="text-danger mx-1" href="{% url 'stock:delete_vehicle' object.pk %}">Delete</a>
+       
+        {% endif %}
+    </div>
 
     <div class="container d-md-none">
         <a href="{% url 'stock:stock' %}" class="btn btn-outline-black rounded-0 mt-5">

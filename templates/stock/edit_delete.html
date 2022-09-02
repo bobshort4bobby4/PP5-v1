@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title%} Edit/Delete Vehicle{% endblock title %}
+
+{% block content  %}
+<h1 class="text-center text-white">Edit/Delete A Vehicle</h1>
+
+<div class="row no-gutters">
+    <div class="col-12 offset-md-3 col-md-6 p-3">
+        <form method="POST" action="#" class="form mb-2 text-white" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+                {% if field.name != 'image' %}
+                    {{ field | as_crispy_field }}
+                {% else %}
+                    {{ field }}
+                {% endif %}
+            {% endfor %}
+            <div class="text-right">
+                <a class="btn btn-outline-black rounded-0" type ="submit" href="#">Save Information</a>
+                
+            </div>
+            <div class="text-right">
+                <a class="btn btn-outline-black rounded-0" type ="submit" href="{% url 'stock:delete' %">Permanently Delete This Vehicle</a>
+                
+            </div>
+        </form>
+    </div>            
+</div>
+{% endblock content %}
