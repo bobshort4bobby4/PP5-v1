@@ -104,7 +104,8 @@ def delete_vehicle(request, vehicle_id):
         return redirect(reverse('home:home'))
 
     veh = get_object_or_404(Vehicle, pk=vehicle_id)
-    veh.delete()
+    veh.available_sale = False
+    veh.save()
     messages.success(request, 'Vehicle Deleted!')
     return redirect(reverse('stock:stock'))
 

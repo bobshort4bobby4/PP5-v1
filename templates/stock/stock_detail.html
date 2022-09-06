@@ -22,7 +22,7 @@
             <div class="container d-none d-md-block">
                 {% if request.user.is_staff %}
                 <a class ="mx-1" href="{% url 'stock:edit_vehicle' object.pk %}">Edit</a>
-                <a class="text-danger mx-1" href="{% url 'stock:delete_vehicle' object.pk %}">Delete</a>
+                <a class="text-danger mx-1" href="{% url 'stock:delete_vehicle' object.pk %}" hx-confirm="Are You Sure?">Delete</a>
                 {% endif %}
             </div>
 
@@ -58,7 +58,7 @@
     <div class="container d-md-none">
         {% if request.user.is_staff %}
         <a class ="mx-1" href="{% url 'stock:edit_vehicle' object.pk %}">Edit</a>
-            <a class="text-danger mx-1" href="{% url 'stock:delete_vehicle' object.pk %}">Delete</a>
+            <a class="text-danger mx-1" href="{% url 'stock:delete_vehicle' object.pk %}" hx-confirm="Are You Sure?">Delete</a>
        
         {% endif %}
     </div>
@@ -72,5 +72,6 @@
         </a>
     </div>
 </div>
-
+<script src="https://unpkg.com/htmx.org@1.8.0" integrity="sha384-cZuAZ+ZbwkNRnrKi05G/fjBX+azI9DNOkNYysZ0I/X5ZFgsmMiBXgDZof30F5ofc" crossorigin="anonymous"></script>
+<!-- href="{% url 'stock:delete_vehicle' object.pk %}" -->
 {% endblock content %}
