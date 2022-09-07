@@ -28,4 +28,4 @@ class VehicleAdmin(admin.ModelAdmin):
     """
     config for Vehicle admin panel
     """
-    list_display = ('stock_num', 'maker', 'model', 'year', 'fuel','featured', 'available_sale',)
+    list_display = ('pk', 'stock_num', 'maker', 'model', 'year', 'fuel','featured', 'available_sale',)
