@@ -137,7 +137,7 @@ def edit_vehicle(request, vehicle_id):
     context = {
         'form': form,
         'vehicle': veh,
-        'vehicle_id':veh.pk,
+        'vehicle_id': veh.pk,
     }
 
     return render(request, template, context)
