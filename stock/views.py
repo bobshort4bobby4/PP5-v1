@@ -31,27 +31,7 @@ class StockView(ListView):
             vector = SearchVector("maker__maker", "model", "fuel__fuel", "year")
             query = SearchQuery(query)
             queryset = Vehicle.objects.filter(available_sale=True).annotate(rank=SearchRank(vector, query)).filter(rank__gte=0.001).order_by('-rank')
-            # queryset = queryset0.objects.filter(available_sale=True)
-            # attempt to implement muli-term search
-            # terms = self.request.GET['q'].split(' ')
-
-            # field_names = ["maker__maker", "model", "fuel__fuel", "year"]
-            # or_query = None
-            # query = None
-            # for term in terms:
-            #     for field in field_names:
-            #         q = Q(**({"%s__icontains" % field: term}))
-            #         if or_query is None:
-            #             or_query = q
-            #         else:
-            #             or_query = or_query | q
-            #     if query is None:
-            #         query = or_query
-            #     else:
-            #         query = query and or_query
-            # queries = query
-            # vehicles = Vehicle.objects.filter(available_sale=True)
-            # queryset = vehicles.filter(queries)
+        
 
         return queryset
 
