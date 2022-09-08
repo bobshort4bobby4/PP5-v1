@@ -19,6 +19,7 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['vehicles'] = Vehicle.objects.filter(featured=True)
+        context['vehicles'] = Vehicle.objects.filter(
+                                            featured=True, available_sale=True)
         return context
     template_name = "home/home.html"
