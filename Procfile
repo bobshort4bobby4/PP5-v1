@@ -1,1 +1,1 @@
-web: gunicorn pp5_carsales.wsgi --timeout 400
+web: gunicorn pp5_carsales.wsgi 
