@@ -84,7 +84,7 @@ class EditDeleteView(View):
 
 
 def delete_vehicle(request, vehicle_id):
-    """ Delete a product from the store """
+    """ Delete a vehicle from the store """
     if not request.user.is_staff:
         messages.error(request, 'Sorry, only store staff can do that.')
         return redirect(reverse('home:home'))
@@ -99,7 +99,7 @@ def delete_vehicle(request, vehicle_id):
 
 def edit_vehicle(request, vehicle_id):
     """ Edit a product in the store """
-    if not request.user.is_superuser:
+    if not request.user.is_staff:
         messages.error(request, 'Sorry, only store staff can do that.')
         return redirect(reverse('home:home'))
 
