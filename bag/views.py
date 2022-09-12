@@ -34,7 +34,7 @@ def add_to_bag(request, item_id):
 
 def remove_from_bag(request, item_id):
     """ remove selected vehicle from bag  """
-    bag = request.session.get('bag', [])
+    bag = list(request.session.get('bag', []))
     veh = get_object_or_404(Vehicle, pk=item_id)
 
     bag.remove(item_id)

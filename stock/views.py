@@ -113,7 +113,7 @@ def edit_vehicle(request, vehicle_id):
             return redirect(reverse('stock:stock_detail', args=[veh.pk]))
         else:
             messages.error(request,
-                           ('Failed to update Vehicle. '
+                        ('Failed to update Vehicle. '
                             'Please ensure the form is valid.'))
     else:
         form = VehicleForm(instance=veh)
