@@ -7,6 +7,7 @@ import stripe
 from django.views.decorators.http import require_POST
 from bag.contexts import bag_contents
 from .forms import OrderForm
+from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
 from .models import Order, OrderLineItem
 from stock.models import Vehicle
@@ -141,6 +142,7 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+    
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
@@ -171,11 +173,12 @@ def checkout_success(request, order_number):
     matches_lst = [i.group(0) for i in matches]
     for r in matches_lst:
         r = int(r)
-
+    # mark vehicle as not available to sell
     for car in matches_lst:
         item = get_object_or_404(Vehicle, stock_num=car)
         item.available_sale = False
         item.save()
+    # empty bag
     if 'bag' in request.session:
         del request.session['bag']
 

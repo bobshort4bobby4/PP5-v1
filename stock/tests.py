@@ -119,7 +119,7 @@
 #         self.assertEqual(str(messages[0]), 'Failed to update Vehicle. '
 #                                              'Please ensure the form is valid.')
 
-#     def test_StockView_renders_correct_template_if_q_null(self):
+#     def test_StockView_renders_correct_template_if_q_empty(self):
 #         response = self.client.get(reverse('stock:stock'), {"q": ""})
 #         messages = list(get_messages(response.wsgi_request))
 #         self.assertEqual(len(messages), 1)
