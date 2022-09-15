@@ -33,4 +33,8 @@ class UserProfileForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = ('border-black '
                                                         'rounded-0 '
                                                         'profile-form-input')
+            if field != 'default_country':                                          
+                self.fields[field].widget.attrs['aria-label'] = placeholder
+            else:
+                self.fields[field].widget.attrs['aria-label'] = 'Country'
             self.fields[field].label = False
