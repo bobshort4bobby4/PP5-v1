@@ -3,9 +3,10 @@ from django.views.generic import View, ListView, DetailView, TemplateView
 from django.shortcuts import get_object_or_404, render, redirect, reverse
 from django.contrib import messages
 from django.contrib.postgres.search import SearchQuery, SearchVector, SearchRank
+from django.http import HttpResponse
 
 from django.db.models import Q
-from stock.models import Vehicle
+from stock.models import Vehicle, Maker
 from .forms import VehicleForm
 
 # from stock.models import Vehicle
@@ -127,3 +128,26 @@ def edit_vehicle(request, vehicle_id):
     }
 
     return render(request, template, context)
+
+
+def trade_in(request):
+    template = 'stock/trade_in.html'
+    makes = Maker.objects.all()
+
+    context = {
+        'makes':makes,
+    }
+
+    return render(request, template, context)
+
+
+def trade_value(request):
+    manu = request.POST.get('inputmanu')
+    model = request.POST.get('inputmodel')
+    year = request.POST.get('inputyear')
+    odo = request.POST.get('inputodo')
+    condition = request.POST.get('inlineRadioOptions')
+    value = 10
+    value2 = 12
+    return HttpResponse('<h1 class="text-center text-white">Great News !</h1>'
+                f"We can offer €{ value } (subject to inspection) for your vehivle as credit on any vahicle valued over €{ value2 }")
