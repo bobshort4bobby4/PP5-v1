@@ -12,7 +12,7 @@ class MakerAdmin(admin.ModelAdmin):
     """
     config for Maker admin panel
     """
-    list_display = ('maker', 'pk',)
+    list_display = ('maker', 'base_price', 'pk',)
 
 
 @admin.register(FuelType)
