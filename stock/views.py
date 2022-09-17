@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from django.db.models import Q
 from stock.models import Vehicle, Maker
 from .forms import VehicleForm
+from .trade_calc import calc_tradein
 
 # from stock.models import Vehicle
 
@@ -147,7 +148,7 @@ def trade_value(request):
     year = request.POST.get('inputyear')
     odo = request.POST.get('inputodo')
     condition = request.POST.get('inlineRadioOptions')
-    value = 10
+    trade_value, full_price = calc_tradein(manu, year, odo, condition)
     value2 = 12
     return HttpResponse('<h1 class="text-center text-white">Great News !</h1>'
-                f"We can offer €{ value } (subject to inspection) for your vehivle as credit on any vahicle valued over €{ value2 }")
+                f"We can offer €{ trade_value } (subject to inspection) for your vehivle as credit on any vahicle valued over €{ full_price }")
