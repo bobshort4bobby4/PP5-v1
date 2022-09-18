@@ -23,3 +23,7 @@ class HomeView(TemplateView):
                                             featured=True, available_sale=True)
         return context
     template_name = "home/home.html"
+
+
+class LocationView(TemplateView):
+    template_name = "home/location.html"

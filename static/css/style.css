@@ -39,7 +39,9 @@ a {
 
 #logo-main a:hover,
 #allvehlink:hover,
-#checkout-btn:hover {
+#checkout-btn:hover,
+.tele:hover,
+.map:hover {
     cursor: pointer;
     color: aqua !important;  
 }
@@ -50,6 +52,8 @@ a {
     color:black;
     border-radius: 10px;
 }
+
+
 
 
 
@@ -115,7 +119,33 @@ li.nav-item.dropdown {
 
 }
 
+/* google map */
 
+.map-responsive{
+
+    overflow:hidden;
+
+    padding-bottom:56%;
+
+    position:relative;
+
+    height:0;
+
+}
+
+.map-responsive iframe{
+
+    left:0;
+
+    top:0;
+
+    height:100%;
+
+    width:100%;
+
+    position:absolute;
+
+}
 
 
 /*-----media queries----*/

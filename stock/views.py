@@ -155,7 +155,7 @@ def trade_value(request):
         'year': year,
         'odo': odo,
         'condition': condition,
-        'trade_value': trade_value,
+        'trade_value': trade_val,
         'full_price': full_price,
     }
     request.session['trade_details'] = trade_details
@@ -167,7 +167,7 @@ def trade_value(request):
 def take_trade(request):
     messages.success(request, 'Successfully Traded Vehicle!')
     trade_details = request.session['trade_details']
-    
+
     return HttpResponse('<div><h1 class="text-center">ThankYou</h1></div>'
                         ''' <div>
                         <a id="allvehlink" href="/stock/" class="btn btn-outline-black rounded-0 mt-2">
