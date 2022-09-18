@@ -1,30 +1,70 @@
-{"version": "0.2.0",
-  "configurations": [
-      {
-            "name": "Python: Current File (Integrated Terminal)",
-            "type": "python",
-            "request": "launch",
-            "program": "${file}",
-            "console": "internalConsole"
-        },
+// {"version": "0.2.0",
+//   "configurations": [
+//       {
+//             "name": "Python: Current File (Integrated Terminal)",
+//             "type": "python",
+//             "request": "launch",
+//             "program": "${file}",
+//             "console": "internalConsole"
+//         },
 
-        {
+//         {
 
-          "name": "pp5-carsales-tests",
-          "type": "python",
-          "request": "launch",
-          "program": "manage.py",
-          "console": "internalConsole",
-          "args": ["runserver"]
-          },
+//           "name": "pp5-carsales-tests",
+//           "type": "python",
+//           "request": "launch",
+//           "program": "manage.py",
+//           "console": "internalConsole",
+//           "args": ["runserver"]
+//           },
 
-          {
-            "name": "Django TEST",
-            "type": "python",
-            "request": "launch",
-            "program": "manage.py",
-            "args": ["test"],
-            "django": true
-            },
+//           {
+//             "name": "Django TEST",
+//             "type": "python",
+//             "request": "launch",
+//             "program": "manage.py",
+//             "args": ["test"],
+//             "django": true
+//             },
+//   ]
+// }
+
+{
+  "version": "0.2.0",
+  "configurations": [{
+      "name": "Python: Django",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/manage.py",
+      "args": ["runserver"],
+      "django": true,
+      "justMyCode": true
+    },
+    {
+      "name": "Python: Current File (Integrated Terminal)",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "internalConsole"
+    },
+
+    {
+
+      "name": "pp5-carsales-tests",
+      "type": "python",
+      "request": "launch",
+      "program": "manage.py",
+      "console": "internalConsole",
+      "args": ["runserver"]
+    },
+
+    {
+      "name": "Django TEST",
+      "type": "python",
+      "request": "launch",
+      "program": "manage.py",
+      "args": ["test"],
+      "django": true
+    },
   ]
 }

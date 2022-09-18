@@ -4,6 +4,7 @@
 
 
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Maker(models.Model):
@@ -70,3 +71,8 @@ class Vehicle(models.Model):
         return f'{self.maker}, {self.model}'
 
     objects = models.Manager()
+
+
+class Tradein(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+

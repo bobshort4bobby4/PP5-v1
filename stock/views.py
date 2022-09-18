@@ -136,19 +136,43 @@ def trade_in(request):
     makes = Maker.objects.all()
 
     context = {
-        'makes':makes,
+        'makes': makes,
     }
 
     return render(request, template, context)
 
 
 def trade_value(request):
+    
     manu = request.POST.get('inputmanu')
     model = request.POST.get('inputmodel')
     year = request.POST.get('inputyear')
     odo = request.POST.get('inputodo')
     condition = request.POST.get('inlineRadioOptions')
-    trade_value, full_price = calc_tradein(manu, year, odo, condition)
-    value2 = 12
+    trade_val, full_price = calc_tradein(manu, year, odo, condition)
+    trade_details = {
+        'manufacturer': manu,
+        'year': year,
+        'odo': odo,
+        'condition': condition,
+        'trade_value': trade_value,
+        'full_price': full_price,
+    }
+    request.session['trade_details'] = trade_details
     return HttpResponse('<h1 class="text-center text-white">Great News !</h1>'
-                f"We can offer €{ trade_value } (subject to inspection) for your vehivle as credit on any vahicle valued over €{ full_price }")
+                f"We can offer €{ trade_val } (subject to inspection) for your vehivle as credit on any vahicle valued over €{ full_price }"
+                f'<div class="text-center"><a type="submit" class="btn btn-primary my-2" hx-post="/stock/take_trade/" hx-target="#trade-value">Take The Trade</a></div>')
+
+
+def take_trade(request):
+    messages.success(request, 'Successfully Traded Vehicle!')
+    trade_details = request.session['trade_details']
+    return HttpResponse('<div><h1 class="text-center">ThankYou</h1></div>'
+                        ''' <div>
+                        <a id="allvehlink" href="/stock/" class="btn btn-outline-black rounded-0 mt-2">
+                        <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase">Back To ALL Vehicles</span>
+                        </a>
+                        </div>''')

@@ -6,7 +6,7 @@
 
 <div class="container row no-gutters">
     <div class="col-12 offset-md-2 offset-lg-3 col-md-3" >
-        <form id="trade-form" hx-post="{% url 'stock:trade_value' %}" hx-target="#trade-value">
+        <form id="trade-form" hx-post="{% url 'stock:trade_value' %}" hx-target="#trade-value"  >
             {% csrf_token %}
             <div><h1 class="text-white text-center">Vehicle</h1></div>
             <div class="form-group">
@@ -49,7 +49,21 @@
         </form>
     </div>
 
-    <div id="trade-value" class="text-white p-3 border-white col-12 offset-md-2 offset-lg-2 col-md-4 col-lg-4" style="border:3px solid white;">Enter your Vechicles Details to check Trade-in Value</div>
+    <div id="trade-value" class="text-white p-3 border-white col-12 offset-md-2 offset-lg-2 col-md-4 col-lg-4" style="border:3px solid white;">
+        
+            Enter your Vechicles Details to check Trade-in Value
+    
+    </div>
 
 </div>
+
+<!-- adds a csrf token to all hx requests -->
+  
+<script>
+
+    document.body.addEventListener('htmx:configRequest', function(evt) {
+        evt.detail.headers['X-CSRFToken'] = '{{csrf_token}}'; // add a new header into the request
+    });
+
+  </script>
 {% endblock content %}
