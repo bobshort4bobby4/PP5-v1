@@ -33,8 +33,22 @@ a {
     margin:0;
 }
 
+#logo-main {
+    border:2px solid #28a745!important ;
+    
+}
+
+#contact-top {
+    border-bottom:1px solid #28a745!important;
+}
+
+.map, .tele {
+    color:#28a745!important;
+}
+
 #logo-main a {
     text-decoration: none;
+    color:#28a745!important;
 }
 
 #logo-main a:hover,
@@ -43,18 +57,20 @@ a {
 .tele:hover,
 .map:hover {
     cursor: pointer;
-    color: aqua !important;  
+    color: #12ec45!important;  
 }
 
 .hoverblue:hover {
     cursor: pointer;
-    background-color: aqua !important;  
+    background-color:#28a745 !important;  
     color:black;
     border-radius: 10px;
 }
 
 
-
+#navbar {
+    border-bottom:2px solid #28a745!important;
+}
 
 
 .navbar-toggler {
@@ -66,6 +82,11 @@ a {
 li.nav-item.dropdown {
     list-style-type: none;
 }
+
+#middlehead {
+    color:#28a745;
+}
+
 
 .dropdown-item {
     color: black !important;
@@ -79,6 +100,7 @@ li.nav-item.dropdown {
     /*
 */
 }
+
 
 /* bag */
 
@@ -103,13 +125,13 @@ li.nav-item.dropdown {
 
 .img-height {
     min-height:200px;
-    border:2px solid white;
+    border:2px solid #28a745!important;
     object-fit: contain;
 }
 
 .cardetail {
     min-height:60px;
-    border:2px solid white;
+    border:2px solid #28a745;
     border-top: none;
 }
 
@@ -180,6 +202,11 @@ li.nav-item.dropdown {
 @media screen and (min-width:768px) {
     #image {
         background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/v1659363121/media/pp5/ferrari-wide-pp5_txvw8g.jpg");
+        width:90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 5px;
+        border:2px #28a745 solid;
     }
 
     #carousel{
