@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, render, redirect, reverse
 from django.contrib import messages
 from django.contrib.postgres.search import SearchQuery, SearchVector, SearchRank
 from django.http import HttpResponse
+from django.conf import settings
 
 from django.db.models import Q
 from stock.models import Vehicle, Maker
@@ -143,37 +144,64 @@ def trade_in(request):
 
 
 def trade_value(request):
-    
+
     manu = request.POST.get('inputmanu')
     model = request.POST.get('inputmodel')
     year = request.POST.get('inputyear')
     odo = request.POST.get('inputodo')
     condition = request.POST.get('inlineRadioOptions')
     trade_val, full_price = calc_tradein(manu, year, odo, condition)
-    trade_details = {
+    flag = settings.TRADE_FLAG
+    if flag is True:
+        return HttpResponse("Sorry one trade-in per order.")
+
+    else:
+        trade_details = {
         'manufacturer': manu,
+        'model': model,
         'year': year,
         'odo': odo,
         'condition': condition,
         'trade_value': trade_val,
         'full_price': full_price,
-    }
-    request.session['trade_details'] = trade_details
-    return HttpResponse('<h1 class="text-center text-white">Great News !</h1>'
-                f"We can offer €{ trade_val } (subject to inspection) for your vehivle as credit on any vahicle valued over €{ full_price }"
-                f'<div class="text-center"><a type="submit" class="btn btn-primary my-2" hx-post="/stock/take_trade/" hx-target="#trade-value">Take The Trade</a></div>')
+        }
+        if trade_val == 0:
+            head = "Sorry"
+            mess = "Your Vehicle is too old for us to offer any Trade-in"
+            lnk = '''<a id="allvehlink" href="/stock/trade_in/" class="btn btn-outline-black rounded-0 mt-2">
+                        <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase">Value Another Vehicle</span>
+                        </a>'''
+        else:
+            head = "Great News !"
+            mess = f"We can offer €{ trade_val } (subject to inspection) for your vehicle as credit on any vahicle valued over €{ full_price }"
+            lnk = f'<div class="text-center"><a type="submit" class="btn btn-primary my-2" hx-post="/stock/take_trade/" hx-target="#trade-value">Take The Trade</a></div>'
+
+        request.session['trade_details'] = trade_details
+        return HttpResponse(f'<h1 class="text-center text-white">{ head }</h1>'
+                            f"<p>{ mess }</p>"
+                            f"{ lnk }"
+                            )
 
 
 def take_trade(request):
     messages.success(request, 'Successfully Traded Vehicle!')
     trade_details = request.session['trade_details']
+    settings.TRADE_FLAG = True
 
     return HttpResponse('<div><h1 class="text-center">ThankYou</h1></div>'
                         ''' <div>
-                        <a id="allvehlink" href="/stock/" class="btn btn-outline-black rounded-0 mt-2">
+                        <a id="allvehlink" href="/stock/trade_in/" class="btn btn-outline-black rounded-0 mt-2">
                         <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                         </span>
-                        <span class="text-uppercase">Back To ALL Vehicles</span>
+                        <span class="text-uppercase">Value Another Vehicle</span>
                         </a>
                         </div>''')
+
+def clear_trade(request):
+    settings.TRADE_FLAG = False
+    messages.success(request, 'Cleared Trade-ins')
+    return redirect(reverse('stock:trade_in'))
