@@ -66,9 +66,15 @@
                                 
                             </td>
                             
-                            <td class="py-3  text-white align-middle text-right">
-                                €0
-                            </td>
+                            {% if not trade_value  %}
+                                <td class="py-3  text-white align-middle text-right">
+                                    €0
+                                </td>
+                            {% else %}
+                                <td class="py-3  text-white align-middle text-right">
+                                    €{{ trade_value }}
+                                </td>
+                            {% endif %}
                         </tr>
 
                         <tr>
@@ -80,7 +86,7 @@
                                 
                             </td>
                             <td class="py-3  text-white align-middle text-right">
-                                €0
+                                €{{ grand_total|floatformat:0}}
                             </td>
                         </tr>
                     </tbody>

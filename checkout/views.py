@@ -126,10 +126,23 @@ def checkout(request):
         messages.warning(request, ('Stripe public key is missing.'
                                 'Did you forget to set it in '
                                 'your environment?'))
+    # trade_value = request.session['trade_details']['trade_value']
+    # check to see if a tradein has been made
+    flag = settings.TRADE_FLAG
+    if flag is True:
+        trade_value = request.session['trade_details']['trade_value']
+        minustrade_value = trade_value * -1
+    else:
+        trade_value = {}
+        minustrade_value = 0
+    
     context = {
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
+        'trade_value': trade_value,
+        'minustrade_value': minustrade_value,
+        'total': total,
 
     }
 

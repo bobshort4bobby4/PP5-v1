@@ -1,10 +1,23 @@
 from django.shortcuts import get_object_or_404, redirect, reverse
 from django.contrib import messages
+from django.conf import settings
 from django.views.generic import TemplateView
 from stock.models import Vehicle
 
 
 class BagView(TemplateView):
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # check to see it trade-in has been made
+        flag = settings.TRADE_FLAG
+        if flag is True:
+            context['trade_value'] = self.request.session['trade_details']['trade_value']
+            context['minustrade_value'] = context['trade_value'] * -1
+        else:
+            context['trade_value'] = {}
+            context['minustrade_value'] = 0
+        return context
     template_name = 'bag/bag.html'
 
 

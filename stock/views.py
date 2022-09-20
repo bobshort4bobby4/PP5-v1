@@ -157,14 +157,14 @@ def trade_value(request):
 
     else:
         trade_details = {
-        'manufacturer': manu,
-        'model': model,
-        'year': year,
-        'odo': odo,
-        'condition': condition,
-        'trade_value': trade_val,
-        'full_price': full_price,
-        }
+                'manufacturer': manu,
+                'model': model,
+                'year': year,
+                'odo': odo,
+                'condition': condition,
+                'trade_value': trade_val,
+                'full_price': full_price,
+                }
         if trade_val == 0:
             head = "Sorry"
             mess = "Your Vehicle is too old for us to offer any Trade-in"

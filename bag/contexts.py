@@ -1,5 +1,6 @@
 from stock.models import Vehicle
 from django.shortcuts import get_object_or_404
+from django.conf import settings
 
 
 def bag_contents(request):
@@ -14,6 +15,11 @@ def bag_contents(request):
         grand_total += car.price
         bag_items.append(car)
 
+    flag = settings.TRADE_FLAG
+    if flag:
+        trade_value = request.session['trade_details']['trade_value']
+        grand_total -= trade_value
+        
     context = {
         'bag_items': bag_items,
         'grand_total': grand_total

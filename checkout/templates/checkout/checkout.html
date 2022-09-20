@@ -59,7 +59,7 @@
             <div class="row text-white">
                 <div class="col-7 ">
                     <p class="my-1">Order Total:</p>
-                    <p class="my-1">Delivery:</p>
+                    <!-- <p class="my-1">Delivery:</p> -->
                     <p class="my-1">Less Trade-In </p>
                     <p class=" mt-5 "><strong>Grand Total:</strong></p>
                     
@@ -72,16 +72,10 @@
                             €0
                         {% endif %}
                     </p>
+                    
                     <p class="my-1  text-white">
-                        {% if delivery %}
-                            €{{ delivery|floatformat:0 }}
-                        {% else %}
-                            €0
-                        {% endif %}
-                    </p>
-                    <p class="my-1  text-white">
-                        {% if trade_in %}
-                            €{{ trade_in|floatformat:0 }}
+                        {% if trade_value %}
+                            €{{ trade_value }}
                         {% else %}
                             €0
                         {% endif %}
@@ -149,7 +143,7 @@
                         <span class="icon">
                             <i class="fas fa-exclamation-circle"></i>
                         </span>
-                        <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                        <span>Your card will be charged <strong>€{{ grand_total|floatformat:0 }}</strong></span>
                     </p>
                 </div>
             </form>
@@ -191,3 +185,10 @@
     <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
 
+<!-- <p class="my-1  text-white">
+                        {% if delivery %}
+                            €{{ delivery|floatformat:0 }}
+                        {% else %}
+                            €0
+                        {% endif %}
+                    </p> -->
