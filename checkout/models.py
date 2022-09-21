@@ -4,6 +4,7 @@ from django.db.models import Sum
 from django_countries.fields import CountryField
 from django.conf import settings
 from profiles.models import UserProfile
+from django.contrib.auth.models import User
 from stock.models import Vehicle, Tradein
 
 
@@ -45,6 +46,21 @@ class Order(models.Model):
         """
         return uuid.uuid4().hex.upper()
 
+
+    # def _generate_trade_in(self):
+    #     """
+    #     Generate a tradein record if needed
+    #     """
+    #     trade_value = self.request.session['trade_details']['trade_value']
+    #     flag = settings.TRADE_FLAG
+    #     if flag:
+    #         record = Tradein(   user=self.user_profile,
+    #                             manufacturer=trade_value,
+    #                         )
+
+    #     record.save()
+    #     return record
+
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the order number
@@ -52,6 +68,10 @@ class Order(models.Model):
         """
         if not self.order_number:
             self.order_number = self._generate_order_number()
+        # flag = settings.TRADE_FLAG
+        # if flag:
+        #     if not self.trade_in:
+        #         self.trade_in = self._generate_trade_in()
         super().save(*args, **kwargs)
 
     def update_total(self):

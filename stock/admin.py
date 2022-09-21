@@ -4,7 +4,7 @@ Admin configuration for Stock app
 
 
 from django.contrib import admin
-from .models import Maker, FuelType, Vehicle
+from .models import Maker, FuelType, Vehicle, Tradein
 
 
 @admin.register(Maker)
@@ -37,3 +37,8 @@ class VehicleAdmin(admin.ModelAdmin):
 
     def set_available_sale_to_true(self, request, queryset):
         queryset.update(available_sale=True)
+
+
+@admin.register(Tradein)
+class TradeinAdmin(admin.ModelAdmin):
+    list_display = ('user',)

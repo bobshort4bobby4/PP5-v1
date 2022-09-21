@@ -28,9 +28,11 @@ var card = elements.create('card', {style: style});
 card.mount('#card-element');
 
 // Handle realtime validation errors on the card element
+// everytime it changes check for errors and display
 card.addEventListener('change', function (event) {
     var errorDiv = document.getElementById('card-errors');
     if (event.error) {
+        console.log("error1")
         var html = `
             <span class="icon" role="alert">
                 <i class="fas fa-times"></i>
@@ -44,6 +46,7 @@ card.addEventListener('change', function (event) {
 });
 
 // Handle form submit
+// listener for form submit
 var form = document.getElementById('payment-form');
 form.addEventListener('submit', function(ev) {
     ev.preventDefault();
@@ -92,6 +95,7 @@ form.addEventListener('submit', function(ev) {
             },
         }).then(function(result) {
             if (result.error) {
+                console.log("error2")
                 var errorDiv = document.getElementById('card-errors');
                 var html = `
                     <span class="icon" role="alert">
@@ -104,6 +108,7 @@ form.addEventListener('submit', function(ev) {
                 card.update({ 'disabled': false});
                 $('#submit-button').attr('disabled', false);
             } else {
+                // submit if payment intent come back true
                 if (result.paymentIntent.status === 'succeeded') {
                     console.log("formsubmit");
                     form.submit();

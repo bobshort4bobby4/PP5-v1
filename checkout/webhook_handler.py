@@ -68,6 +68,8 @@ class StripeWH_Handler:
         print("succ03")
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():
+            print("in shipping detailloop")
+            print(f"{field} {value} ")
             if value == "":
                 print("in if valur=")
                 shipping_details.address[field] = None
@@ -138,27 +140,24 @@ class StripeWH_Handler:
                     original_bag=bag,
                     stripe_pid=pid,
                 )
-                print("succ07")
-                for item_id, item_data in json.loads(bag).items():
-                    product = Vehicle.objects.get(id=item_id)
+                print("succ07 order cretaed")
+                print(json.loads(bag))
+                print(type(json.loads(bag)))
+                for  item_data in json.loads(bag):
+                    print("injsobagloop")
+                    # print(f"{e} exception {item_id} {item_data}")
+                    item_data = int(item_data)
+                    product = Vehicle.objects.get(stock_num=item_data)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
-                            quantity=item_data,
-                        )
+                            quantity=1,
+                        ) 
                         order_line_item.save()
-                    # else:
-                    #     for size, quantity in item_data['items_by_size'].items():
-                    #         order_line_item = OrderLineItem(
-                    #             order=order,
-                    #             product=product,
-                    #             quantity=quantity,
-                            
-                    #         )
-                    #         order_line_item.save()
+                    
             except Exception as e:
-                print("succ08 in exception" )
+                print("succ08 in exception")
                 if order:
                     order.delete()
                     print("succ09")
@@ -177,6 +176,7 @@ class StripeWH_Handler:
         """
         Handle the payment_intent.payment_failed webhook from Stripe
         """
+        print("payintfailed")
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)

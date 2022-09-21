@@ -58,27 +58,30 @@ def checkout(request):
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.original_bag = json.dumps(bag)
             order.stripe_pid = pid
-            for thing in bag:
-       
-                # try:
-                car = get_object_or_404(Vehicle, pk=thing)
-                order_line_item = OrderLineItem(
-                        order=order,
-                        product=car,
-                        quantity=1,
+            for thing in bag:  
+                try:
+                    car = get_object_or_404(Vehicle, pk=thing)
+                    thing = int(thing)
+                    if isinstance(thing, int):
+                        order_line_item = OrderLineItem(
+                                order=order,
+                                product=car,
+                                quantity=1,
+                            )
+                        order_line_item.save()
+                except car.DoesNotExist:
+                    messages.error(request, (
+                        "One of the products in your bag wasn't "
+                        "found in our database. "
+                        "Please call us for assistance!")
                     )
-                order_line_item.save()
-            
+                    order.delete()
+                    return redirect(reverse('bag:bag'))
             return redirect(reverse('checkout:checkout_success',
                                     args=[order.order_number]))
 
             #     except car.DoesNotExist:
-            #         messages.error(request, (
-            #             "One of the products in your bag wasn't "
-            #             "found in our database. "
-            #             "Please call us for assistance!")
-            #         )
-            #         order.delete()
+                    
             #         return redirect(reverse('bag:bag'))
             # return redirect(reverse('checkout_success',
                                     # args=[order.order_number]))
@@ -194,6 +197,8 @@ def checkout_success(request, order_number):
     # empty bag
     if 'bag' in request.session:
         del request.session['bag']
+    if 'trade_details' in request.session:
+        request.session['trade_details']['trade_value'] = 0
 
     template = 'checkout/checkout_success.html'
     context = {
