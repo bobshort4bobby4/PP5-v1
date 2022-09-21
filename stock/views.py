@@ -8,7 +8,7 @@ from django.conf import settings
 
 from django.db.models import Q
 from stock.models import Vehicle, Maker
-from .forms import VehicleForm
+from .forms import VehicleForm, Trade_in
 from .trade_calc import calc_tradein
 
 # from stock.models import Vehicle
