@@ -10,7 +10,7 @@ from .forms import OrderForm
 from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
 from .models import Order, OrderLineItem
-from stock.models import Vehicle
+from stock.models import Vehicle, Tradein
 
 
 @require_POST
@@ -58,7 +58,13 @@ def checkout(request):
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.original_bag = json.dumps(bag)
             order.stripe_pid = pid
-            for thing in bag:  
+            tradein_id = request.session.get('trade_id', "")
+            if tradein_id:
+                t_in = get_object_or_404(Tradein, pk=tradein_id)
+                order.trade_in = t_in
+                order.grand_total -= t_in.trade_value
+                order.save()
+            for thing in bag:
                 try:
                     car = get_object_or_404(Vehicle, pk=thing)
                     thing = int(thing)
@@ -120,7 +126,7 @@ def checkout(request):
                 order_form = OrderForm()
         else:
             order_form = OrderForm()
-        print(intent)
+        # print(intent)
         # order_form = OrderForm()
 
     template = 'checkout/checkout.html'

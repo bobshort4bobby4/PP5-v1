@@ -50,8 +50,10 @@ class StripeWH_Handler:
         Handle the payment_intent.succeeded webhook from Stripe
         """
         print("succ01")
+        le = Order.objects.all()
+        print(f"succ01 {len(le)}")
         intent = event.data.object
-        print(intent)
+        # print(intent)
         pid = intent.id
         print(f"{pid} pid")
         bag = intent.metadata.bag
@@ -95,7 +97,21 @@ class StripeWH_Handler:
 
         order_exists = False
         attempt = 1
-        print("succ06")
+        le = Order.objects.all()
+        print(f"succ06, {len(le)}")
+        for ord in le:
+            print(ord.full_name)
+            print(ord.email)
+            print(ord.phone_number)
+            print(ord.country)
+            print(ord.postcode)
+            print(ord.town_or_city)
+            print(ord.street_address1)
+            print(ord.street_address2)
+            print(ord.county)
+            print(ord.grand_total)
+            print(ord.original_bag)
+            print(ord.stripe_pid)
         while attempt <= 5:
             try:
                 order = Order.objects.get(
@@ -116,7 +132,7 @@ class StripeWH_Handler:
                 break
             except Order.DoesNotExist:
                 attempt += 1
-                time.sleep(1)
+                time.sleep(30)
         if order_exists:
             self._send_confirmation_email(order)
             return HttpResponse(

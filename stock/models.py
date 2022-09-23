@@ -74,7 +74,7 @@ class Vehicle(models.Model):
 
 
 class Tradein(models.Model):
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    user = models.CharField(max_length=25, null=False, default="")
     manufacturer = models.CharField(max_length=20, null=False, default="")
     mod = models.CharField(max_length=20, null=False, default="")
     odo = models.CharField(max_length=20, null=False, default="")
@@ -82,3 +82,6 @@ class Tradein(models.Model):
     year = models.CharField(max_length=4, null=False, default="0000")
     trade_value = models.DecimalField(max_digits=8, decimal_places=0, default=0)
     full_price = models.DecimalField(max_digits=8, decimal_places=0, default=0)
+
+    # def __str__(self):
+    #     return f'{self.manufacturer}, {self.mod} value granted {self.trade_value}'

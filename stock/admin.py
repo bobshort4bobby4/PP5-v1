@@ -41,4 +41,4 @@ class VehicleAdmin(admin.ModelAdmin):
 
 @admin.register(Tradein)
 class TradeinAdmin(admin.ModelAdmin):
-    list_display = ('user',)
+    list_display = ('pk', 'user', 'trade_value', 'manufacturer', 'mod',)

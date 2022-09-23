@@ -98,8 +98,8 @@
                   <div class="dropdown-divider"></div>                
                   <p class="dropdown-item">Product Management</p>
                   <div class="dropdown-divider"></div> 
-                  <a class="dropdown-item" href="{%url 'stock:add_stock' %}">Add Vehicle</a>
-                 
+                  <a class="dropdown-item" href="{% url 'stock:add_stock' %}">Add Vehicle</a>
+                  <a class="dropdown-item" href="{% url 'stock:adjust_tradein' %}">Adjust Base Trade-in Price</a>
                 {% endif %}
                 
               </div>

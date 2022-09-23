@@ -2,7 +2,7 @@
 routing paths for stock app
 """
 from django.urls import path
-from .views import StockView, StockDetailView, EditDeleteView, add_stock, delete_vehicle, clear_trade, edit_vehicle,trade_in, trade_value, take_trade
+from .views import StockView, StockDetailView, EditDeleteView, add_stock, delete_vehicle, clear_trade, edit_vehicle,trade_in, trade_value, take_trade, adjust_tradein
 
 
 app_name = 'stock'
@@ -19,6 +19,7 @@ urlpatterns = [
     path('trade_in/', trade_in, name='trade_in'),
     path('trade_value/', trade_value, name='trade_value'),
     path('take_trade/', take_trade, name='take_trade'),
-    path('clear_trade/', clear_trade, name='clear_trade')
+    path('clear_trade/', clear_trade, name='clear_trade'),
+    path('adjust_tradein/', adjust_tradein, name='adjust_tradein'),
 
 ]

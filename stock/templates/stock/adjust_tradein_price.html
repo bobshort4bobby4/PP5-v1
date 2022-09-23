@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title%} Adjust Trade-in Base Price{% endblock title %}
+
+{% block content  %}
+<h1 class="text-center text-white">Adjust Trade-in Base Price</h1>
+
+
+<div class="row no-gutters">
+    <div class="col-12 offset-md-3 col-md-6 p-3">
+        {% include  "stock/partials/makerform.html" %}
+    </div>            
+</div>
+
+<script>
+
+    document.body.addEventListener('htmx:configRequest', function(evt) {
+        evt.detail.headers['X-CSRFToken'] = '{{csrf_token}}'; // add a new header into the request
+    });
+
+  </script>
+{% endblock content%}

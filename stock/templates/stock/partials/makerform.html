@@ -1,0 +1,15 @@
+<form method="POST" action="/stock/adjust_tradein/" hx-swap="outerHTML" hx-target="#id_base_price"  hx-post="{% url 'stock:adjust_tradein' %}" hx-trigger="change " class="form mb-2 text-white" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+        <div id ="field{{forloop.counter }}">
+            {{ field | as_crispy_field }}
+        </div>
+    {% endfor %}
+        
+    
+    
+    <div class="text-right">
+        <a class="btn btn-outline-black rounded-0" href="{% url 'stock:stock' %}">Cancel</a>
+        <button class="btn btn-black rounded-0 text-white" type="submit">Change Price</button>
+    </div>
+</form>

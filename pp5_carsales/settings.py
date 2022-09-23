@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django.contrib.postgres',
 
+    'django_htmx',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -72,6 +74,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_htmx.middleware.HtmxMiddleware',
 ]
 
 ROOT_URLCONF = 'pp5_carsales.urls'

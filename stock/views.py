@@ -6,9 +6,11 @@ from django.contrib.postgres.search import SearchQuery, SearchVector, SearchRank
 from django.http import HttpResponse
 from django.conf import settings
 
+from django.contrib.auth import get_user
+
 from django.db.models import Q
-from stock.models import Vehicle, Maker
-from .forms import VehicleForm
+from stock.models import Vehicle, Maker, Tradein
+from .forms import VehicleForm, MakerForm
 from .trade_calc import calc_tradein
 
 # from stock.models import Vehicle
@@ -189,6 +191,23 @@ def trade_value(request):
 def take_trade(request):
     messages.success(request, 'Successfully Traded Vehicle!')
     trade_details = request.session['trade_details']
+    if request.user.is_authenticated:
+        usert = request.user
+    else:
+        usert = "Anon"
+
+    trade = Tradein(user=usert,
+                    manufacturer=trade_details['manufacturer'],
+                    mod=trade_details['model'],
+                    odo=trade_details['odo'],
+                    condition=trade_details['condition'],
+                    year=trade_details['year'],
+                    trade_value=trade_details['trade_value'],
+                    full_price=trade_details['full_price'],
+                    )
+    
+    trade.save()
+    request.session['trade_id'] = trade.pk
     settings.TRADE_FLAG = True
 
     return HttpResponse('<div><h1 class="text-center">ThankYou</h1></div>'
@@ -205,3 +224,40 @@ def clear_trade(request):
     settings.TRADE_FLAG = False
     messages.success(request, 'Cleared Trade-ins')
     return redirect(reverse('stock:trade_in'))
+
+
+def adjust_tradein(request):
+
+    if request.htmx:
+        maker = request.POST.get('maker')
+
+        maker_types = {
+                        'Bmw': '1',
+                        'Ford': '2',
+                        'Honda': '3',
+                        'Toyota': '4',
+                        'Nissan': '5',
+                        'Mazda': '6',
+                        'Mercedes': '7',
+        }
+
+        maker = maker_types[maker]
+        make = get_object_or_404(Maker, pk=int(maker))
+        current_base_price = make.base_price
+        return HttpResponse(f'''<input type="number" name="base_price" value="{ current_base_price }" step="1" class="numberinput form-control" required="" id="id_base_price">''')
+    elif request.method == 'POST':
+        form = MakerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully Changed Price')
+            return redirect(reverse('stock:stock'))
+
+    else:
+        form = MakerForm()
+
+    template = 'stock/adjust_tradein_price.html'
+    context = {
+        'form': form
+    }
+
+    return render(request, template, context)
