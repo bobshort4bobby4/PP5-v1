@@ -1,3 +1,8 @@
+
+[link to erd pdf](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/erd_pp5.pdf)
+![erd](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/erd_pp5.png)
+
+
 * SEO
 
 Potential customers needs: Value, good range of vehicles to choose from, Reputation of seller, after-sales service
