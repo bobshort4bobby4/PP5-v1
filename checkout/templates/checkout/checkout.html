@@ -66,8 +66,8 @@
                 </div>
                 <div class="col-3 text-right">
                     <p class="my-1  text-white">
-                        {% if total %}
-                            €{{ total|floatformat:0 }}
+                        {% if grand_total %}
+                            €{{ grand_total|add:sub_tot|floatformat:0 }}
                         {% else %}
                             €0
                         {% endif %}

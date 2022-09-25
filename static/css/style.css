@@ -72,6 +72,10 @@ a {
     border-bottom:2px solid #28a745!important;
 }
 
+.radiob {
+    font-size: .8rem;
+}
+
 
 .navbar-toggler {
     background-color: white!important;
@@ -209,6 +213,10 @@ li.nav-item.dropdown {
         border:2px #28a745 solid;
     }
 
+    .radiob {
+        font-size: 1.3rem;
+    }
+
     #carousel{
         min-height: 550px;
     }
@@ -316,6 +324,10 @@ li.nav-item.dropdown {
 @media screen and (min-width:2000px) {
     #carousel {
         min-height:1556px;
+    }
+
+    .radiob {
+        font-size:2.2rem;
     }
 
     .img-height {

@@ -108,8 +108,9 @@
         {% endif %}
         <!-- <span class="my-0  d-lg-none mr-1"><i class="fa fa-shopping-bag fa-lg"></i></span> -->
         <p class="my-0 d-lg-none text-white" >
+          
           {% if grand_total %}
-              <a href="{% url 'bag:bag' %}">
+              <a id="baggy" href="{% url 'bag:bag' %}">
                 <span><i class="fa fa-shopping-bag fa-lg"></i></span> 
               </a>
               €{{ grand_total|floatformat:0}}
@@ -153,13 +154,14 @@
             </a>
           </div>
           <p class="my-0 d-none d-lg-block mr-5" >
+            
             {% if grand_total %}
                 €{{ grand_total|floatformat:0 }}
             {% else %}
                 €0.00
             {% endif %}
           </p>
-
+          <span class="m-1" style="color:red;">{% if grand_total < 0 %} Trade-In Applied {% endif %}</span>
           <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'stock:stock' %}">
             <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

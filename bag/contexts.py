@@ -20,9 +20,11 @@ def bag_contents(request):
         trade_value = request.session['trade_details']['trade_value']
         grand_total -= trade_value
         
+        
     context = {
         'bag_items': bag_items,
-        'grand_total': grand_total
+        'grand_total': grand_total,
+        
     }
 
     return context

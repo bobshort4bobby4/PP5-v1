@@ -14,9 +14,12 @@ class BagView(TemplateView):
         if flag is True:
             context['trade_value'] = self.request.session['trade_details']['trade_value']
             context['minustrade_value'] = context['trade_value'] * -1
+            context['sub_tot'] = context['trade_value']
         else:
             context['trade_value'] = {}
             context['minustrade_value'] = 0
+            context['sub_tot'] = 0 
+        
         return context
     template_name = 'bag/bag.html'
 

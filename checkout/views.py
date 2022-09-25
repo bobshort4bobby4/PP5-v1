@@ -141,9 +141,11 @@ def checkout(request):
     if flag is True:
         trade_value = request.session['trade_details']['trade_value']
         minustrade_value = trade_value * -1
+        sub_tot = trade_value
     else:
         trade_value = {}
         minustrade_value = 0
+        sub_tot = 0
     
     context = {
         'order_form': order_form,
@@ -152,6 +154,7 @@ def checkout(request):
         'trade_value': trade_value,
         'minustrade_value': minustrade_value,
         'total': total,
+        'sub_tot': sub_tot,
 
     }
 
