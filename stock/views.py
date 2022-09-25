@@ -179,7 +179,7 @@ def trade_value(request):
         else:
             head = "Great News !"
             mess = f"We can offer €{ trade_val } (subject to inspection) for your vehicle as credit on any vahicle valued over €{ full_price }"
-            lnk = f'<div class="text-center"><a type="submit" class="btn btn-primary my-2" hx-post="/stock/take_trade/" hx-target="#trade-value">Take The Trade</a></div>'
+            lnk = f'<div class="text-center"><a type="submit" class="btn btn-primary my-2" hx-post="/stock/take_trade/" hx-target="#trade-value">Apply Amount to Your Bag</a></div>'
 
         request.session['trade_details'] = trade_details
         return HttpResponse(f'<h1 class="text-center text-white">{ head }</h1>'
@@ -238,7 +238,7 @@ def adjust_tradein(request):
                         'Toyota': '4',
                         'Nissan': '5',
                         'Mazda': '6',
-                        'Mercedes': '7',
+                        'Mercedes': '8',
         }
 
         maker = maker_types[maker]
@@ -246,11 +246,28 @@ def adjust_tradein(request):
         current_base_price = make.base_price
         return HttpResponse(f'''<input type="number" name="base_price" value="{ current_base_price }" step="1" class="numberinput form-control" required="" id="id_base_price">''')
     elif request.method == 'POST':
-        form = MakerForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Successfully Changed Price')
-            return redirect(reverse('stock:stock'))
+        maker = request.POST.get('maker')
+
+        maker_types = {
+                        'Bmw': '1',
+                        'Ford': '2',
+                        'Honda': '3',
+                        'Toyota': '4',
+                        'Nissan': '5',
+                        'Mazda': '6',
+                        'Mercedes': '8',
+        }
+        maker = maker_types[maker]
+        new_base = request.POST.get('base_price')
+        mak = get_object_or_404(Maker, pk=int(maker))
+        mak.base_price = new_base
+        mak.save()
+
+        # form = MakerForm(request.POST)
+        # if form.is_valid():
+        #     form.save()
+        messages.success(request, 'Successfully Changed Price')
+        return redirect(reverse('stock:stock'))
 
     else:
         form = MakerForm()
