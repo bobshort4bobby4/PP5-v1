@@ -202,6 +202,7 @@ USE_TZ = True
 
 # leaving commented out code as is needed for testing locally run site
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_USE_TLS = True
 # EMAIL_PORT = 587

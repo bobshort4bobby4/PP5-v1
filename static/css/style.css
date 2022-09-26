@@ -6,8 +6,8 @@ html {
 .row {
     display: flex; /* equal height of the children */
   }
-  
-  .col {
+ 
+.col {
     flex: 1; /* additionally, equal width */
     
     padding: 1em;
@@ -51,25 +51,49 @@ a {
     color:#28a745!important;
 }
 
+.dropdown-toggle::after {
+    color:#28a745!important;
+}
+
 #logo-main a:hover,
 #allvehlink:hover,
 #checkout-btn:hover,
 .tele:hover,
-.map:hover {
+.map:hover,
+#smallbag:hover,
+#baggy:hover,
+.linkhover:hover,
+.nav-item a:hover {
     cursor: pointer;
     color: #12ec45!important;  
 }
 
-.hoverblue:hover {
+.hoverbutton:hover {
     cursor: pointer;
-    background-color:#28a745 !important;  
+    background-color:#12ec45 !important;  
     color:black;
-    border-radius: 10px;
+    
 }
 
 
 #navbar {
     border-bottom:2px solid #28a745!important;
+}
+#smallbag {
+    color: #28a745 !important;
+    }
+
+.greenink {
+    color: #28a745 !important;
+}
+
+.greenback {
+    background-color: #28a745;
+}
+
+.greenbutton {
+    background-color: #28a745;
+    border-radius: 4px;
 }
 
 .radiob {
@@ -270,6 +294,10 @@ li.nav-item.dropdown {
         min-height: 624px;
         max-height: 624px;
         object-fit: contain;
+    }
+
+    .topmarlg {
+        margin-top:7% !important;
     }
 
     /* foramt images on 1024 screens

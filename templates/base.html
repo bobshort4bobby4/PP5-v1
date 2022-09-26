@@ -87,9 +87,9 @@
           <ul>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-user" style="list-style:none ;"></i>
+                <i class="fa fa-user greenink" style="list-style:none ;"></i>
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <div class="dropdown-menu greenback" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
                 <a class="dropdown-item" href="{% url 'profiles:profile' %}">My Profile ({{ user.username }})</a>
                 <a class="dropdown-item" href="{% url 'bag:bag' %}">My Shopping Bag</a>
@@ -107,19 +107,22 @@
           </ul>
         {% endif %}
         <!-- <span class="my-0  d-lg-none mr-1"><i class="fa fa-shopping-bag fa-lg"></i></span> -->
-        <p class="my-0 d-lg-none text-white" >
-          
+        <p  id="smallbag" class="my-0 d-lg-none " >
+          <a id="baggy" href="{% url 'bag:bag' %}" style="color:#28a745!important;">
           {% if grand_total %}
-              <a id="baggy" href="{% url 'bag:bag' %}">
+              
                 <span><i class="fa fa-shopping-bag fa-lg"></i></span> 
-              </a>
+              
               €{{ grand_total|floatformat:0}}
           {% else %}
-              <i class="fa fa-shopping-bag fa-lg"></i>
+              
+                <i class="fa fa-shopping-bag fa-lg"></i>
+              
               €0.00
           {% endif %}
+          </a>
         </p>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler " type="button" style="background-color:#28a745!important;" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
@@ -132,28 +135,28 @@
                         </li> -->
                     {% else %}
                         <li class="nav-link cus-nav-p">
-                            <a class="nav-link" href="{% url 'account_login' %}" aria-label="log in button">Login</a>
+                            <a class="nav-link" style="color:#28a745!important;" href="{% url 'account_login' %}" aria-label="log in button">Login</a>
                         </li>
                         <li class="nav-link cus-nav-p">
-                            <a class="nav-link" href="{% url 'account_signup' %}" aria-label="sign up button">Register</a>
+                            <a class="nav-link" style="color:#28a745!important;" href="{% url 'account_signup' %}" aria-label="sign up button">Register</a>
                         </li>
                     {% endif%}
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'stock:stock' %}"> All Vehicles</a>
+              <a class="nav-link linkhover" style="color:#28a745!important;" href="{% url 'stock:stock' %}"> All Vehicles</a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'stock:trade_in' %}">Trade-In</a>
+              <a class="nav-link linkhover" style="color:#28a745!important;" href="{% url 'stock:trade_in' %}">Trade-In</a>
             </li>
           </ul>
 
           <div class="my-0 d-none d-lg-block mr-1">
             <a href="{% url 'bag:bag' %}">
-              <i class="fa fa-shopping-bag fa-lg"></i>
+              <i class="fa fa-shopping-bag fa-lg greenink"></i>
             </a>
           </div>
-          <p class="my-0 d-none d-lg-block mr-5" >
+          <p class="my-0 d-none d-lg-block mr-5 greenink" >
             
             {% if grand_total %}
                 €{{ grand_total|floatformat:0 }}

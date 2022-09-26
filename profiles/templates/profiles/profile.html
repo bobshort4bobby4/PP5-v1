@@ -19,7 +19,12 @@
             <form class="mt-3 text-white" action="{% url 'profiles:profile' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button class="btn text-white rounded-0 text-uppercase float-right">Update Information</button>
+                <div class="d-flex justify-content-between">
+                    <a style="color:black!important;" class="btn-sm  greenbutton linkhover rounded-0 border border-dark rounded" href="{% url 'account_change_password' %}" >Change Password</a>
+                    <button class="btn-sm greenbutton linkhover rounded-0 border border-dark rounded">Update Information</button>
+
+                </div>
+               
             </form>    
         </div> 
 

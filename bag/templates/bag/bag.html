@@ -4,7 +4,7 @@
 
 {% block content%}
 
-<h3 class=" text-white text-center m-2 p-0">Shopping Bag </h3>
+<h3 class="map text-white text-center m-2 p-0">Shopping Bag </h3>
 
 <div class="row no-gutters">
     <div class="col ">
@@ -92,7 +92,7 @@
                     </tbody>
 
             {% else %}
-                <h3 class="text-white text-center">No Vehicles in Bag Yet.</h3>
+                <h3 class="text-white text-center map">No Vehicles in Bag Yet.</h3>
             {% endif %}
 
                 </table>
@@ -106,15 +106,15 @@
     <div class="offset-1 col-10 col-lg-5 w-50">
         <a id="allvehlink" href="{% url 'stock:stock' %}" class="btn btn-outline-black rounded-0 mt-2">
             <span class="icon">
-                <i class="fas fa-chevron-left"></i>
+                <i class="fas fa-chevron-left map"></i>
             </span>
-            <span class="text-uppercase">Back To ALL Vehicles</span>
+            <span class="text-uppercase map">Back To ALL Vehicles</span>
         </a>
     </div>
-    <div class="w-50 offset-1 col-10 col-lg-5">
-        <a id="checkout-btn" href="{% url 'checkout:checkout' %}" class=" rounded-0 btn-lg mt-2" >
-            <span class="text-uppercase" >Secure Checkout</span>
-            <span class="icon">
+    <div class="w-50 offset-1 col-10 col-lg-5 ">
+        <a id="checkout-btn" href="{% url 'checkout:checkout' %}" style="color:#28a745!important;" class=" rounded-0 btn-lg mt-2" >
+            <span class="text-uppercase map" >Secure Checkout</span>
+            <span class="icon map">
                 <i class="fas fa-lock"></i>
             </span>
         </a>
