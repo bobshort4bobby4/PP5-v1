@@ -84,10 +84,10 @@
       <nav class="navbar navbar-expand-lg text-white align-items-baseline" style="background-color:black;">
         
         {% if user.is_authenticated %}
-          <ul>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-user greenink" style="list-style:none ;"></i>
+          <ul> 
+            <li class="nav-item dropdown ">
+              <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user greenink map" style="list-style:none ;"></i>
               </a>
               <div class="dropdown-menu greenback" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
@@ -122,7 +122,7 @@
           {% endif %}
           </a>
         </p>
-        <button class="navbar-toggler " type="button" style="background-color:#28a745!important;" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler map" type="button" style="background-color:#28a745;" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
@@ -143,17 +143,17 @@
                     {% endif%}
             </li>
             <li class="nav-item">
-              <a class="nav-link linkhover" style="color:#28a745!important;" href="{% url 'stock:stock' %}"> All Vehicles</a>
+              <a class="nav-link map" style="color:#28a745;" href="{% url 'stock:stock' %}"> All Vehicles</a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link linkhover" style="color:#28a745!important;" href="{% url 'stock:trade_in' %}">Trade-In</a>
+              <a class="nav-link map" style="color:#28a745;" href="{% url 'stock:trade_in' %}">Trade-In</a>
             </li>
           </ul>
 
-          <div class="my-0 d-none d-lg-block mr-1">
-            <a href="{% url 'bag:bag' %}">
-              <i class="fa fa-shopping-bag fa-lg greenink"></i>
+          <div class="my-0 d-none d-lg-block mr-1 ">
+            <a class="map" href="{% url 'bag:bag' %}">
+              <i class="fa fa-shopping-bag fa-lg greenink map "></i>
             </a>
           </div>
           <p class="my-0 d-none d-lg-block mr-5 greenink" >
@@ -222,9 +222,9 @@
                 <form action="https://herokuapp.us18.list-manage.com/subscribe/post?u=2b7ae258d7c30951cc8861826&amp;id=37f61f894b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                     <div id="mc_embed_signup_scroll">
                   <h2> Our Newsletter provides details of all our new and used cars direct to your inbox.</h2>
-                <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                <div class="indicates-required"><span class="text-black">*</span> indicates required</div>
                 <div class="mc-field-group">
-                  <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+                  <label for="mce-EMAIL" class="text-black">Email Address  <span class="text-black">*</span>
                 </label>
                   <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
                 </div>
@@ -235,7 +235,7 @@
                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2b7ae258d7c30951cc8861826_37f61f894b" tabindex="-1" value=""></div>
                         <div class="optionalParent">
                             <div class="clear foot">
-                                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+                                <input  type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"  style="background-color: black!important; " class="button">
                                 <p class="brandingLogo"><a href="http://eepurl.com/h7PUCD" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"></a></p>
                             </div>
                         </div>
