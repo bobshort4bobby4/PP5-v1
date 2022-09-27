@@ -178,7 +178,7 @@ def trade_value(request):
                         </a>'''
         else:
             head = "Great News !"
-            mess = f"We can offer €{ trade_val } (subject to inspection) for your vehicle as credit on any vahicle valued over €{ full_price }"
+            mess = f"We can offer €{ trade_val } (subject to inspection) for your vehicle as credit on any purchase"
             lnk = f'<div class="text-center"><a type="submit" class="btn btn-primary my-2" hx-post="/stock/take_trade/" hx-target="#trade-value">Apply Amount to Your Bag</a></div>'
 
         request.session['trade_details'] = trade_details

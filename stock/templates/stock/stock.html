@@ -14,7 +14,7 @@
                     </a>
 
                     <div class=" text-center " style="height:0px;" >
-                        <p  style=" position:relative; top:-23px; color:white; font-size: 1rem; font-weight: bold; ">{{ vehicle.year}}  {{ vehicle.maker }}  {{ vehicle.model }}</p>
+                        <p  style=" position:relative; top:-23px; color:black; font-size: 1rem; font-weight: bold; ">{{ vehicle.year}}  {{ vehicle.maker }}  {{ vehicle.model }}</p>
                     </div>
                 {% else %}
                     <a href="{% url 'stock:stock_detail' vehicle.pk %}" class="h-100">
