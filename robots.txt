@@ -1,3 +1,5 @@
 User-agents: *
-Disallow:
+Disallow: /accounts/
+Disallow: /bag/
+Disallow: /profiles/
 Sitemap:https://pp5-carsales.herokuapp.com/sitemap.xml
