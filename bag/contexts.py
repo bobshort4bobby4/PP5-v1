@@ -15,7 +15,7 @@ def bag_contents(request):
         grand_total += car.price
         bag_items.append(car)
 
-    flag = settings.TRADE_FLAG
+    flag = request.session['trade_flag']
     if flag:
         trade_value = request.session['trade_details']['trade_value']
         grand_total -= trade_value

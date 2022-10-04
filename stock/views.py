@@ -153,7 +153,7 @@ def trade_value(request):
     odo = request.POST.get('inputodo')
     condition = request.POST.get('inlineRadioOptions')
     trade_val, full_price = calc_tradein(manu, year, odo, condition)
-    flag = settings.TRADE_FLAG
+    flag = request.session['trade_flag']
     if flag is True:
         return HttpResponse("Sorry one trade-in per order.")
 
@@ -190,6 +190,7 @@ def trade_value(request):
 
 def take_trade(request):
     messages.success(request, 'Successfully Traded Vehicle!')
+    
     trade_details = request.session['trade_details']
     if request.user.is_authenticated:
         usert = request.user
@@ -208,7 +209,7 @@ def take_trade(request):
     
     trade.save()
     request.session['trade_id'] = trade.pk
-    settings.TRADE_FLAG = True
+    request.session['trade_flag'] = True
 
     return HttpResponse('<div><h1 class="text-center">ThankYou</h1></div>'
                         ''' <div>
@@ -221,7 +222,7 @@ def take_trade(request):
                         </div>''')
 
 def clear_trade(request):
-    settings.TRADE_FLAG = False
+    request.session['trade_flag'] = False
     messages.success(request, 'Cleared Trade-ins')
     return redirect(reverse('stock:trade_in'))
 

@@ -23,12 +23,16 @@ class StripeWH_Handler:
         """Send the user a confirmation email"""
         
         cust_email = order.email
+        if order.trade_in:
+            trade_value = order.trade_in.trade_value
+        else:
+            trade_value = 0
         subject = render_to_string(
             'checkout/confirmation_emails/confirmation_email_subject.txt',
-            {'order': order})
+            {'order': order, })
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
-            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL, 'trade_value': trade_value})
 
         send_mail(
             subject,
@@ -182,7 +186,7 @@ class StripeWH_Handler:
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
         print("succ11")
-        # self._send_confirmation_email(order)
+        self._send_confirmation_email(order)
         return HttpResponse(
             content=(f'Webhook received: {event["type"]} | SUCCESS: '
                      'Created order in webhook'),

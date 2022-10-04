@@ -137,7 +137,7 @@ def checkout(request):
                                 'your environment?'))
     # trade_value = request.session['trade_details']['trade_value']
     # check to see if a tradein has been made
-    flag = settings.TRADE_FLAG
+    flag = request.session['trade_flag']
     if flag is True:
         trade_value = request.session['trade_details']['trade_value']
         minustrade_value = trade_value * -1
@@ -208,6 +208,8 @@ def checkout_success(request, order_number):
         del request.session['bag']
     if 'trade_details' in request.session:
         request.session['trade_details']['trade_value'] = 0
+    if 'trade_flag' in request.session:
+        request.session['trade_flag'] = False
 
     template = 'checkout/checkout_success.html'
     context = {

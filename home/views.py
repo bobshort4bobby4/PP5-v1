@@ -17,8 +17,15 @@ class HomeView(TemplateView):
 
     """
 
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
+        if 'trade_flag' in  self.request.session:
+            pass
+        else:
+            self.request.session['trade_flag'] = False
+        
         context['vehicles'] = Vehicle.objects.filter(
                                             featured=True, available_sale=True)
         return context
