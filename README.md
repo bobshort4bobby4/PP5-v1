@@ -1,4 +1,19 @@
 
+
+[link to wireframes pdf](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-wireframes-correct.pdf)
+
+A full set of wire frames for this Project was produced and can be viewed at the above link, A sample of them are shown below.  
+    
+ #### Home Page Wireframe
+![home page wireframe](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-Home.png)  
+#### All Vehicles Page Wireframe 
+![all vehicles page wireframe](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-All%20Vehicles.png)  
+#### Vehicle Detail Page Wireframe
+![vehicle detail page wireframe](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-Vehicle%20Detail.png)  
+#### Adjust Base Price Page Wireframe
+![adjust base price page wireframe](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-Adjust%20Base%20Price.png)
+
+
 [link to erd pdf](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/erd_pp5.pdf)
 ![erd](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/erd_pp5.png)
 
