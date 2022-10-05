@@ -93,7 +93,6 @@
                 <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
                 <a class="dropdown-item" href="{% url 'profiles:profile' %}">My Profile ({{ user.username }})</a>
                 <a class="dropdown-item" href="{% url 'bag:bag' %}">My Shopping Bag</a>
-                <a class="dropdown-item" href="#">My Account</a>
                 {% if request.user.is_staff %}
                   <div class="dropdown-divider"></div>                
                   <p class="pl-4 font-weight-bold">Product Management</p>
@@ -112,12 +111,12 @@
             <span class="sr-only">shopping bag</span>
           {% if grand_total %}
               
-                <span><i class="fa fa-shopping-bag fa-lg"></i></span> 
+                <span class="sr-only"> shopping bag<i class="fa fa-shopping-bag fa-lg" aria-label="shopping bag"></i></span> 
               
               €{{ grand_total|floatformat:0}}
           {% else %}
               
-                <i class="fa fa-shopping-bag fa-lg"></i>
+                <span class="sr-only"> shopping bag<i class="fa fa-shopping-bag fa-lg" aria-label="shopping bag"></i></span>
               
               €0.00
           {% endif %}
@@ -198,8 +197,8 @@
        <div id="footer-row" class="row no-gutters">
           
         <!-- offset-1 col-10 offset-md-2 col-md-8 offset-lg-0 col-lg-4 -->
-            <div id="social links" class="m-2 offset-md-3 col-md-4 col-lg-3">
-                <p class="mt-2 ml-md-5">Check out these links:</p>
+            <div id="social links" class="m-4 offset-md-3 col-md-4 col-lg-3">
+                <h5 class="mt-2 ml-md-5">Check out these links:</h5>
                 <div class="mt-2 ml-md-5 "><a target="_blank"  rel="noopener" href="https://www.facebook.com/Car4U-103831232458420/?ref=page_internal"><i class="fa fa-facebook-square " style="color:black;"> Facebook</i></a></div>
                 <div class="mt-2 ml-md-5"><a target="_blank" rel="noopener" href="https://www.instagram.com"><i class="fab fa-instagram-square" style="color:black;" > Instagram</i></a></div>
                 <div class="mt-2 ml-md-5"><a target="_blank" rel="noopener" href="https://www.youtube.com"><i class="fa fa-youtube-square " style="color:black;" > Youtube</i></a></div>
@@ -207,9 +206,9 @@
                 <div class="mt-2 ml-md-5"><a style="color:black!important;" rel="noopener" href="https://www.privacypolicygenerator.info/live.php?token=rQK4jPx2wbwfIZvigWGXDwMUEKFrJtwj" target="_blank"><span ><i style="color:black;" class="fas fa-book"></i></span style="color:black;">Privacy Policy</a></div>
             </div>
 
-            <div id="openhours" class="d-none d-lg-block col-lg-3">
+            <div id="openhours" class="d-none d-lg-block col-lg-3 m-4">
 
-              <h5>Hours of Business</h5>
+              <h5 class="mt-2">Hours of Business</h5>
               <p>Monday - Thursday:9am-5pm</p>
               <p>Friday   :9am-8pm</p>
               <p>Saturday :10am-2pm</p>
@@ -218,12 +217,12 @@
             </div>
             
             <!-- Begin Mailchimp Signup Form -->
-            <div id="chimp" class="col-md-6 col-lg-6">           
+            <div id="chimp" class="col-md-6 col-lg-6 m-2">           
               <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7_dtp.css" rel="stylesheet" type="text/css">
               <div id="mc_embed_signup">
                 <form action="https://herokuapp.us18.list-manage.com/subscribe/post?u=2b7ae258d7c30951cc8861826&amp;id=37f61f894b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                     <div id="mc_embed_signup_scroll">
-                  <h2> Our Newsletter provides details of all our new and used cars direct to your inbox.</h2>
+                  <h5> Our Newsletter provides details of all our new and used cars direct to your inbox.</h5>
                 <div class="indicates-required"><span class="text-black">*</span> indicates required</div>
                 <div class="mc-field-group">
                   <label for="mce-EMAIL" class="text-black">Email Address  <span class="text-black">*</span>

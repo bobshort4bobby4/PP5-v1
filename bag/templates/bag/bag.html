@@ -15,7 +15,7 @@
                         <tr>
                             <th scope="col" class="px-3">MAKE </th>
                             <th scope="col" class="px-3">Model</th>
-                            <th scope="col" class="px-3">Price</th>  
+                            <th scope="col" class="px-3 text-center">Price</th>  
                             <th scope="col" class="px-3 d-none d-lg-block ml-5 text-center">Image</th>
                         </tr>
 
@@ -30,10 +30,10 @@
                             <td class="py-3 text-white align-middle">
                                 {{ item.model|upper }}
                             </td>
-                            <td class="py-3 text-white align-middle text-right">
+                            <td class="py-3 text-white align-middle text-center">
                                 €{{ item.price|upper|floatformat:0}}
                             </td>
-                            <td class="p-3  text-white d-none d-lg-block text-right">
+                            <td class="p-3  text-white d-none d-lg-block text-center">
                                 {% if item.image_url %}
                                     <img class="d-block ml-5 mx-auto"  style="width:120px;" src="{{item.image_url}}" alt="pic">
                                 {% else %}
@@ -53,7 +53,7 @@
                             <td class="py-3  text-white">
                                 
                             </td>
-                            <td class="py-3  text-white align-middle text-right">
+                            <td class="py-3  text-white align-middle text-center">
                                 €{{ grand_total|add:sub_tot|floatformat:0 }}
                             </td>
                         </tr>
@@ -67,11 +67,11 @@
                             </td>
                             
                             {% if not trade_value  %}
-                                <td class="py-3  text-white align-middle text-right">
+                                <td class="py-3  text-white align-middle text-center">
                                     €0
                                 </td>
                             {% else %}
-                                <td class="py-3  text-white align-middle text-right">
+                                <td class="py-3  text-white align-middle text-center">
                                     €{{ trade_value }}
                                 </td>
                             {% endif %}
@@ -85,7 +85,7 @@
                             <td class="py-3  text-white">
                                 
                             </td>
-                            <td class="py-3  text-white align-middle text-right">
+                            <td class="py-3  text-white align-middle text-center">
                                 €{{ grand_total|floatformat:0}}
                             </td>
                         </tr>
