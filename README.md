@@ -19,6 +19,7 @@ The AGILE methodology for project development will be used to produce this proje
    - to be able to easily browse and search stock and access data on each item of stock, to aid my purchasing decision.
    - to navigate easily around the site, to avoid frustration whilst using the site and to engender positive emotions towards the business.
    - to have any incorrect input rejected and the error explained clearly and quickly, so I do not have any frustrating emotions using the site. 
+   - site to be responsive, to provide a positive user experience.
    - to be able to value any vehicle as a trade-in, to aid my purchasing decision.  
      
        
@@ -31,12 +32,12 @@ The AGILE methodology for project development will be used to produce this proje
    - to be able to create a user account, to track my interaction with the site.
    - to be able to manage my user profile, to make site use easy.
    - to review my profile details and order details, to engender trust and provide as transparent process as possible.
-   - to have all actions confirmed by email, to engender trust and provide as transparent process as possible.
+   - to have all orders confirmed by email, to engender trust and provide as transparent process as possible.
    
    
    #### Site Owner Goals
    As a Site Owner I want:
-   - to provide a quality website in order to drive sales and increase profits.
+   - to provide an easy to use website in order to drive sales and increase profits.
    - to engage potential customers and ensure they return to the site in the future, to drive sales and increase profits.
    - to use the site as a marketing tool, to drive sales and increase profits.
    - to enable staff members to perform certain admin tasks from the frontend, to efficiently run the site.
@@ -59,7 +60,38 @@ The AGILE methodology for project development will be used to produce this proje
   The user stories were prioritised using the MoSCoW technique and the Kanban Board feature built-in to Github will be used as an information radiator.
   The user stories were broken down into tasks and these were listed under their respective Epic in the initial Kanban Board.  
   Care was taken to ensure should-have prioritised user stories are not greater than 60% of the total.  
+    
+      
+  ### Table Showing User Story Allocation to Epics  
   
+    
+   |                                           User  story                                                                              | Epic     |
+   |------------------------------------------------------------------------------------------------------------------------------------|----------|
+   | to be easily able to ascertain information on the business                                                                         |  01      |
+   | to be able to easily browse and search stock                                                                                       |  03      |
+   | to navigate easily around the site                                                                                                 |  01      |
+   | to have any incorrect input rejected and the error explained clearly                                                               |  01      |
+   | site to be responsive                                                                                                              |  01      |
+   | to be able to value any vehicle as a trade-in                                                                                      |  09      |
+   | to easily add a vehicle to my order                                                                                                |  04      |
+   | to easily trade-in a vehicle                                                                                                       |  09      |
+   | to easily pay for my order                                                                                                         |  05      |
+   | to securely pay for my order                                                                                                       |  05      |
+   | to be able to create a user account                                                                                                |  02      |
+   | to be able to manage my user profile                                                                                               |  06      |
+   | to review my profile details and order details                                                                                     |  06      |
+   | to have all orders confirmed by email                                                                                              |  05      |
+   | to provide an easy to use website                                                                                                  |  01      |
+   | to engage potential customers                                                                                                      |  07      |
+   | to use the site as a marketing tool                                                                                                |  07      |
+   | to enable staff members to perform certain admin tasks from the frontend                                                           |  08      |
+   
+   
+   
+   
+   
+   
+   
   ### User Acceptance Criteria.
       
       
