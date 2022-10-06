@@ -15,32 +15,32 @@ The AGILE methodology for project development will be used to produce this proje
      
    #### Casual Visitor Goals
    As a Casual Visitor I want:
-   - to be easily able to ascertain information on the business and it's locality, to aid my purchasing decision.
-   - to be able to easily browse and search stock and access data on each item of stock, to aid my purchasing decision.
-   - to navigate easily around the site, to avoid frustration whilst using the site and to engender positive emotions towards the business.
-   - to have any incorrect input rejected and the error explained clearly and quickly, so I do not have any frustrating emotions using the site. 
-   - site to be responsive, to provide a positive user experience.
-   - to be able to value any vehicle as a trade-in, to aid my purchasing decision.  
+   - [#1](https://github.com/bobshort4bobby4/PP5-v1/issues/1) to be easily able to ascertain information on the business and it's locality, to aid my purchasing decision.
+   - [#2](https://github.com/bobshort4bobby4/PP5-v1/issues/2) to be able to easily browse and search stock and access data on each item of stock, to aid my purchasing decision.
+   - [#3](https://github.com/bobshort4bobby4/PP5-v1/issues/3) to navigate easily around the site, to avoid frustration whilst using the site and to engender positive emotions towards the business.
+   - [#4](https://github.com/bobshort4bobby4/PP5-v1/issues/4) to have any incorrect input rejected and the error explained clearly and quickly, so I do not have any frustrating emotions using the site. 
+   - [#5](https://github.com/bobshort4bobby4/PP5-v1/issues/5) site to be responsive, to provide a positive user experience.
+   - [#6](https://github.com/bobshort4bobby4/PP5-v1/issues/6) to be able to value any vehicle as a trade-in, to aid my purchasing decision.  
      
        
    #### Customer Goals
    As a Customer I want:
-   - to easily add a vehicle to my order to make the purchasing process efficient.
-   - to easily trade-in a vehicle, to make the purchasing process efficient.
-   - to easily pay for my order, to make the purchasing process efficient.
-   - to securely pay for my order, to engender trust in the site.
-   - to be able to create a user account, to track my interaction with the site.
-   - to be able to manage my user profile, to make site use easy.
-   - to review my profile details and order details, to engender trust and provide as transparent process as possible.
-   - to have all orders confirmed by email, to engender trust and provide as transparent process as possible.
+   - [#7](https://github.com/bobshort4bobby4/PP5-v1/issues/7) to easily add a vehicle to my order to make the purchasing process efficient.
+   - [#8](https://github.com/bobshort4bobby4/PP5-v1/issues/8) to easily trade-in a vehicle, to make the purchasing process efficient.
+   - [#9](https://github.com/bobshort4bobby4/PP5-v1/issues/9) to easily pay for my order, to make the purchasing process efficient.
+   - [#10](https://github.com/bobshort4bobby4/PP5-v1/issues/10) to securely pay for my order, to engender trust in the site.
+   - [#11](https://github.com/bobshort4bobby4/PP5-v1/issues/11) to be able to create a user account, to track my interaction with the site.
+   - [#12](https://github.com/bobshort4bobby4/PP5-v1/issues/12) to be able to manage my user profile, to make site use easy.
+   - [#13](https://github.com/bobshort4bobby4/PP5-v1/issues/13) to review my profile details and order details, to engender trust and provide as transparent process as possible.
+   - [#14](https://github.com/bobshort4bobby4/PP5-v1/issues/14) to have all orders confirmed by email, to engender trust and provide as transparent process as possible.
    
    
    #### Site Owner Goals
    As a Site Owner I want:
-   - to provide an easy to use website in order to drive sales and increase profits.
-   - to engage potential customers and ensure they return to the site in the future, to drive sales and increase profits.
-   - to use the site as a marketing tool, to drive sales and increase profits.
-   - to enable staff members to perform certain admin tasks from the frontend, to efficiently run the site.
+   - [#15](https://github.com/bobshort4bobby4/PP5-v1/issues/15) to provide an easy to use website in order to drive sales and increase profits.
+   - [#16](https://github.com/bobshort4bobby4/PP5-v1/issues/16) to engage potential customers and ensure they return to the site in the future, to drive sales and increase profits.
+   - [#17](https://github.com/bobshort4bobby4/PP5-v1/issues/17) to use the site as a marketing tool, to drive sales and increase profits.
+   - [#18](https://github.com/bobshort4bobby4/PP5-v1/issues/18) to enable staff members to perform certain admin tasks from the frontend, to efficiently run the site.
    
    ### EPICS
    
@@ -58,8 +58,13 @@ The AGILE methodology for project development will be used to produce this proje
   
    
   The user stories were prioritised using the MoSCoW technique and the Kanban Board feature built-in to Github will be used as an information radiator.
-  The user stories were broken down into tasks and these were listed under their respective Epic in the initial Kanban Board.  
+  The user stories were broken down into tasks and these were listed under their respective issue in the initial Kanban Board.  
+  The acceptance criteria for each user story are listed in each issue in the github project board.
   Care was taken to ensure should-have prioritised user stories are not greater than 60% of the total.  
+    
+  An image of the first issue is shown below for illustrative purposes.  
+    
+   ![issue 1 ](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/issue1-pp5.png)
     
       
   ### Table Showing User Story Allocation to Epics  
