@@ -1,24 +1,29 @@
+"""
+    Models for checkout app
+"""
+
+
 import uuid
 from django.db import models
 from django.db.models import Sum
 from django_countries.fields import CountryField
-from django.conf import settings
 from profiles.models import UserProfile
-from django.contrib.auth.models import User
 from stock.models import Vehicle, Tradein
 
 
-
-
-
 class Order(models.Model):
+    """
+    Order model
+    """
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True,
                                      related_name='orders')
-    trade_in = models.ForeignKey(Tradein, on_delete=models.SET_NULL,
-                                     null=True, blank=True,
-                                     related_name='tradein')
+    trade_in = models.ForeignKey(Tradein,
+                                 on_delete=models.SET_NULL,
+                                 null=True,
+                                 blank=True,
+                                 related_name='tradein')
 
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
@@ -31,7 +36,7 @@ class Order(models.Model):
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     delivery_cost = models.DecimalField(max_digits=10, decimal_places=2,
-                                        null=False, default=0) #  may not be used remove if neccessary
+                                        null=False, default=0)  # not used
     order_total = models.DecimalField(max_digits=10, decimal_places=2,
                                       null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2,
@@ -46,21 +51,6 @@ class Order(models.Model):
         """
         return uuid.uuid4().hex.upper()
 
-
-    # def _generate_trade_in(self):
-    #     """
-    #     Generate a tradein record if needed
-    #     """
-    #     trade_value = self.request.session['trade_details']['trade_value']
-    #     flag = settings.TRADE_FLAG
-    #     if flag:
-    #         record = Tradein(   user=self.user_profile,
-    #                             manufacturer=trade_value,
-    #                         )
-
-    #     record.save()
-    #     return record
-
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the order number
@@ -68,10 +58,6 @@ class Order(models.Model):
         """
         if not self.order_number:
             self.order_number = self._generate_order_number()
-        # flag = settings.TRADE_FLAG
-        # if flag:
-        #     if not self.trade_in:
-        #         self.trade_in = self._generate_trade_in()
         super().save(*args, **kwargs)
 
     def update_total(self):
@@ -81,10 +67,12 @@ class Order(models.Model):
         """
         self.order_total = self.lineitems.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        # if order has a trade-in entry then set trade-value appropriately
         if self.trade_in:
             tradein = self.trade_in.trade_value
         else:
             tradein = 0
+            
         self.grand_total = self.order_total + self.delivery_cost - tradein
         self.save()
 
@@ -93,6 +81,10 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """
+        Orderline model
+    """
+
     order = models.ForeignKey(Order, null=False, blank=False,
                               on_delete=models.CASCADE,
                               related_name='lineitems')
@@ -102,7 +94,8 @@ class OrderLineItem(models.Model):
     lineitem_total = models.DecimalField(max_digits=10, decimal_places=2,
                                          null=False, blank=False,
                                          editable=False)
-    # wont be need ed as each vechicle is unique in our models
+
+    # wont be need ed as each vehicle is unique in our models
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the lineitem total

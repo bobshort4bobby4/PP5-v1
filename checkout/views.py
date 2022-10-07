@@ -1,20 +1,33 @@
+"""
+    Views for checkout app
+"""
+
 import json
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
-from django.contrib import messages
-from django.conf import settings
 import re
 import stripe
+
+from django.shortcuts import (render,
+                              redirect,
+                              reverse,
+                              get_object_or_404,
+                              HttpResponse)
+from django.contrib import messages
+from django.conf import settings
 from django.views.decorators.http import require_POST
+
 from bag.contexts import bag_contents
-from .forms import OrderForm
 from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
-from .models import Order, OrderLineItem
 from stock.models import Vehicle, Tradein
+from .forms import OrderForm
+from .models import Order, OrderLineItem
 
 
 @require_POST
 def cache_checkout_data(request):
+    """
+        Modify payment intent to add in app specific data
+    """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -32,10 +45,12 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """
+        View for checkout process
+    """
 
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    print("incheckoutview")
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
@@ -86,11 +101,6 @@ def checkout(request):
             return redirect(reverse('checkout:checkout_success',
                                     args=[order.order_number]))
 
-            #     except car.DoesNotExist:
-                    
-            #         return redirect(reverse('bag:bag'))
-            # return redirect(reverse('checkout_success',
-                                    # args=[order.order_number]))
         else:
             messages.error(request, ('There was an error with your form. '
                                      'Please double check your information.'))
@@ -126,16 +136,13 @@ def checkout(request):
                 order_form = OrderForm()
         else:
             order_form = OrderForm()
-        # print(intent)
-        # order_form = OrderForm()
 
     template = 'checkout/checkout.html'
 
     if not stripe_public_key:
         messages.warning(request, ('Stripe public key is missing.'
-                                'Did you forget to set it in '
-                                'your environment?'))
-    # trade_value = request.session['trade_details']['trade_value']
+                                   'Did you forget to set it in '
+                                   'your environment?'))
     # check to see if a tradein has been made
     flag = request.session['trade_flag']
     if flag is True:
@@ -146,7 +153,7 @@ def checkout(request):
         trade_value = {}
         minustrade_value = 0
         sub_tot = 0
-    
+
     context = {
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
@@ -167,7 +174,6 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)

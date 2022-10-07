@@ -1,9 +1,14 @@
-from stock.models import Vehicle
+"""
+    Handle context variables
+"""
 from django.shortcuts import get_object_or_404
-from django.conf import settings
+from stock.models import Vehicle
 
 
 def bag_contents(request):
+    """
+    Handle context variables
+    """
     bag_pks = []
     grand_total = 0
     bag = request.session.get('bag', {})
@@ -19,12 +24,11 @@ def bag_contents(request):
     if flag:
         trade_value = request.session['trade_details']['trade_value']
         grand_total -= trade_value
-        
-        
+
     context = {
         'bag_items': bag_items,
         'grand_total': grand_total,
-        
+
     }
 
     return context

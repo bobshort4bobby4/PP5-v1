@@ -169,7 +169,7 @@ def trade_value(request):
                 }
         if trade_val == 0:
             head = "Sorry"
-            mess = "Your Vehicle is too old for us to offer any Trade-in"
+            mess = "Your Vehicle is too oSld for us to offer any Trade-in"
             lnk = '''<a id="allvehlink" href="/stock/trade_in/" class="btn btn-outline-black rounded-0 mt-2">
                         <span class="icon">
                         <i class="fas fa-chevron-left"></i>
@@ -177,7 +177,7 @@ def trade_value(request):
                         <span class="text-uppercase">Value Another Vehicle</span>
                         </a>'''
         else:
-            head = "Great News !"
+            head = "<h3>Great News!</h3>"
             mess = f"We can offer €{ trade_val } (subject to inspection) for your vehicle as credit on any purchase"
             lnk = f'<div class="text-center"><a type="submit" class="btn btn-primary my-2" hx-post="/stock/take_trade/" hx-target="#trade-value">Apply Amount to Your Bag</a></div>'
 
