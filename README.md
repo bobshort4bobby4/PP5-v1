@@ -238,7 +238,44 @@ The Facebook page is linked from the site and is also shown below. The Mailchimp
     
     
 
+# Testing
 
+<details>
+
+<summary> Testing</summary>
+
+
+ ### Responsive Testing
+  
+  The website was tested for responsiveness using the built-in tool in the Google Chrome browser. As I worked through each breakpoint I fixed any display issues I encountered.  
+  A set of images of the homepage at each breakpoint is shown.  
+  There is a link provided which shows the results of each other page in a spreadsheet.  
+  #### 320px home page
+  ![320px-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-320px.png)
+  
+  #### 375px home page
+  ![375px-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-375px.png)
+  
+  #### 425px home page
+  ![425px-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/ppp5-home-425px.png)
+  
+  #### 768px home page
+  ![768-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-768px.png)
+  
+  #### 1024px home page
+  ![1024-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-1024px.png)
+  
+  #### 1440px home page
+  ![1440-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-1440px.png)
+  
+  #### 2000px home page
+  ![2000-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-2000px.png)
+    
+  ![responsive test results](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsivetests-pp5.png)
+  
+  [link to responsive tests pdf](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive-pp5.pdf)
+  
+</details>
 
 
 
