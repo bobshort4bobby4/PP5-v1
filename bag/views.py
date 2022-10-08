@@ -68,3 +68,9 @@ def remove_from_bag(request, item_id):
     messages.success(
                     request, f'Removed {veh.maker} {veh.model} from your bag')
     return redirect(reverse('bag:bag'))
+
+
+def clear_trade_bag(request):
+    request.session['trade_flag'] = False
+    messages.success(request, 'Cleared Trade-ins')
+    return redirect(reverse('bag:bag'))

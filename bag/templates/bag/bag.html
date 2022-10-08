@@ -110,6 +110,10 @@
             </span>
             <span class="text-uppercase map">Back To ALL Vehicles</span>
         </a>
+        {% if trade_value %}
+        <a id="allvehlink" href="{% url 'bag:clear_trade_bag' %}" class="btn btn-primary my-4">Clear Current Trade</a>
+
+        {% endif %}
     </div>
     <div class="w-50 offset-1 col-10 col-lg-5 ">
         <a id="checkout-btn" href="{% url 'checkout:checkout' %}" style="color:#28a745!important;" class=" rounded-0 btn-lg mt-2" >
