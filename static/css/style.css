@@ -221,12 +221,22 @@ li.nav-item.dropdown {
 
 }
 
+#orderhistorytable {
+    padding-left: 5px!important;
+    padding-right: 5px!important;
+}
+
 
 /*-----media queries----*/
 
 @media screen and (min-width:375px) {
     #carousel{
         min-height: 320px;
+    }
+
+    #orderhistorytable {
+        padding-left: inherit!important;
+        padding-right: inherit!important;
     }
     
     .img-height {
