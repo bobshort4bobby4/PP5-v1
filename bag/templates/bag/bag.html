@@ -4,7 +4,7 @@
 
 {% block content%}
 
-<h3 class="map text-white text-center m-2 p-0">Shopping Bag </h3>
+<h3 class=" text-white text-center m-2 p-0">Shopping Bag </h3>
 
 <div class="row no-gutters">
     <div class="col ">
@@ -92,7 +92,7 @@
                     </tbody>
 
             {% else %}
-                <h3 class="text-white text-center map">No Vehicles in Bag Yet.</h3>
+                <h3 class="text-white text-center ">No Vehicles in Bag Yet.</h3>
             {% endif %}
 
                 </table>
@@ -111,7 +111,7 @@
             <span class="text-uppercase map">Back To ALL Vehicles</span>
         </a>
         {% if trade_value %}
-        <a id="allvehlink" href="{% url 'bag:clear_trade_bag' %}" class="btn btn-primary my-4">Clear Current Trade</a>
+        <a id="allvehlink" href="{% url 'bag:clear_trade_bag' %}" class="btn btn-primary my-4">Clear Current Trade-In</a>
 
         {% endif %}
     </div>

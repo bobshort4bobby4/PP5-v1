@@ -55,6 +55,10 @@ class StockDetailView(DetailView):
 
 def add_stock(request):
 
+    if not request.user.is_staff:
+        messages.error(request, 'Sorry, only store staff can do that.')
+        return redirect(reverse('home:home'))
+
     if request.method == 'POST':
         form = VehicleForm(request.POST, request.FILES)
         if form.is_valid():
@@ -212,6 +216,7 @@ def take_trade(request):
     request.session['trade_flag'] = True
 
     return HttpResponse('<div><h1 class="text-center">ThankYou</h1></div>'
+                        '<div><h3 class="text-center"> Trade has been applied to your bag</h3></div>'
                         ''' <div>
                         <a id="allvehlink" href="/stock/trade_in/" class="btn btn-outline-black rounded-0 mt-2">
                         <span class="icon">
@@ -228,6 +233,10 @@ def clear_trade(request):
 
 
 def adjust_tradein(request):
+
+    if not request.user.is_staff:
+        messages.error(request, 'Sorry, only store staff can do that.')
+        return redirect(reverse('home:home'))
 
     if request.htmx:
         maker = request.POST.get('maker')

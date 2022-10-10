@@ -98,6 +98,7 @@ def checkout(request):
                     )
                     order.delete()
                     return redirect(reverse('bag:bag'))
+            request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout:checkout_success',
                                     args=[order.order_number]))
 
@@ -112,30 +113,35 @@ def checkout(request):
             return redirect(reverse('stock:stock'))
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
-        stripe_total = round(total * 100)
-        stripe.api_key = stripe_secret_key
-        intent = stripe.PaymentIntent.create(
-                amount=stripe_total,
-                currency=settings.STRIPE_CURRENCY,
-            )
-        if request.user.is_authenticated:
-            try:
-                profile = UserProfile.objects.get(user=request.user)
-                order_form = OrderForm(initial={
-                    'full_name': profile.user.get_full_name(),
-                    'email': profile.user.email,
-                    'phone_number': profile.default_phone_number,
-                    'country': profile.default_country,
-                    'postcode': profile.default_postcode,
-                    'town_or_city': profile.default_town_or_city,
-                    'street_address1': profile.default_street_address1,
-                    'street_address2': profile.default_street_address2,
-                    'county': profile.default_county,
-                })
-            except UserProfile.DoesNotExist:
-                order_form = OrderForm()
+        if total <= 0:
+            messages.error(request, ('Your total must be greater than zero. '
+                                      'Please check your shopping bag'))
+            return redirect(reverse('bag:bag'))
         else:
-            order_form = OrderForm()
+            stripe_total = round(total * 100)
+            stripe.api_key = stripe_secret_key
+            intent = stripe.PaymentIntent.create(
+                    amount=stripe_total,
+                    currency=settings.STRIPE_CURRENCY,
+                )
+            if request.user.is_authenticated:
+                try:
+                    profile = UserProfile.objects.get(user=request.user)
+                    order_form = OrderForm(initial={
+                        'full_name': profile.user.get_full_name(),
+                        'email': profile.user.email,
+                        'phone_number': profile.default_phone_number,
+                        'country': profile.default_country,
+                        'postcode': profile.default_postcode,
+                        'town_or_city': profile.default_town_or_city,
+                        'street_address1': profile.default_street_address1,
+                        'street_address2': profile.default_street_address2,
+                        'county': profile.default_county,
+                    })
+                except UserProfile.DoesNotExist:
+                    order_form = OrderForm()
+            else:
+                order_form = OrderForm()
 
     template = 'checkout/checkout.html'
 
