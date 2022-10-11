@@ -89,7 +89,11 @@ class StripeWH_Handler:
         if username != 'AnonymousUser':
             print("in if username not anon")
             profile = UserProfile.objects.get(user__username=username)
-            if save_info:
+            if save_info == 'false':
+                flag_info = False
+            else:
+                flag_info = True
+            if flag_info:
                 profile.default_phone_number = shipping_details.phone
                 profile.default_country = shipping_details.address.country
                 profile.default_postcode = shipping_details.address.postal_code
