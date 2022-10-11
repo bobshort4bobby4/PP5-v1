@@ -4,7 +4,6 @@
 
 
 from django.db import models
-from django.contrib.auth.models import User
 
 
 class Maker(models.Model):
@@ -22,7 +21,9 @@ class Maker(models.Model):
     )
 
     maker = models.CharField(max_length=10, null=False, choices=Maker_Types)
-    base_price = models.DecimalField(max_digits=6, decimal_places=0, null=False, default=0)
+    base_price = models.DecimalField(max_digits=6,
+                                     decimal_places=0, null=False, default=0)
+
     def __str__(self):
         return f'{self.maker}'
 
@@ -74,14 +75,18 @@ class Vehicle(models.Model):
 
 
 class Tradein(models.Model):
+    """
+    Define Tradein relation structure
+    """
     user = models.CharField(max_length=25, null=False, default="")
     manufacturer = models.CharField(max_length=20, null=False, default="")
     mod = models.CharField(max_length=20, null=False, default="")
     odo = models.CharField(max_length=20, null=False, default="")
     condition = models.CharField(max_length=20, null=False, default="")
     year = models.CharField(max_length=4, null=False, default="0000")
-    trade_value = models.DecimalField(max_digits=8, decimal_places=0, default=0)
+    trade_value = models.DecimalField(max_digits=8,
+                                      decimal_places=0, default=0)
     full_price = models.DecimalField(max_digits=8, decimal_places=0, default=0)
 
-    # def __str__(self):
-    #     return f'{self.manufacturer}, {self.mod} value granted {self.trade_value}'
+    def __str__(self):
+        return f'{self.manufacturer} {self.mod} value {self.trade_value}'

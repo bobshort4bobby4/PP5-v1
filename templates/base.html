@@ -110,7 +110,7 @@
           <i class="fa fa-shopping-bag fa-lg" aria-label="shopping bag"></i>
           <a id="baggy" href="{% url 'bag:bag' %}" style="color:#28a745!important;" aria-label="shopping bag">
             <span class="sr-only">shopping bag</span>
-          {% if grand_total %}
+          {% if grand_total < 0  %}
               
                 <span class="sr-only"> shopping bag<i class="fa fa-shopping-bag fa-lg" aria-label="shopping bag"></i></span> 
               

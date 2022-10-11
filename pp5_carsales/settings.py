@@ -19,9 +19,6 @@ from django.contrib.messages import constants as messages
 if os.path.isfile("env.py"):
     import env
 
-
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -92,7 +89,7 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 2
 
-SOCIALACCOUNT_PROVIDERS = { # this is optional according to docs
+SOCIALACCOUNT_PROVIDERS = {  # this is optional according to docs
     'google': {
         'SCOPE': [
             'profile',
@@ -139,7 +136,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'bag.contexts.bag_contents',
-         
+
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
@@ -171,18 +168,24 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
+
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.'
+            'UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -217,7 +220,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 STATIC_URL = '/static/'
 
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_STORAGE = \
+                    'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -230,7 +234,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+# SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_AGE = 3600
 
 # stripe
@@ -238,6 +242,3 @@ STRIPE_CURRENCY = 'eur'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-
-
-

@@ -28,11 +28,17 @@ class VehicleAdmin(admin.ModelAdmin):
     """
     config for Vehicle admin panel
     """
-    list_display = ('pk', 'stock_num', 'maker', 'model', 'year', 'fuel','featured', 'available_sale',)
+    list_display = ('pk',
+                    'stock_num',
+                    'maker',
+                    'model',
+                    'year',
+                    'fuel',
+                    'featured',
+                    'available_sale',)
 
     actions = [
                'set_available_sale_to_true'
-               
                ]
 
     def set_available_sale_to_true(self, request, queryset):
@@ -41,4 +47,7 @@ class VehicleAdmin(admin.ModelAdmin):
 
 @admin.register(Tradein)
 class TradeinAdmin(admin.ModelAdmin):
+    """
+    config for Tradein admin panel
+    """
     list_display = ('pk', 'user', 'trade_value', 'manufacturer', 'mod',)

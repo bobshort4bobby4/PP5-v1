@@ -1,14 +1,12 @@
-
-from django.views.generic import View, ListView, DetailView, TemplateView
+"""
+View logic for stock app
+"""
+from django.views.generic import ListView, DetailView
 from django.shortcuts import get_object_or_404, render, redirect, reverse
 from django.contrib import messages
-from django.contrib.postgres.search import SearchQuery, SearchVector, SearchRank
+from django.contrib.postgres.search import (SearchQuery,
+                                            SearchVector, SearchRank)
 from django.http import HttpResponse
-from django.conf import settings
-
-from django.contrib.auth import get_user
-
-from django.db.models import Q
 from stock.models import Vehicle, Maker, Tradein
 from .forms import VehicleForm, MakerForm
 from .trade_calc import calc_tradein
@@ -19,6 +17,7 @@ from .trade_calc import calc_tradein
 class StockView(ListView):
     """
     Generic class used to display vehicle display page
+    uses django te
 
     """
 
@@ -33,10 +32,15 @@ class StockView(ListView):
                                ("You didn't enter any search criteria!"))
                 return queryset
 
-            vector = SearchVector("maker__maker", "model", "fuel__fuel", "year")
+            vector = SearchVector("maker__maker",
+                                  "model",
+                                  "fuel__fuel",
+                                  "year")
             query = SearchQuery(query)
-            queryset = Vehicle.objects.filter(available_sale=True).annotate(rank=SearchRank(vector, query)).filter(rank__gte=0.001).order_by('-rank')
-        
+            queryset = Vehicle.objects.filter(
+                available_sale=True).annotate(
+                rank=SearchRank(vector, query)).filter(
+                rank__gte=0.001).order_by('-rank')
 
         return queryset
 
@@ -54,6 +58,9 @@ class StockDetailView(DetailView):
 
 
 def add_stock(request):
+    """
+    Function for staff to add vehicle to database.
+    """
 
     if not request.user.is_staff:
         messages.error(request, 'Sorry, only store staff can do that.')
@@ -64,7 +71,8 @@ def add_stock(request):
         if form.is_valid():
             veh = form.save()
             messages.success(request, 'Successfully added Vehicle!')
-            return redirect(reverse('stock:stock_detail', args=[veh.stock_num]))
+            return redirect(reverse('stock:stock_detail',
+                                    args=[veh.stock_num]))
         else:
             messages.error(request,
                            ('Failed to add product. '
@@ -80,16 +88,19 @@ def add_stock(request):
     return render(request, template, context)
 
 
-class EditDeleteView(View):
+# class EditDeleteView(View):
+#     """
+#         Generic view to display
+#     """
 
-    def get(self, request, stock_num):
-        veh = get_object_or_404(Vehicle, pk=stock_num)
-        template = 'stock/edit_delete.html'
-        form = VehicleForm(instance=veh)
-        context = {
-            'form': form,
-        }
-        return render(request, template, context)
+#     def get(self, request, stock_num):
+#         veh = get_object_or_404(Vehicle, pk=stock_num)
+#         template = 'stock/edit_delete.html'
+#         form = VehicleForm(instance=veh)
+#         context = {
+#             'form': form,
+#         }
+#         return render(request, template, context)
 
 
 def delete_vehicle(request, vehicle_id):
@@ -103,7 +114,6 @@ def delete_vehicle(request, vehicle_id):
     veh.save()
     messages.success(request, 'Vehicle Deleted!')
     return redirect(reverse('stock:stock'))
-
 
 
 def edit_vehicle(request, vehicle_id):
@@ -122,11 +132,10 @@ def edit_vehicle(request, vehicle_id):
             return redirect(reverse('stock:stock_detail', args=[veh.pk]))
         else:
             messages.error(request,
-                        ('Failed to update Vehicle. '
+                           ('Failed to update Vehicle. '
                             'Please ensure the form is valid.'))
     else:
         form = VehicleForm(instance=veh)
-        # messages.info(request, f'You are editing {productvehicle.name}')
 
     template = 'stock/edit_vehicle.html'
     context = {
@@ -139,6 +148,9 @@ def edit_vehicle(request, vehicle_id):
 
 
 def trade_in(request):
+    """
+    function to display tradein page
+    """
     template = 'stock/trade_in.html'
     makes = Maker.objects.all()
 
@@ -150,6 +162,9 @@ def trade_in(request):
 
 
 def trade_value(request):
+    """
+    Function to value tradein request
+    """
 
     manu = request.POST.get('inputmanu')
     model = request.POST.get('inputmodel')
@@ -173,17 +188,22 @@ def trade_value(request):
                 }
         if trade_val == 0:
             head = "Sorry"
-            mess = "Your Vehicle is too oSld for us to offer any Trade-in"
-            lnk = '''<a id="allvehlink" href="/stock/trade_in/" class="btn btn-outline-black rounded-0 mt-2">
+            mess = "Your Vehicle is too old for us to offer any Trade-in"
+            lnk = '''<a id="allvehlink" href="/stock/trade_in/"
+                                 class="btn btn-outline-black rounded-0 mt-2">
                         <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                         </span>
-                        <span class="text-uppercase">Value Another Vehicle</span>
+                        <span class="text-uppercase">
+                                        Value Another Vehicle</span>
                         </a>'''
         else:
             head = "<h3>Great News!</h3>"
-            mess = f"We can offer €{ trade_val } (subject to inspection) for your vehicle as credit on any purchase"
-            lnk = f'<div class="text-center"><a type="submit" class="btn btn-primary my-2" hx-post="/stock/take_trade/" hx-target="#trade-value">Apply Amount to Your Bag</a></div>'
+            mess = f"We can offer €{ trade_val } (subject to inspection)\
+                                    for your vehicle as credit on any purchase"
+            lnk = """<div class="text-center"><a type="submit"
+                 class="btn btn-primary my-2" hx-post="/stock/take_trade/"
+                 hx-target="#trade-value">Apply Amount to Your Bag</a></div>"""
 
         request.session['trade_details'] = trade_details
         return HttpResponse(f'<h1 class="text-center text-white">{ head }</h1>'
@@ -193,8 +213,11 @@ def trade_value(request):
 
 
 def take_trade(request):
+    """
+    Function to apply tradein to bag.
+    """
     messages.success(request, 'Successfully Traded Vehicle!')
-    
+
     trade_details = request.session['trade_details']
     if request.user.is_authenticated:
         usert = request.user
@@ -210,30 +233,39 @@ def take_trade(request):
                     trade_value=trade_details['trade_value'],
                     full_price=trade_details['full_price'],
                     )
-    
+
     trade.save()
     request.session['trade_id'] = trade.pk
     request.session['trade_flag'] = True
 
     return HttpResponse('<div><h1 class="text-center">ThankYou</h1></div>'
-                        '<div><h3 class="text-center"> Trade has been applied to your bag</h3></div>'
+                        """<div><h3 class="text-center">
+                         Trade has been applied to your bag</h3></div>"""
                         ''' <div>
-                        <a id="allvehlink" href="/stock/trade_in/" class="btn btn-outline-black rounded-0 mt-2">
+                        <a id="allvehlink" href="/stock/trade_in/"
+                         class="btn btn-outline-black rounded-0 mt-2">
                         <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                         </span>
-                        <span class="text-uppercase">Value Another Vehicle</span>
+                        <span class="text-uppercase">
+                        Value Another Vehicle</span>
                         </a>
                         </div>''')
 
+
 def clear_trade(request):
+    """
+    Function to clear current trade-in vehicle
+    """
     request.session['trade_flag'] = False
     messages.success(request, 'Cleared Trade-ins')
     return redirect(reverse('stock:trade_in'))
 
 
 def adjust_tradein(request):
-
+    """
+    Function to adjust trade-in base price
+    """
     if not request.user.is_staff:
         messages.error(request, 'Sorry, only store staff can do that.')
         return redirect(reverse('home:home'))
@@ -254,7 +286,10 @@ def adjust_tradein(request):
         maker = maker_types[maker]
         make = get_object_or_404(Maker, pk=int(maker))
         current_base_price = make.base_price
-        return HttpResponse(f'''<input type="number" name="base_price" value="{ current_base_price }" step="1" class="numberinput form-control" required="" id="id_base_price">''')
+        return HttpResponse(f'''<input type="number" name="base_price"
+                             value="{ current_base_price }" step="1"
+                             class="numberinput form-control" required=""
+                             id="id_base_price">''')
     elif request.method == 'POST':
         maker = request.POST.get('maker')
 
