@@ -92,41 +92,9 @@ The AGILE methodology for project development will be used to produce this proje
    | to enable staff members to perform certain admin tasks from the frontend                                                           |  08      |
    
    
+   ### WireFrames  
    
-   
-   
-   
-   
-  ### User Acceptance Criteria.
-      
-      
-      
-  |                             User Story                                              |         Acceptance  Criteria                                           |
-  |-------------------------------------------------------------------------------------|------------------------------------------------------------------------|
-  | to be easily able to ascertain information on the business and it's locality        |   Telephone link and Location map link provided.                       |
-  | to be easily able to ascertain information on the business and it's locality        |   Links to Facebook and other social media sites provided.             |
-  | to be easily able to ascertain information on the business and it's locality        |   Hours of Business Supplied                                           |
-  | to be able to easily browse and search stock and access data on each item of stock  |   Stock search available                                               |
-  | to be able to easily browse and search stock and access data on each item of stock  |   Featured vehicles on home page                                       |
-  | to be able to easily browse and search stock and access data on each item of stock  |   Detail page provided for each stock item                             |
-  | to navigate easily around the site                                                  |   Nav-bar provided                                                     |
-  | to navigate easily around the site                                                  |   Links provided to home page on all pages                             |
-  | to navigate easily around the site                                                  |   Links to home page on error pages                                    |
-  | to have any incorrect input rejected                                                |   All form data validated and  any errors reported                     |
-  | to be able to value any vehicle as a trade-in                                       |   Trade-in form provided and  valued amount applied to bag if desired  |
-  | to easily add a vehicle to my order                                                 |   One click to add item to bag                                         |
-  | 
-  
-  
-  
-  
-  
-  
-    
-  
-    
-    
-      
+     
     
 (CTRL + Click to open in new window) [link to wireframes pdf](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-wireframes-correct.pdf)
 
@@ -143,9 +111,17 @@ A full set of wire frames for this Project was produced and can be viewed at the
 
 </details>    
   
-  
-[link to erd pdf](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/erd_pp5.pdf)
-![erd](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/erd_pp5.png)
+ # Data Schema
+ 
+ <details>
+            
+ <summary> Data Schema</summary>  
+            
+[link to erd pdf](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/erd_pp5.pdf)  
+            
+![erd](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/erd_pp5.png)  
+            
+</details>
 
 
 
@@ -196,7 +172,8 @@ A sitemap.xml file was created using the xml-sitemaps.com website and placed in 
   
 A robots.txt file was created and saved in the root directory. This file specifies which search engines are allowed to crawl the site and which parts should be accessible.  
   
-A link is provided to the websites privacy policy to aid transparency and build trust with users.
+A link is provided to the websites privacy policy to aid transparency and build trust with users.  
+The privacy policy was generated using [privacypolicygenerator.info](https://www.privacypolicygenerator.info/)
   
 
 
@@ -249,7 +226,7 @@ The Facebook page is linked from the site and is also shown below. The Mailchimp
   
   The website was tested for responsiveness using the built-in tool in the Google Chrome browser. As I worked through each breakpoint I fixed any display issues I encountered.  
   A set of images of the homepage at each breakpoint is shown.  
-  There is a link provided which shows the results of each other page in a spreadsheet.  
+   
   #### 320px home page
   ![320px-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-320px.png)
   
@@ -270,10 +247,31 @@ The Facebook page is linked from the site and is also shown below. The Mailchimp
   
   #### 2000px home page
   ![2000-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-2000px.png)
+            
+  #### Table showing responiveness testing.
     
   ![responsive test results](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsivetests-pp5.png)
   
   [link to responsive tests pdf](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive-pp5.pdf)
+              
+  ### Manual Testing of User Inputs and Functions.  
+         
+  I systematically tested all user inputs and functionality in the website to compare feedback/results against expected results.
+  Any unexpected output/outcomes were fixed.  
+         
+            
+  (CTRL + Click to open in new tab) [Manual Testing pdf](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/Manual%20Testing%20pp5%20-%20Sheet1.pdf)
+              
+              
+ ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual1-6.png)
+ ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual7-14.png)
+ ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual15-24.png)
+ ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual25-29.png)
+ ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual30-35.png)
+ ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual36-46.png)
+ ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual47-55.png)
+ ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual56-62.png)
+            
   
 </details>
 
@@ -281,5 +279,5 @@ The Facebook page is linked from the site and is also shown below. The Mailchimp
 
 
 
-https://www.privacypolicygenerator.info/
+
 https://docs.djangoproject.com/en/4.1/ref/contrib/postgres/search/
