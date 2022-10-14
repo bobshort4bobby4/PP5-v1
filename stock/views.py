@@ -201,9 +201,9 @@ def trade_value(request):
             head = "<h3>Great News!</h3>"
             mess = f"We can offer €{ trade_val } (subject to inspection)\
                                     for your vehicle as credit on any purchase"
-            lnk = """<div class="text-center"><a type="submit"
-                 class="btn btn-primary my-2" hx-post="/stock/take_trade/"
-                 hx-target="#trade-value">Apply Amount to Your Bag</a></div>"""
+            lnk = """<div class="text-center"><a id="applytradebtn"
+                 class="btn greenbutton linkhover p-2" style="color:black;" href="/stock/take_trade/"
+                 >Apply Amount to Your Bag</a></div>"""
 
         request.session['trade_details'] = trade_details
         return HttpResponse(f'<h1 class="text-center text-white">{ head }</h1>'
@@ -238,19 +238,21 @@ def take_trade(request):
     request.session['trade_id'] = trade.pk
     request.session['trade_flag'] = True
 
-    return HttpResponse('<div><h1 class="text-center">ThankYou</h1></div>'
-                        """<div><h3 class="text-center">
-                         Trade has been applied to your bag</h3></div>"""
-                        ''' <div>
-                        <a id="allvehlink" href="/stock/trade_in/"
-                         class="btn btn-outline-black rounded-0 mt-2">
-                        <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="text-uppercase">
-                        Value Another Vehicle</span>
-                        </a>
-                        </div>''')
+    return redirect(reverse("stock:stock"))
+
+    # return HttpResponse('<div><h1 class="text-center">ThankYou</h1></div>'
+    #                     """<div><h3 class="text-center">
+    #                      Trade has been applied to your bag</h3></div>"""
+    #                     ''' <div>
+    #                     <a id="allvehlink" href="/stock/trade_in/"
+    #                      class="btn btn-outline-black rounded-0 mt-2">
+    #                     <span class="icon">
+    #                     <i class="fas fa-chevron-left"></i>
+    #                     </span>
+    #                     <span class="text-uppercase">
+    #                     Value Another Vehicle</span>
+    #                     </a>
+    #                     </div>''')
 
 
 def clear_trade(request):

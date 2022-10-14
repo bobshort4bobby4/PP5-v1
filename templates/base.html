@@ -107,22 +107,24 @@
         {% endif %}
         <!-- <span class="my-0  d-lg-none mr-1"><i class="fa fa-shopping-bag fa-lg"></i></span> -->
         <p  id="smallbag" class="my-0 d-lg-none " >
-          <i class="fa fa-shopping-bag fa-lg" aria-label="shopping bag"></i>
+          
           <a id="baggy" href="{% url 'bag:bag' %}" style="color:#28a745!important;" aria-label="shopping bag">
+            <i class="fa fa-shopping-bag fa-lg" aria-label="shopping bag"></i>
             <span class="sr-only">shopping bag</span>
-          {% if grand_total < 0  %}
+          </a>
+           {% if grand_total <= 0  %}
               
-                <span class="sr-only"> shopping bag<i class="fa fa-shopping-bag fa-lg" aria-label="shopping bag"></i></span> 
+                <!-- <span class="sr-only"> shopping bag<i class="fa fa-shopping-bag fa-lg" aria-label="shopping bag"></i></span>  -->
               
-              €{{ grand_total|floatformat:0}}
+               € 0
           {% else %}
               
-                <span class="sr-only"> shopping bag<i class="fa fa-shopping-bag fa-lg" aria-label="shopping bag"></i></span>
+                <!-- <span class="sr-only"> shopping bag<i class="fa fa-shopping-bag fa-lg" aria-label="shopping bag"></i></span> -->
               
-              €0.00
+               {{ grand_total|floatformat:0 }}
           {% endif %}
-          </a>
-          <span class="m-1" style="color:red;">{% if grand_total < 0 %} Trade-In Value {% endif %}</span>
+          
+          <span class="m-1" style="color:red;">{% if grand_total < 0 %} Credit {{ minus_grand_total|floatformat:0 }} {% endif %}</span>
         </p>
         <button class="navbar-toggler map" type="button" style="background-color:#28a745;" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -160,13 +162,13 @@
           </div>
           <p class="my-0 d-none d-lg-block mr-5 greenink" >
             
-            {% if grand_total %}
-                €{{ grand_total|floatformat:0 }}
+            {% if grand_total <= 0 %}
+                €0
             {% else %}
-                €0.00
+            {{ grand_total|floatformat:0 }}
             {% endif %}
           </p>
-          <span class="m-1 d-none d-lg-block" style="color:red;">{% if grand_total < 0 %} Trade-In Value {% endif %}</span>
+          <span class="m-1 d-none d-lg-block mr-2" style="color:red;">{% if grand_total < 0 %} Credit {{minus_grand_total|floatformat:0 }} {% endif %}</span>
           <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'stock:stock' %}">
             <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

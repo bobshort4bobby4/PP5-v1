@@ -2,6 +2,20 @@ html {
      height:100%; 
      scroll-behavior: smooth;
 }
+
+a {
+    color: black !important;
+}
+
+#allvehlink1:hover,
+#applytradebtn {
+    color:#12ec45;
+}
+
+#allvehlink1,
+#applytradebtn {
+    color:black!important;
+}
 /*grepper code for equalising div heights*/
 .row {
     display: flex; /* equal height of the children */
@@ -415,31 +429,41 @@ li.nav-item.dropdown {
 
 @media screen and (min-width:1850px){
     #image {
-        width:75vw;
-        margin-left:12.5vw;
-        margin-right:12.5vw;
-        background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_1600,h_350/v1664295590/media/pp5/lamboblues2000-pp5_wpkxlt.png");
+        width:1600px;
+        margin-left:auto;
+        margin-right:auto;
+        height:485px;
+        background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1600,h_485/v1664295590/media/pp5/lamboblues2000-pp5_wpkxlt.png");
+        /* background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1600,h_485/v1665592584/media/pp5/red-ferrari-side-1600_xesnrp.jpg"); */
+    }  
+        
     }
 
-}
+
 
 @media screen and (min-width:2000px) {
-    #carousel {
+    /* #carousel {
         min-height:1556px;
-    }
+    } */
 
     .radiob {
         font-size:1rem;
     }
 
-    .img-height {
+    /* .img-height {
         min-height: 1500px;
         max-height:1501px;
-    }
+    } */
 
     #image {
         object-fit:fill;
-        height:50vh;
-        background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_1536,h_300/v1664295590/media/pp5/lamboblues2000-pp5_wpkxlt.png");
-    }
+        width:60vw;
+        height:485px;
+        margin-left:auto;
+        margin-right:auto;
+        background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1200,h_485/v1665592584/media/pp5/red-ferrari-side-1600_xesnrp.jpg");
+        /* background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_1600,h_300/v1664295590/media/pp5/lamboblues2000-pp5_wpkxlt.png");
+         */
+         /* background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_1600,h_680/v1665592584/media/pp5/red-ferrari-side-1600_xesnrp.jpg"); */
+    }  
 }

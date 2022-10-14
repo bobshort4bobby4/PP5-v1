@@ -68,7 +68,7 @@
                             
                             {% if not trade_value  %}
                                 <td class="py-3  text-white align-middle text-center">
-                                    €0
+                                    ---------
                                 </td>
                             {% else %}
                                 <td class="py-3  text-white align-middle text-center">
@@ -103,25 +103,25 @@
     
 </div>
 <div class="row no-gutters align-items-center">
-    <div class="offset-1 col-10 col-lg-5 w-50">
-        <a id="allvehlink" href="{% url 'stock:stock' %}" class="btn btn-outline-black rounded-0 mt-2">
+    <div class="w-50  offset-1  col-10 col-md-5 d-md-flex">
+        <a id="allvehlink" href="{% url 'stock:stock' %}" class="btn btn-outline-black rounded-0 mt-2 p-0">
             <span class="icon">
                 <i class="fas fa-chevron-left map"></i>
             </span>
             <span class="text-uppercase map">Back To ALL Vehicles</span>
         </a>
-        {% if trade_value %}
-        <a id="allvehlink" href="{% url 'bag:clear_trade_bag' %}" class="btn btn-primary my-4">Clear Current Trade-In</a>
+         {% if trade_value %}
+        <a id="allvehlink" href="{% url 'bag:clear_trade_bag' %}" class="greenbutton btn linkhover p-2 rounded-1 mt-2 ml-lg-2" style="color:black!important">Clear Current Trade-In</a>
 
-        {% endif %}
-    </div>
-    <div class="w-50 offset-1 col-10 col-lg-5 ">
-        <a id="checkout-btn" href="{% url 'checkout:checkout' %}"  class="greenbutton linkhover p-1 rounded-1" >
-            <button class="greenbutton text-black" >Secure Checkout
+        {% endif %} 
+    </div> 
+    <div class="w-50 offset-1  col-10 col-md-5 d-md-flex">
+        <a id="checkout-btn" href="{% url 'checkout:checkout' %}"  class="mt-2 rounded-1" >
+            <p class="greenbutton btn linkhover p-2 rounded-1 mt-3" style="color:black!important;" >&nbsp&nbspSecure Checkout&nbsp&nbsp  
                 <span class="icon ">
                     <i class="fas fa-lock" style="color: black !important;"></i>
                 </span>
-            </button>
+            </p>
         </a>
     </div>
     

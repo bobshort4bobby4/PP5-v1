@@ -8,6 +8,7 @@ from django.views.generic import TemplateView
 from stock.models import Vehicle
 
 
+
 # Create your views here.
 
 
@@ -35,3 +36,5 @@ class LocationView(TemplateView):
     Displays map
     """
     template_name = "home/location.html"
+
+

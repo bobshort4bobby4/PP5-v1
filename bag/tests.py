@@ -14,6 +14,7 @@
 #         veh = Vehicle.objects.create(stock_num=1, model="3 series", year="2010", preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
 #         session = self.client.session
 #         session['bag'] = "1"
+#         session['trade_flag'] = False
 #         session.save()
 #         response = self.client.post(reverse('bag:add_to_bag', kwargs={"item_id":veh.stock_num}), follow=True)
 #         messages = list(get_messages(response.wsgi_request))
@@ -23,18 +24,18 @@
 #         self.assertRedirects(response, reverse('stock:stock'))
 #         self.assertEqual(response.status_code, 200)
 
-#     def test_add_to_bag_correctly_adds_vehicle(self):
-#         m = Maker.objects.create(maker="Bmw")
-#         f = FuelType.objects.create(fuel="Petrol")
-#         veh = Vehicle.objects.create(stock_num=1, model="3 series", year="2010", preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
-#         response = self.client.post(reverse('bag:add_to_bag', kwargs={"item_id":veh.stock_num}), follow=True)
-#         session = self.client.session["bag"]
-#         self.assertEqual(len(session), 1)
-#         messages = list(get_messages(response.wsgi_request))
-#         self.assertEqual(len(messages), 1)
-#         self.assertEqual(str(messages[0]), f'Added {veh.maker} {veh.model} to your bag')
-#         self.assertRedirects(response, reverse('stock:stock'))
-#         self.assertEqual(response.status_code, 200)
+    # def test_add_to_bag_correctly_adds_vehicle(self):
+    #     m = Maker.objects.create(maker="Bmw")
+    #     f = FuelType.objects.create(fuel="Petrol")
+    #     veh = Vehicle.objects.create(stock_num=1, model="3 series", year="2010", preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
+    #     response = self.client.post(reverse('bag:add_to_bag', kwargs={"item_id":veh.stock_num}), follow=True)
+    #     session = self.client.session["bag"]
+    #     self.assertEqual(len(session), 1)
+    #     messages = list(get_messages(response.wsgi_request))
+    #     self.assertEqual(len(messages), 1)
+    #     self.assertEqual(str(messages[0]), f'Added {veh.maker} {veh.model} to your bag')
+    #     self.assertRedirects(response, reverse('stock:stock'))
+    #     self.assertEqual(response.status_code, 200)
 
 #     def test_remove_from_bag_works_and_redirects(self):
 #         m = Maker.objects.create(maker="Bmw")

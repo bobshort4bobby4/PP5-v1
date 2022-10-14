@@ -12,90 +12,84 @@
 # @tag('views')
 # class TestStockView(TestCase):
 
-#     def test_StockView_renders_correct_template(self):
-#         response = self.client.get(reverse('stock:stock'))
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'stock/stock.html')
+ 
+
+    # this next view has been deleted
 
 
-#     def test_StockDetail_renders_correct_template(self):
-#         m = Maker.objects.create(maker="Bmw")
-#         f = FuelType.objects.create(fuel="Petrol")
-#         veh = Vehicle.objects.create(stock_num=1, year="2010", preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
-#         response = self.client.get(reverse('stock:stock_detail', kwargs={"pk":veh.stock_num}))
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'stock/stock_detail.html')
+    # def test_Edit_Delete_View_renders_correct_template(self):
+    #     m = Maker.objects.create(maker="Bmw")
+    #     f = FuelType.objects.create(fuel="Petrol")
+    #     veh = Vehicle.objects.create(stock_num=1, year="2010", preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
+    #     response = self.client.get(reverse('stock:edit_delete', kwargs={"stock_num":veh.stock_num}))
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertTemplateUsed(response, 'stock/edit_delete.html')
 
 
-#     def test_Edit_Delete_View_renders_correct_template(self):
-#         m = Maker.objects.create(maker="Bmw")
-#         f = FuelType.objects.create(fuel="Petrol")
-#         veh = Vehicle.objects.create(stock_num=1, year="2010", preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
-#         response = self.client.get(reverse('stock:edit_delete', kwargs={"stock_num":veh.stock_num}))
-#         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, 'stock/edit_delete.html')
+    # def test_delete_vehicle_redirect_to_home_user_notstaff(self):
+    #     user1 = User.objects.create_user(
+    #         username='user1',
+    #         password='1234',
+    #         email="mail@mail.com",
+    #         is_staff=False,
+    #     )
+    #     self.client.login(username='user1', password='1234')
+
+    #     m = Maker.objects.create(maker="Bmw")
+    #     f = FuelType.objects.create(fuel="Petrol")
+    #     veh = Vehicle.objects.create(stock_num=1, year="2010", preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
+    #     response = self.client.get(reverse('stock:delete_vehicle', kwargs={"vehicle_id":veh.stock_num}))
+    #     messages = list(get_messages(response.wsgi_request))
+    #     self.assertEqual(len(messages), 1)
+    #     self.assertEqual(str(messages[0]), 'Sorry, only store staff can do that.')
+
+    #     self.assertEqual(response.status_code, 302)
+    #     self.assertRedirects(response, reverse('home:home'))
 
 
-#     def test_delete_vehicle_redirect_to_home_user_notstaff(self):
-#         user1 = User.objects.create_user(
-#             username='user1',
-#             password='1234',
-#             email="mail@mail.com",
-#             is_staff=False,
-#         )
-#         self.client.login(username='user1', password='1234')
+    # def test_delete_vehicle(self):
 
-#         m = Maker.objects.create(maker="Bmw")
-#         f = FuelType.objects.create(fuel="Petrol")
-#         veh = Vehicle.objects.create(stock_num=1, year="2010", preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
-#         response = self.client.get(reverse('stock:delete_vehicle', kwargs={"vehicle_id":veh.stock_num}))
-#         messages = list(get_messages(response.wsgi_request))
-#         self.assertEqual(len(messages), 1)
-#         self.assertEqual(str(messages[0]), 'Sorry, only store staff can do that.')
+    #     session = self.client.session
+    #     session['trade_flag'] = False
+    #     session.save()
+    #     user1 = User.objects.create_user(
+    #         username='user1',
+    #         password='1234',
+    #         email="mail@mail.com",
+    #         is_staff=True,
+    #     )
+    #     self.client.login(username='user1', password='1234')
 
-#         self.assertEqual(response.status_code, 302)
-#         self.assertRedirects(response, reverse('home:home'))
-
-
-#     def test_delete_vehicle(self):
-#         user1 = User.objects.create_user(
-#             username='user1',
-#             password='1234',
-#             email="mail@mail.com",
-#             is_staff=True,
-#         )
-#         self.client.login(username='user1', password='1234')
-
-#         m = Maker.objects.create(maker="Bmw")
-#         f = FuelType.objects.create(fuel="Petrol")
-#         veh = Vehicle.objects.create(stock_num=1, year="2010",available_sale=True, preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
-#         response = self.client.post(reverse('stock:delete_vehicle', kwargs={"vehicle_id":veh.stock_num}))
-#         messages = list(get_messages(response.wsgi_request))
-#         self.assertEqual(len(messages), 1)
-#         self.assertEqual(str(messages[0]), 'Vehicle Deleted!')
-#         self.assertEqual(response.status_code, 302)
-#         self.assertRedirects(response, reverse('stock:stock'))
+    #     m = Maker.objects.create(maker="Bmw")
+    #     f = FuelType.objects.create(fuel="Petrol")
+    #     veh = Vehicle.objects.create(stock_num=1, year="2010",available_sale=True, preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
+    #     response = self.client.post(reverse('stock:delete_vehicle', kwargs={"vehicle_id":veh.stock_num}))
+    #     messages = list(get_messages(response.wsgi_request))
+    #     self.assertEqual(len(messages), 1)
+    #     self.assertEqual(str(messages[0]), 'Vehicle Deleted!')
+    #     self.assertEqual(response.status_code, 302)
+    #     self.assertRedirects(response, reverse('stock:stock'))
 
 
-#     def test_edit_vehicle_redirect_to_home_user_notstaff(self):
-#         user1 = User.objects.create_user(
-#             username='user1',
-#             password='1234',
-#             email="mail@mail.com",
-#             is_staff=False,
-#         )
-#         self.client.login(username='user1', password='1234')
+    # def test_edit_vehicle_redirect_to_home_user_notstaff(self):
+    #     user1 = User.objects.create_user(
+    #         username='user1',
+    #         password='1234',
+    #         email="mail@mail.com",
+    #         is_staff=False,
+    #     )
+    #     self.client.login(username='user1', password='1234')
 
-#         m = Maker.objects.create(maker="Bmw")
-#         f = FuelType.objects.create(fuel="Petrol")
-#         veh = Vehicle.objects.create(stock_num=1, year="2010", preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
-#         response = self.client.get(reverse('stock:edit_vehicle', kwargs={"vehicle_id":veh.stock_num}))
-#         messages = list(get_messages(response.wsgi_request))
-#         self.assertEqual(len(messages), 1)
-#         self.assertEqual(str(messages[0]), 'Sorry, only store staff can do that.')
+    #     m = Maker.objects.create(maker="Bmw")
+    #     f = FuelType.objects.create(fuel="Petrol")
+    #     veh = Vehicle.objects.create(stock_num=1, year="2010", preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
+    #     response = self.client.get(reverse('stock:edit_vehicle', kwargs={"vehicle_id":veh.stock_num}))
+    #     messages = list(get_messages(response.wsgi_request))
+    #     self.assertEqual(len(messages), 1)
+    #     self.assertEqual(str(messages[0]), 'Sorry, only store staff can do that.')
 
-#         self.assertEqual(response.status_code, 302)
-#         self.assertRedirects(response, reverse('home:home'))
+    #     self.assertEqual(response.status_code, 302)
+    #     self.assertRedirects(response, reverse('home:home'))
 
 
 #     def test_edit_vehicle_displays_correct_message_if_invalid_form(self):
@@ -196,6 +190,8 @@
 # #         veh = Vehicle.objects.get(pk=1)
 # #         print(Vehicle.objects.count())
 # #         self.assertTrue(form.is_valid())
+
+
 # @tag('forms')
 # class TestVehicleForm(TestCase):
 
