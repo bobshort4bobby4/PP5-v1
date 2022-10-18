@@ -9,7 +9,21 @@ Github repository can be found [here](https://github.com/bobshort4bobby4/PP5-v1)
   
   
   
-![site mock-up](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/mock-up-pp5.png)
+![site mock-up](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/mock-up-pp5.png)  
+  
+  
+  
+# **Introduction**
+
+This is the fifth project I have completed as part of the[Code Institute Full Stack Diploma Course](https://codeinstitute.net).  
+  
+This project sets out to create an ecommerce site for a fictitious car-sales business based in Dublin, Ireland.  
+The site will display all available stock, allow a search of same.  Each item of stock should have a specific page giving more information on that vehicle.  
+The site will have a shopping bag function where users can store items before purchasing them in the stripe enabled checkout.  
+Users should be able to value a vehicle  for possible trade-in, accept this value if desrired and apply it as a credit to their shopping bag total.
+Staff members will need to be able to add, delete and edit stock items and also to change the trade-in base price for each manufacturer from the front-end.
+
+
 
 
 # User Experience/User Interface (UX/UI)
@@ -121,7 +135,14 @@ A full set of wire frames for this Project was produced and can be viewed at the
 ![vehicle detail page wireframe](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-Vehicle%20Detail.png)  
 #### Adjust Base Price Page Wireframe
 ![adjust base price page wireframe](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-Adjust%20Base%20Price.png)
-
+  
+    
+### Images
+  Images used in this project were obtained from a number of sources but principaly the [Pexels Website](https://www.pexels.com/).  
+  All images are free to use.  
+  
+### Colours
+  
 </details>    
   
  # Data Schema
