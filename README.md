@@ -120,7 +120,10 @@ A full set of wire frames for this Project was produced and can be viewed at the
 [link to erd pdf](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/erd_pp5.pdf)  
             
 ![erd](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/erd_pp5.png)  
-            
+
+Note: As I review this erd, it seems to be redundant to have a separate relation for the fuel-type as there is only one field. It may prove uesful in a hypothethical future version of the software if other features such as fuel efficency or environmental impact of each fuel needed to be calculated for each vechicle.  
+
+              
 </details>
 
 
@@ -160,11 +163,11 @@ The next step in SEO optimisation was to include as many as possible of the keyw
 
 As resources allow it is planned to add articles and blog entries which will enhance the websites authority on our area of business, this should boost our ranking further.  A website that displays authority, expertise and trustworthiness will rank highly in search engine results, this metric is more important now that pure keyword matching. Relevant articles should also reduce bounce rate and increase session time.
 
-The alt text for all the images on the stock page was changed to give each car a description of its make and model and a used or new classifacation.    
+The alt text for all the images on the stock page was changed to give each car a description of its make and model and a used or new classification.    
 
 The social links were given the rel="noopener" attribute to ensure their content was ignored by search engines.    
 
-A link to SIMI was provided to further boost rankings.  
+A link to SIMI (Motor-Dealers representation body)  was provided to further boost rankings.  
 
 The meta data tags were created in the html head.    
 
@@ -220,6 +223,23 @@ The Facebook page is linked from the site and is also shown below. The Mailchimp
 <details>
 
 <summary> Testing</summary>
+
+ ### WAVE Acccessibility Tests  
+ 
+  All pages of the app were tested using the WAVE Accessibility testing app.  
+  ALL errors and contrast errors were resolved 
+  A sample of results is shown below.
+  Images of all page test can be found at[](/workspace/PP5-v1/media/readme_docs/wave_tests)
+  
+  
+  
+  
+  ### HTML Validation.
+  
+  The Nu HTML checker was used to validate all project html.
+  All errors were cleared
+  
+  ![summary of lighthouse results](https://github.com/bobshort4bobby4/PP4-Civ1/blob/main/media/lighthouse-results/lightresults-all-pp4.png) 
 
 
  ### Responsive Testing
