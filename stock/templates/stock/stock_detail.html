@@ -10,11 +10,11 @@
             <div class="image-container my-5">
                 {% if object.image_url %}
                     <a href="{{ object.image_url }}" target="_blank">
-                        <img class="card-img-top img-fluid" src="{{ object.image_url }}" alt="{{ product.name }}">
+                        <img class="card-img-top img-fluid" src="{{ object.image_url }}" alt=" {{object.maker}} {{object.model}}">
                     </a>
                 {% else %}
                     <a href="">
-                        <img class="card-img-top img-fluid" src="https://res.cloudinary.com/dpudxnll7/image/upload/v1660076458/media/pp5/noimage-pp5_wohtub.png" alt="{{ product.name }}">
+                        <img class="card-img-top img-fluid" src="https://res.cloudinary.com/dpudxnll7/image/upload/v1660076458/media/pp5/noimage-pp5_wohtub.png" alt="{{object.maker}} {{object.model}}">
                     </a>
                 {% endif %}
             </div>
@@ -38,7 +38,7 @@
         </div><!--end image div-->
 
         <div class=" container text-white col-12 col-md-6 col-lg-4 text-center my-5">
-            <h1>  {{ object.year }}  {{ object.maker }}  {{ object.model }}</h1>
+            <h1>  {{ object.year|floatformat:"0u" }}  {{ object.maker }}  {{ object.model }}</h1>
             <h3>  Fuel: {{ object.fuel}} </h3>
             <h3>  Colour: {{ object.colour}} </h3>
             <h3>  Odometer:  {{ object.odometer }} km</h3>

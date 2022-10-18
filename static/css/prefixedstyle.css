@@ -1,0 +1,472 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+
+/* globalstyles */
+html {
+    height:100%; 
+    scroll-behavior: smooth;
+}
+
+a {
+   color: black !important;
+}
+
+
+/*grepper code for equalising div heights*/
+.row {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex; /* equal height of the children */
+ }
+
+.col {
+   -webkit-box-flex: 1;
+       -ms-flex: 1;
+           flex: 1; /* additionally, equal width */
+   
+   padding: 1em;
+   border: solid;
+ }
+
+body {
+   min-height: 100vh;
+   background-color:black;
+   scroll-behavior: smooth;
+}
+
+.sr-only {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   padding: 0;
+   margin: -1px;
+   overflow: hidden;
+   clip: rect(0,0,0,0);
+   border: 0;
+ }
+
+a {
+   color: white !important;
+}
+
+* {
+   -webkit-box-sizing: border-box;
+           box-sizing: border-box;
+   /* outline:1px solid limegreen !important; */
+   /* background:rgb(0 100 0 / 0.1) !important; */
+   padding:0;
+   border:none;
+   margin:0;
+}
+
+#allvehlink1:hover,
+#applytradebtn {
+   color:#12ec45;
+}
+
+#allvehlink1,
+#applytradebtn {
+   color:black!important;
+}
+
+/* header styles */
+
+#logo-main {
+   border:2px solid #28a745!important ;
+   
+}
+
+#contact-top {
+   border-bottom:1px solid #28a745!important;
+}
+
+.map, .tele {
+   color:#28a745!important;
+}
+
+#logo-main a {
+   text-decoration: none;
+   color:#28a745!important;
+}
+
+.dropdown-toggle::after {
+   color:#28a745!important;
+}
+
+#logo-main a:hover,
+#allvehlink:hover,
+#checkout-btn:hover,
+.tele:hover,
+.map:hover,
+#smallbag:hover,
+#baggy:hover,
+.linkhover:hover,
+.nav-item a:hover {
+   cursor: pointer;
+   color: #12ec45!important;  
+}
+
+.hoverbutton:hover {
+   cursor: pointer;
+   background-color:#12ec45 !important;  
+   color:black;
+   
+}
+
+
+#navbar {
+   border-bottom:2px solid #28a745!important;
+}
+#smallbag {
+   color: #28a745 !important;
+   }
+
+.greenink {
+   color: #28a745 !important;
+}
+
+.greenback {
+   background-color: #28a745;
+}
+
+.greenbutton {
+   background-color: #28a745;
+   border-radius: 4px;
+}
+
+.radiob {
+   font-size: .8rem;
+}
+
+
+.navbar-toggler {
+   background-color: #28a745;
+   border:1px solid black!important;
+   color: black !important;
+}
+
+li.nav-item.dropdown {
+   list-style-type: none;
+}
+
+#middlehead {
+   color:#28a745;
+}
+
+
+.dropdown-item {
+   color: black !important;
+}
+
+/* home image */
+
+#image {
+   background-color: aliceblue;
+   vertical-align: top;
+   height:35vh;
+   width:100vw;
+   background-size: cover;
+   background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_300,h_288/v1664279796/media/pp5/greenlambo-small-pp5_foazm6.jpg");
+}
+
+
+/* bag */
+
+#body-bag {
+   font-size:0.8rem;
+}
+
+/*mailchimp*/
+
+#mc_embed_signup{
+   background:#fff;
+   /* clear:left; */
+   font:14px Helvetica,Arial,sans-serif;
+   margin:20px;
+}
+
+/*--carousel styles --*/
+
+#carousel{
+   min-height: 270px;
+}
+
+#carowrap {
+   background:#adc1be;
+}
+
+.img-height {
+   min-height:200px;
+   border:2px solid black!important;
+   -o-object-fit: contain;
+      object-fit: contain;
+}
+
+.cardetail {
+   min-height:60px;
+   border:2px solid black;
+   border-top: none;
+}
+
+#image-vehicle {
+   width: 100%;
+   -o-object-fit: fill;
+      object-fit: fill;
+
+}
+
+/* google map */
+
+.map-responsive{
+
+   overflow:hidden;
+
+   padding-bottom:56%;
+
+   position:relative;
+
+   height:0;
+
+}
+
+.map-responsive iframe{
+
+   left:0;
+
+   top:0;
+
+   height:100%;
+
+   width:100%;
+
+   position:absolute;
+
+}
+/* order history page sytles */
+
+#orderhistorytable {
+   padding-left: 5px!important;
+   padding-right: 5px!important;
+}
+
+
+/*-----media queries----*/
+
+@media screen and (min-width:375px) {
+   #carousel{
+       min-height: 320px;
+   }
+
+   #orderhistorytable {
+       padding-left: inherit!important;
+       padding-right: inherit!important;
+   }
+   
+   .img-height {
+       min-height:280px;
+       -o-object-fit: fill;
+          object-fit: fill;
+   }
+
+   #image {
+       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_375,h_288/v1664279796/media/pp5/greenlambo-small-pp5_foazm6.jpg");
+   }
+
+   #body-bag {
+       font-size:initial;
+   }
+}
+
+
+@media screen and (min-width:425px) {
+   #carousel{
+       min-height: 425px;
+   }
+   
+   .img-height {
+       min-height:350px;
+       -o-object-fit: contain;
+          object-fit: contain;
+   }
+
+   #image {
+      background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/v1664279796/media/pp5/greenlambo-small-pp5_foazm6.jpg");
+   }
+
+}
+
+@media screen and (min-width:768px) {
+   #image {
+       /* background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/v1664102996/media/pp5/ferrari-wide-landscwebp_lc2y5f.webp"); */
+       /* background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/v1664278142/media/pp5/lotusside_gz8rb5.jpg"); */
+       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_690,h_288/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg");
+       -o-object-position: 50% -10%;
+          object-position: 50% -10%;
+       
+       
+       width:90%;
+       margin-left: 5%;
+       margin-right: 5%;
+       margin-top: 5px;
+       border:2px #28a745 solid;
+       
+   }
+
+   .radiob {
+       font-size: 1.3rem;
+   }
+
+   #carousel{
+       min-height: 550px;
+   }
+   
+   .img-height {
+       min-height:480px;
+       -o-object-fit: contain;
+          object-fit: contain;
+   }
+
+   #footer-row {
+       -ms-flex-wrap: nowrap;
+           flex-wrap: nowrap;
+   }
+   
+   #chimp {
+       -webkit-box-flex:1;
+           -ms-flex:auto;
+               flex:auto;
+   }
+
+}
+
+@media screen and (min-width:1024px) {
+   #carowrap{
+       min-height: 700px;
+       max-height: 700px;
+   }
+
+   #caro {
+       min-height: 684px;
+       max-height:684px;
+   }
+
+   #carouselExampleSlidesOnly {
+       min-height: 684px;
+       max-height:684px;
+   }
+
+   .carousel-inner {
+       min-height: 684px;
+       max-height:684px;
+   }
+
+   #carousel {
+       height: auto;
+   }
+
+   .imagewrap{
+       min-height: 624px;
+       max-height: 624px;
+   }
+
+   #image{
+       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_921,h_288/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg");
+   }
+   
+   .img-height {
+       min-height: 624px;
+       max-height: 624px;
+       -o-object-fit: contain;
+          object-fit: contain;
+   }
+
+   .topmarlg {
+       margin-top:7% !important;
+   }
+
+}
+
+@media screen and (min-width:1440px) {
+
+   #carowrap{
+       min-height: 700px;
+       max-height: 700px;
+   }
+
+   #caro {
+       min-height: 684px;
+       max-height:684px;
+   }
+  
+
+   #carousel{
+       height:auto;
+       width:70%;
+       margin:0 auto;
+   }
+
+   .img-height {
+       min-height: 624px;
+       max-height: 624px;
+       -o-object-fit: fill;
+          object-fit: fill;
+   }
+
+   /*increse image size on larger screens for list vehicles screen*/
+   .card-img-top {
+       width:600px;
+       height:330px;
+       -o-object-fit: fill;
+          object-fit: fill;
+   }
+
+   #card-container {
+       min-height:400px;
+       max-height:400px;
+   }
+
+   #image {
+       width:80vw;
+       margin-left:10vw;
+       margin-right:10vw;
+       -o-object-fit: cover;
+          object-fit: cover;
+       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_1152,h_320/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg");
+   }
+   
+}
+
+@media screen and (min-width:1850px){
+   #image {
+       width:1600px;
+       margin-left:auto;
+       margin-right:auto;
+       height:485px;
+       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1600,h_485/v1664295590/media/pp5/lamboblues2000-pp5_wpkxlt.png");
+   }  
+       
+}
+
+
+
+@media screen and (min-width:2000px) {
+   .radiob {
+       font-size:1rem;
+   }
+
+   #image {
+       -o-object-fit:fill;
+          object-fit:fill;
+       width:60vw;
+       height:485px;
+       margin-left:auto;
+       margin-right:auto;
+       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1200,h_485/v1665592584/media/pp5/red-ferrari-side-1600_xesnrp.jpg");
+   }
+
+}

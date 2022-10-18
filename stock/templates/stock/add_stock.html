@@ -13,14 +13,23 @@
                 {% if field.name != 'image' %}
                     {{ field | as_crispy_field }}
                 {% else %}
+                    <label for="id_image" class="d-none">image input</label>
                     {{ field }}
                 {% endif %}
             {% endfor %}
             <div class="text-right">
-                <button class="greenbutton linkhover p-2" href="{% url 'stock:stock' %}">Cancel</button>
+                
                 <button class="greenbutton linkhover p-2" type="submit">Add Product</button>
             </div>
         </form>
     </div>            
+</div>
+<div >
+    <a id="allvehlink" href="{% url 'home:home' %}" class="btn btn-outline-black rounded-0 mt-2 ml-5 p-0">
+        <span class="icon">
+            <i class="fas fa-chevron-left map"></i>
+        </span>
+        <span class="text-uppercase map">Back To Home</span>
+    </a>
 </div>
 {% endblock content%}

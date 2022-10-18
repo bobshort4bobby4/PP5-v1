@@ -6,7 +6,7 @@
 <div class="row no-gutters"></div>
 <div class="container-fluid row no-gutters">
     {% for vehicle in object_list %}
-        <div id="card-container" class=" offset-xs-0 offset-sm-1 col-sm-10 offset-lg-2 col-lg-8 offset-xl-0 col-xl-6 mt-1 mb-1" >
+        <div id="card-container{{vehicle.pk}}" class=" offset-xs-0 offset-sm-1 col-sm-10 offset-lg-2 col-lg-8 offset-xl-0 col-xl-6 mt-1 mb-1" >
             <div class="card h-100  m-1" style="border:5px solid white!important; border-bottom: none; border-style:outset;">
                 {% if vehicle.image_url %}
                     <a href="{% url 'stock:stock_detail' vehicle.pk %}" class="h-100">
@@ -14,7 +14,7 @@
                     </a>
 
                     <div class=" text-center " style="height:0px; " >
-                        <p  style="position:relative; top:-23px; color:whitesmoke; background: rgb(0 0 0 /28%); font-size: 1rem; font-weight: bold; width:60%; margin-left:20%; margin-right:20%;">{{ vehicle.year}}  {{ vehicle.maker }}  {{ vehicle.model }}</p>
+                    <p  style="position:relative; top:-23px; color:whitesmoke; background: rgb(0 0 0 /28%); font-size: 1rem; font-weight: bold; width:60%; margin-left:20%; margin-right:20%;">{{ vehicle.year|floatformat:'0u'}}  {{ vehicle.maker }}  {{ vehicle.model }}</p>
                     </div>
                 {% else %}
                     <a href="{% url 'stock:stock_detail' vehicle.pk %}" class="h-100">
@@ -22,7 +22,7 @@
                     </a>
 
                     <div class=" text-center " style="height:0px;" >
-                        <p  style=" position:relative; top:-23px; color:black; font-size: 1rem; font-weight: bold; ">{{ vehicle.year}}  {{ vehicle.maker }}  {{ vehicle.model }}</p>
+                        <p  style=" position:relative; top:-23px; color:black; font-size: 1rem; font-weight: bold; ">{{ vehicle.year|floatformat:"0u"}}  {{ vehicle.maker }}  {{ vehicle.model }}</p>
                     </div>
                 {% endif %}
                     

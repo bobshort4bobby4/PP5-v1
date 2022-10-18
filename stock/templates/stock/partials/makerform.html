@@ -1,4 +1,4 @@
-<form method="POST" action="/stock/adjust_tradein/" hx-swap="outerHTML" hx-target="#id_base_price"  hx-post="{% url 'stock:adjust_tradein' %}" hx-trigger="change " class="form mb-2 text-white" enctype="multipart/form-data">
+<form method="POST" action="/stock/adjust_tradein/" data-hx-swap="outerHTML" data-hx-target="#id_base_price"  data-hx-post="{% url 'stock:adjust_tradein' %}" data-hx-trigger="change " class="form mb-2 text-white" enctype="multipart/form-data">
     {% csrf_token %}
     {% for field in form %}
         <div id ="field{{forloop.counter }}">

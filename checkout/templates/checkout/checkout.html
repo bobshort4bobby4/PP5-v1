@@ -4,7 +4,7 @@
 {% block title%}Checkout{% endblock title %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+    <link rel="stylesheet" href="{% static 'checkout/css/prefixedcheckout.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -25,7 +25,7 @@
     <div class="row no-gutters border-0">
     
         <div class="col-12 col-lg-6 order-lg-last  p-1 mb-5">
-            <p class="text-muted">Order Summary ({{ bag_items|length }})</p>
+            <p class="text-white">Order Summary ({{ bag_items|length }})</p>
             <div class="row">
                 <div class="col-7 ">
                     <p class="mb-1 mt-0 lead text-white">Item</p>
@@ -37,15 +37,6 @@
             <hr class=" border text-white">
             {% for item in bag_items %}
                 <div class="row">
-                    <!-- <div class="d-none d-md-block col-6 col-lg-4 mb-1">
-                        <a href="{% url 'stock:stock_detail' item.pk %}">
-                            {% if item.image_url %}
-                                <img class="w-100" src="{{ item.image_url }}" alt="{{ product.name }}">
-                            {% else %}
-                                <img class="w-100" src="#" alt="{{ product.name }}">
-                            {% endif %}
-                        </a>
-                    </div> -->
                     <div class="col-7 ">
                         <p class="mb-1 mt-0  text-white">{{ item.year|upper}} {{ item.maker|upper }} {{ item.model|upper }} {{ item.fuel}}</p>
                     </div>
@@ -77,7 +68,7 @@
                         {% if trade_value %}
                             €{{ trade_value }}
                         {% else %}
-                            €0
+                            ------
                         {% endif %}
                     </p>
                     <p class="my-2 mt-5 "><strong>€{{ grand_total|floatformat:0 }}</strong></p>
@@ -87,7 +78,7 @@
         
         <div class="col-12 col-lg-6 p-1">
             <p class=" text-white">Please fill out the form below to complete your order</p>
-            <form action="{% url 'checkout:checkout' %}" method="POST" id="payment-form">
+            <form action="{% url 'checkout:checkout' %}" method="POST" id="payment-form" aria-label="details delivery">
                 {% csrf_token %}
                 <fieldset class="rounded px-3 mb-5">
                     <legend class="fieldset-label small text-white px-2 w-auto">Details</legend>
@@ -108,9 +99,9 @@
                             <label class="form-check-label text-white" for="id-save-info">Save this delivery information to my profile</label>
                             <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" >
                         {% else %}
-                            <label class="form-check-label" for="id-save-info">
-                                <a class="text-info text-white" href="{% url 'account_signup' %}">Create an account</a> or 
-                                <a class="text-info text-white" href="{% url 'account_login' %}">login</a> to save this information
+                            <label class="form-check-label text-white">
+                                <a class="text-info greenink" href="{% url 'account_signup' %}">Create an account</a> or 
+                                <a class="text-info greenink" href="{% url 'account_login' %}">login</a> to save this information
                             </label>
                         {% endif %}
                     </div>
@@ -165,12 +156,12 @@
         </a>
     </div>
 
-    <div id="loading-overlay">
-        <h1 class="text-light logo-font loading-spinner">
-            <span class="icon">
+    <div id="loading-overlay" aria-hidden="true">
+        <span class="text-light logo-font loading-spinner" aria-hidden="true">
+            <span class="icon" aria-hidden="true">
                 <i class="fas fa-3x fa-sync-alt fa-spin"></i>
             </span>
-        </h1>
+        </span>
     </div>
     
     
@@ -185,10 +176,3 @@
     <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
 
-<!-- <p class="my-1  text-white">
-                        {% if delivery %}
-                            €{{ delivery|floatformat:0 }}
-                        {% else %}
-                            €0
-                        {% endif %}
-                    </p> -->

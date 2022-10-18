@@ -2,44 +2,42 @@
 {% load static %}
 <html lang="en">
 <head>
-{% block meta %}
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content=" An online sales room for new and used cars based in Dublin">
-    <meta name="keywords" content="carsales, value cars, used cars, cheap cars, trade-in, second-hand vehicles, local garage, local car sales, Motordealers, cardealers, car finance, quality used cars, quality second hand vehicles, hybrid used cars, used electric vehicles, best garage near me, guaranteed used vehicles, guaranteed cars">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale = 1.0, user-scalable = no">
-{% endblock %}
+  {% block meta %}
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta name="description" content=" An online sales room for new and used cars based in Dublin">
+      <meta name="keywords" content="carsales, value cars, used cars, cheap cars, trade-in, second-hand vehicles, local garage, local car sales, Motordealers, cardealers, car finance, quality used cars, quality second hand vehicles, hybrid used cars, used electric vehicles, best garage near me, guaranteed used vehicles, guaranteed cars">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale = 1.0, user-scalable = no">
+  {% endblock %}
 
-{% block extra_meta %}
-{% endblock %}
+  {% block extra_meta %}
+  {% endblock %}
 
-{% block corecss %} 
-    <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dpudxnll7/image/upload/v1658847796/media/pp5/pp5-favicon_uynn8j.png">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
-{% endblock %}
+  {% block corecss %} 
+      <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dpudxnll7/image/upload/v1658847796/media/pp5/pp5-favicon_uynn8j.png">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
+      <link rel="stylesheet" href="{% static 'css/prefixedstyle.css' %}">  
+  {% endblock %}
 
-{% block extra_css %}
-{% endblock %}
+  {% block extra_css %}
+  {% endblock %}
 
-{% block corejs %}
-    <!-- <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script> -->
-    <script src="https://kit.fontawesome.com/081f6ba32a.js" crossorigin="anonymous"></script>
-    <!-- <script src="https://use.fontawesome.com/a9ef3e2825.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    
-    <script src="https://unpkg.com/htmx.org@1.8.0"></script>
-    
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-{% endblock %}
+  {% block corejs %}
+      <script src="https://kit.fontawesome.com/081f6ba32a.js" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      
+      <script src="https://unpkg.com/htmx.org@1.8.0"></script>
+      
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  {% endblock %}
 
-{% block extra_js %}
-{% endblock %}
+  {% block extra_js %}
+  {% endblock %}
 
-    
-<title>{% block title%}{% endblock title %}</title>
+      
+  <title>{% block title%}{% endblock title %}</title>
 </head>
 
 <body class="d-flex flex-column dark main-bg h-100" >
@@ -105,27 +103,22 @@
             </li>
           </ul>
         {% endif %}
-        <!-- <span class="my-0  d-lg-none mr-1"><i class="fa fa-shopping-bag fa-lg"></i></span> -->
+        
         <p  id="smallbag" class="my-0 d-lg-none " >
           
           <a id="baggy" href="{% url 'bag:bag' %}" style="color:#28a745!important;" aria-label="shopping bag">
             <i class="fa fa-shopping-bag fa-lg" aria-label="shopping bag"></i>
             <span class="sr-only">shopping bag</span>
           </a>
-           {% if grand_total <= 0  %}
-              
-                <!-- <span class="sr-only"> shopping bag<i class="fa fa-shopping-bag fa-lg" aria-label="shopping bag"></i></span>  -->
-              
-               € 0
-          {% else %}
-              
-                <!-- <span class="sr-only"> shopping bag<i class="fa fa-shopping-bag fa-lg" aria-label="shopping bag"></i></span> -->
-              
-               {{ grand_total|floatformat:0 }}
+          {% if grand_total <= 0  %}
+              € 0
+          {% else %}      
+              {{ grand_total|floatformat:0 }}
           {% endif %}
           
           <span class="m-1" style="color:red;">{% if grand_total < 0 %} Credit {{ minus_grand_total|floatformat:0 }} {% endif %}</span>
         </p>
+        <!-- hamburger button small screens -->
         <button class="navbar-toggler map" type="button" style="background-color:#28a745;" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -134,17 +127,18 @@
           <ul class="navbar-nav mr-auto align-items-baseline">
             <li class="nav-item active">
               {% if user.is_authenticated %}
-                        <!-- <li class="nav-item cus-nav-p">
-                            <a class="nav-link" href="{% url 'account_logout' %}" aria-label="logout button">Logout</a>
-                        </li> -->
+                       
                     {% else %}
-                        <li class="nav-link cus-nav-p">
+                      <ul class="d-flex flex-column flex-lg-row">
+                        <li class="nav-link cus-nav-p m-0 p-0">
                             <a class="nav-link map" style="color:#28a745;" href="{% url 'account_login' %}" aria-label="log in button">Login</a>
-                        </li>
-                        <li class="nav-link cus-nav-p">
+                        </li> 
+                        <li class="nav-link cus-nav-p m-0 p-0">
                             <a class="nav-link map" style="color:#28a745;" href="{% url 'account_signup' %}" aria-label="sign up button">Register</a>
-                        </li>
-                    {% endif%}
+                        </li> 
+                      </ul>
+                      
+              {% endif%}
             </li>
             <li class="nav-item">
               <a class="nav-link map" style="color:#28a745;" href="{% url 'stock:stock' %}"> All Vehicles</a>
@@ -156,8 +150,8 @@
           </ul>
 
           <div class="my-0 d-none d-lg-block mr-1 ">
-            <a class="map" href="{% url 'bag:bag' %}">
-              <i class="fa fa-shopping-bag fa-lg greenink map "></i>
+            <a class="map" aria-label="shopping bag link" href="{% url 'bag:bag' %}">
+              <i class="fa fa-shopping-bag fa-lg greenink map "> </i>
             </a>
           </div>
           <p class="my-0 d-none d-lg-block mr-5 greenink" >
@@ -178,7 +172,7 @@
     </div>
 
     
-    <!--------------endof navbar-->
+    <!--============================endofnavbar=======================-->
     
   </header>
    
@@ -200,13 +194,13 @@
        <div id="footer-row" class="row no-gutters">
           
         <!-- offset-1 col-10 offset-md-2 col-md-8 offset-lg-0 col-lg-4 -->
-            <div id="social links" class="m-4 offset-md-3 col-md-4 col-lg-3">
+            <div id="social_links" class="m-4 offset-md-3 col-md-4 col-lg-3">
                 <h5 class="mt-2 ml-md-5">Check out these links:</h5>
                 <div class="mt-2 ml-md-5 "><a target="_blank"  rel="noopener" href="https://www.facebook.com/Car4U-103831232458420/?ref=page_internal"><i class="fa fa-facebook-square " style="color:black;"> Facebook</i></a></div>
                 <div class="mt-2 ml-md-5"><a target="_blank" rel="noopener" href="https://www.instagram.com"><i class="fab fa-instagram-square" style="color:black;" > Instagram</i></a></div>
                 <div class="mt-2 ml-md-5"><a target="_blank" rel="noopener" href="https://www.youtube.com"><i class="fa fa-youtube-square " style="color:black;" > Youtube</i></a></div>
                 <div class="mt-2 ml-md-5"><a style="color:black!important;" target="_blank" href="https://www.simi.ie/en" rel="noopener"><i class="fa fa-road"> </i>SIMI</a></div>
-                <div class="mt-2 ml-md-5"><a style="color:black!important;" rel="noopener" href="https://www.privacypolicygenerator.info/live.php?token=rQK4jPx2wbwfIZvigWGXDwMUEKFrJtwj" target="_blank"><span ><i style="color:black;" class="fas fa-book"></i></span style="color:black;">Privacy Policy</a></div>
+                <div class="mt-2 ml-md-5"><a style="color:black!important;" rel="noopener" href="https://www.privacypolicygenerator.info/live.php?token=rQK4jPx2wbwfIZvigWGXDwMUEKFrJtwj" target="_blank"><span style="color:black;"><i style="color:black;" class="fas fa-book"></i></span >Privacy Policy</a></div>
             </div>
 
             <div id="openhours" class="d-none d-lg-block col-lg-3 m-4">
@@ -236,7 +230,10 @@
                     <div class="response" id="mce-error-response" style="display:none"></div>
                     <div class="response" id="mce-success-response" style="display:none"></div>
                   </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                   <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2b7ae258d7c30951cc8861826_37f61f894b" tabindex="-1" value=""></div>
+                  <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                    <label for="hid" class="d-none">hid</label>
+                    <input type="text" id="hid" name="b_2b7ae258d7c30951cc8861826_37f61f894b" tabindex="-1" value="">
+                  </div>
                         <div class="optionalParent">
                             <div class="clear foot">
                                 <input  type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"  style="background-color: black!important; " class="button">

@@ -15,6 +15,61 @@ from profiles.models import UserProfile
 from.models import Order, OrderLineItem
 
 
+@tag("models")
+class TestCheckoutModels(TestCase):
+
+    def test_order_stribn_method_works(self):
+        orderitem = Order.objects.create(
+                                    user_profile=None,
+                                    full_name='Robert',
+                                    email='ma@mail.com',
+                                    country='BS',
+                                    phone_number="1234",
+                                    postcode='1234',
+                                    town_or_city='12345',
+                                    street_address1='45',
+                                    street_address2='45',
+                                    county='45687',
+                                    date=datetime.datetime(2022, 9, 13, 14, 11, 35),
+                                    delivery_cost=0,
+                                    order_total=0,
+                                    grand_total=0,
+                                    original_bag="",
+                                    stripe_pid='pi_3LhZpDCzyNbeBsFO0zmNolVj'
+                            )
+
+
+        self.assertEqual(str(orderitem), orderitem.order_number) 
+
+    def test_OrderLineItem_string_method_works(self):
+        orderitem = Order.objects.create(
+                                    user_profile=None,
+                                    full_name='Robert',
+                                    email='ma@mail.com',
+                                    country='BS',
+                                    phone_number="1234",
+                                    postcode='1234',
+                                    town_or_city='12345',
+                                    street_address1='45',
+                                    street_address2='45',
+                                    county='45687',
+                                    date=datetime.datetime(2022, 9, 13, 14, 11, 35),
+                                    delivery_cost=0,
+                                    order_total=0,
+                                    grand_total=0,
+                                    original_bag="",
+                                    stripe_pid='pi_3LhZpDCzyNbeBsFO0zmNolVj'
+                            )
+
+        m = Maker.objects.create(maker="Bmw")
+        f = FuelType.objects.create(fuel="Petrol")
+        veh = Vehicle.objects.create(stock_num=1, year="2010", preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
+        orderlineitem = OrderLineItem.objects.create(order=orderitem, product=veh, quantity=1)
+        self.assertEqual(str(orderlineitem), f'Vehicle No. {orderlineitem.product.stock_num} \
+                             on order {orderlineitem.order.order_number}') 
+
+
+
 
 @tag("views")
 class TestCheckoutViews(TestCase):
