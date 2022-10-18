@@ -227,19 +227,77 @@ The Facebook page is linked from the site and is also shown below. The Mailchimp
  ### WAVE Acccessibility Tests  
  
   All pages of the app were tested using the WAVE Accessibility testing app.  
-  ALL errors and contrast errors were resolved 
-  A sample of results is shown below.
-  Images of all page test can be found at[](/workspace/PP5-v1/media/readme_docs/wave_tests)
+  ALL errors and contrast errors were resolved.  
+  
+  A sample of results is shown below.  
+  
+  Images of all page test can be found here  
+  [https://github.com/bobshort4bobby4/PP5-v1/tree/main/media/readme_docs/wave_tests](https://github.com/bobshort4bobby4/PP5-v1/tree/main/media/readme_docs/wave_tests)  
+  
+    
+   ![summary of WAVE results](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/wave_tests/wavesummary-pp5.png)
   
   
-  
-  
+    
+      
+        
+        
   ### HTML Validation.
   
   The Nu HTML checker was used to validate all project html.
   All errors were cleared
   
-  ![summary of lighthouse results](https://github.com/bobshort4bobby4/PP4-Civ1/blob/main/media/lighthouse-results/lightresults-all-pp4.png) 
+  Image of home page result is shown below along with links to other result images.  
+    
+   
+ ![html checker result home page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/html_tests/htmlhome_deployed-pp5.png)  
+   
+ (CLICK + CTRL to open in new tab)  
+ [HTML Checker result stock page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/html_tests/stockhtmlvalidation-pp5.png)  
+ [HTML Checker result addstock page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/html_tests/addstockhtmlvalid-pp5.png)  
+ [HTML Checker result adjust price page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/html_tests/adjustpricehtmlvalid-pp5.png)  
+ [HTML Checker result bag page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/html_tests/baghtmlvalidation-pp5.png)  
+ [HTML Checker result checkout page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/html_tests/checkouthtmlvalidation-pp5.png)  
+ [HTML Checker result profile page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/html_tests/profilevalidationhtml-pp5.png)  
+ [HTML Checker result checkout success page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/html_tests/checkoutsuccesshtmlvalidation-pp5.png)  
+ [HTML Checker result tradein page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/html_tests/profilevalidationhtml-pp5.png)  
+ 
+   
+   
+ ### Lighthouse Testing  
+   
+     
+All pages were tested using the Lighthouse app built into the Google Chrome web-browser.  
+
+The result for the home page is shown and links to the results from the other pages are given below.  
+  
+![Lighthouse home page result](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/lighthouse_tests/lighthousehome-pp5.png)  
+  
+(CLICK + CTRL to open in new tab)   
+ 
+[Lighthouse Stock page result](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/lighthouse_tests/lighthousestock-pp5.png)  
+[Lighthouse AddStock page result](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/lighthouse_tests/lighthouseaddstock-pp5.png)  
+[Lighthouse Adjustprice page result](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/lighthouse_tests/lighthouseadjustprice-pp5.png)  
+[Lighthouse BAG page result](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/lighthouse_tests/lighthousebag-pp5.png)  
+[Lighthouse Checkout page result](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/lighthouse_tests/lighthousecheckout-pp5.png)  
+[Lighthouse Orderhistory page result](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/lighthouse_tests/lighthouseorderhistory-pp5.png)  
+[Lighthouse Profile page result](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/lighthouse_tests/lighthouseprofile-pp5.png)  
+[Lighthouse Stockdetail page result](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/lighthouse_tests/lighthousestockdetail-pp5.png)  
+  
+  
+  
+### CSS Testing  
+  
+    
+The w3s app for validating (jigsaw) was used used to test the css files used in the application.  
+Results are shown below.  All errors were cleared.  
+  
+ ![Main css test result](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/css_tests/prefixedcssvalidationmain-pp5.png) 
+ ![Checkout test result](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/css_tests/prefixedcssvalidationcheckout-pp5.png)  
+ 
+ 
+
+  
 
 
  ### Responsive Testing
