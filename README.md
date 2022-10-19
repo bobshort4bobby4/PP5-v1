@@ -157,22 +157,22 @@ A full set of wire frames for this Project was produced and can be viewed at the
     
 ### Header  
     
-![signed out header]()
+![signed out header](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/headerfeature-pp5.png)
 There are contact/location links at the top of each page. The telephone link initiates a voice call on suitable devices, the location opens a google map showing the business location.  
    
 The business name is displayed top center on all pages, this title acts as a link to the home page to aid site navigation.  
     
-There is a search facility which allows user to search the current stock.  The postgress text search is used to implement this search. 
+There is a search facility which allows user to search the current stock.  The postgress text search is used to implement this search function. 
   
 Login/Register links and links to stock page and trade in page are contained in the nav-bar.  This nav-bar is responsive and collaspes on smaller screen sizes, it is a standard bootstrap element.  
     
 When a user logs in, a user icon is displayed, which is a drop-down menu with links relevant to the authorisation level of the user.  
   
-![logged in nav-bar]()  
+![logged in nav-bar](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/signedin-navbar_featured-pp5.png)  
   
 There is a link to the user's shopping cart and the value of goods in it.  
 If there is a un-used trade-in credit amount, this is also displayed in the nav-bar.  
-![trade-in credit amount]()
+![trade-in credit amount](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/tradein-credit-pp5.png)
   
   
 ### User Authorisation  
@@ -180,43 +180,83 @@ If there is a un-used trade-in credit amount, this is also displayed in the nav-
 The Django all-auth package is used to handle user registration, login and access levels.  
 All all-auth templates are customised to match the appearance of the site.  
     
-![all-auth register page]()  
+![all-auth register page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/signup-pp5.png)  
     
     
 ### Footer  
    
 The footer is displayed on all pages.  
-There is a links section which links to the business's social media pages, to trade representative bodies and to the sites privacy policy.  
+There is a links section which links to the business's social media pages, to trade representative bodies and to the businesses privacy policy.  
 The hours of business are shown on larger screens.  
 There is a sign-up form for the business newsletter.  
 In the bottom right corner there is a button which automatically scrolls the user to the top of the page.  
     
-![Footer ]()  
+![Footer ](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/footer-large-pp5.png)  
     
 ### Home Page  
   
 The Home page of the site features an image of a car with a prominent button linking to the stock page.  
 There is also a carousel of featured vehicles.  
-  ![home page[()  
+  ![home page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/home-pp5.png)  
   
 
 ### Stock Page  
   
-The stock page displays all available vehicles in a layout suitable for the viewing device.
+The stock page displays all available vehicles in a layout suitable for the viewing device, one per row on smaller screens, two on larger.  
   
-![stock page]()
+![stock page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/stock-pp5.png)
   
-Each vehicle image when clicked links to a page giving more details on that particular vehicle.  
-![stockdetail]()  
+Each vehicle image when clicked links to a page giving more details on that particular vehicle. 
+ The item can be added to the cart from this page.
+ If the user is staff the item can be edited or deleted from this page.
+![stockdetail](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/stockdetail-pp5.png)  
   
 ### Checkout  
+    
   
-![checkout]()  
-The checkout is stripe enabled with redundancies built in to accomodate unexpected user action.  
-Logged in user's details are automatically filled in 
+![checkout](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/checkout-pp5.png)  
+    
+  
+The checkout is stripe enabled with redundancies built in to accomodate unexpected user action and/or network errors.  
+Logged in user's delivery details are automatically filled into form, if saved in user's profile.  
+Upon completion of a successful order the item(s) are marked as sold in the Vehicles datatable and no longer displayed for sale.  
+A confirmation email is sent to the user.  
+A profile foregin key and a trade-in foregin key are attached to the order record if neccessary.  
+ 
+  
+    
+  
+### Profile  
+  
+The profile page for each user displays the user delivery information and lists that particular users order history.  
+Each order is linked to the full details of that order.
+The delivery information can be changed by the user from this page as can their password.  
+![profile](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/profile-pp5.png)  
   
   
-
+### Add Stock Item Page
+This page is only available to staff members.  
+It is used to add new vehicles to stock.  
+The maker and fuel fields are drop down menus and form fields are validated.
+![add stock page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/addstock-pp5.png)
+  
+  
+### Adjust Trade-in Base Price.  
+ Only available to staff members.  It is used to change the price used to value vehicles for trade-in credit.  
+ The Maker field is prepoulated with manufacturers listed in the Maker datatable.  
+  Htmx is used to populate the price field on a change in the maker field.  
+ ![adjust base price](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/adjust-price-pp5.png)
+  
+  
+### Trade-In
+ This page takes data from the user concerning a vehicle they wish to value as a tradein.  The site returns a value to the user who then decides if they want to accept this figure or not.  The user can clear the form and value another vehicle if needed. The form is validated.  
+  
+NB. The value returned from the site for each vehicle is calculated using the information input by the user and the base price for that particular manufacturer.  
+  This function was based on several I found online and gives a very approximate value for each vehicle.  
+  The Model type is not used in this calculation as the range of models for each maker is so large.  There are several API's which would have given accurate valuations for each vehicle but they were either a paid for service or subject to change so I decided not to use them for this project.  
+    
+  
+![tradein page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/trade-in-pp5.png)
   
     
   
@@ -238,7 +278,7 @@ Logged in user's details are automatically filled in
             
 ![erd](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/erd_pp5.png)  
 
-Note: As I review this erd, it seems to be redundant to have a separate relation for the fuel-type as there is only one field. It may prove uesful in a hypothethical future version of the software if other features such as fuel efficency or environmental impact of each fuel needed to be calculated for each vechicle.  
+Note: As I review this ERD, it seems to be redundant to have a separate relation for the fuel-type as there is only one field. It may prove useful in a hypothethical future version of the software if other features such as fuel efficency or environmental impact of each fuel needed to be calculated for each vechicle.  
 
               
 </details>
@@ -466,6 +506,11 @@ Results are shown below.  All errors were cleared.
  ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual_tests/manual36-46.png)
  ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual_tests/manual47-55.png)
  ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual_tests/manual56-62.png)
+  
+ ### Automated Tests
+ I implemented what tests I had time resources for, the coverage rate for the app is 80%.  
+    
+ ![coverage result]()
             
   
 </details>
