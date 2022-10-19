@@ -304,7 +304,7 @@ li.nav-item.dropdown {
    #image {
        /* background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/v1664102996/media/pp5/ferrari-wide-landscwebp_lc2y5f.webp"); */
        /* background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/v1664278142/media/pp5/lotusside_gz8rb5.jpg"); */
-       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_690,h_288/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg");
+       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_520,h_288/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg");
        -o-object-position: 50% -10%;
           object-position: 50% -10%;
        
@@ -375,7 +375,7 @@ li.nav-item.dropdown {
    }
 
    #image{
-       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_921,h_288/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg");
+      background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_800,h_308/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg");
    }
    
    .img-height {
@@ -436,18 +436,20 @@ li.nav-item.dropdown {
        margin-right:10vw;
        -o-object-fit: cover;
           object-fit: cover;
-       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_1152,h_320/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg");
+       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_1100,h_300/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg");
    }
    
 }
 
 @media screen and (min-width:1850px){
    #image {
-       width:1600px;
-       margin-left:auto;
-       margin-right:auto;
-       height:485px;
-       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1600,h_485/v1664295590/media/pp5/lamboblues2000-pp5_wpkxlt.png");
+      width:1600px;
+      margin-left:auto;
+      margin-right:auto;
+      height:485px;
+       /* background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1500,h_485/v1664295590/media/pp5/lamboblues2000-pp5_wpkxlt.png");
+        */
+      background-image:url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1500,h_485/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg")
    }  
        
 }
@@ -466,7 +468,25 @@ li.nav-item.dropdown {
        height:485px;
        margin-left:auto;
        margin-right:auto;
-       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1200,h_485/v1665592584/media/pp5/red-ferrari-side-1600_xesnrp.jpg");
+       background-image:url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1400,h_485/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg")
+       /* background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1200,h_485/v1665592584/media/pp5/red-ferrari-side-1600_xesnrp.jpg"); */
    }
+
+   #carowrap{
+      min-height: 700px;
+      max-height: 700px;
+  }
+
+  #caro {
+      min-height: 600px;
+      max-height:600px;
+  }
+ 
+
+  #carousel{
+      height:auto;
+      width:60%;
+      margin:0 auto;
+  }
 
 }

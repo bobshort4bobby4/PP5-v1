@@ -3,6 +3,11 @@
 
 
 {% block content%}
+    <div id="stockbtn" class="container text-center" style="position:relative; bottom:-60px; line-height:2rem;">
+      <a href="{% url 'stock:stock' %}">
+       <button class="rounded-2 p-1">Check out our stock</button>
+      </a>
+    </div>
     <div>
         <div class="d-flex">
           <div id="image" >
