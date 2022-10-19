@@ -146,6 +146,87 @@ A full set of wire frames for this Project was produced and can be viewed at the
 ![](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/colours/coloursblackink-pp5.png)
   
 </details>    
+
+
+# Features  
+
+<details>
+  
+  <summary>Features</summary>
+  
+    
+### Header  
+    
+![signed out header]()
+There are contact/location links at the top of each page. The telephone link initiates a voice call on suitable devices, the location opens a google map showing the business location.  
+   
+The business name is displayed top center on all pages, this title acts as a link to the home page to aid site navigation.  
+    
+There is a search facility which allows user to search the current stock.  The postgress text search is used to implement this search. 
+  
+Login/Register links and links to stock page and trade in page are contained in the nav-bar.  This nav-bar is responsive and collaspes on smaller screen sizes, it is a standard bootstrap element.  
+    
+When a user logs in, a user icon is displayed, which is a drop-down menu with links relevant to the authorisation level of the user.  
+  
+![logged in nav-bar]()  
+  
+There is a link to the user's shopping cart and the value of goods in it.  
+If there is a un-used trade-in credit amount, this is also displayed in the nav-bar.  
+![trade-in credit amount]()
+  
+  
+### User Authorisation  
+  
+The Django all-auth package is used to handle user registration, login and access levels.  
+All all-auth templates are customised to match the appearance of the site.  
+    
+![all-auth register page]()  
+    
+    
+### Footer  
+   
+The footer is displayed on all pages.  
+There is a links section which links to the business's social media pages, to trade representative bodies and to the sites privacy policy.  
+The hours of business are shown on larger screens.  
+There is a sign-up form for the business newsletter.  
+In the bottom right corner there is a button which automatically scrolls the user to the top of the page.  
+    
+![Footer ]()  
+    
+### Home Page  
+  
+The Home page of the site features an image of a car with a prominent button linking to the stock page.  
+There is also a carousel of featured vehicles.  
+  ![home page[()  
+  
+
+### Stock Page  
+  
+The stock page displays all available vehicles in a layout suitable for the viewing device.
+  
+![stock page]()
+  
+Each vehicle image when clicked links to a page giving more details on that particular vehicle.  
+![stockdetail]()  
+  
+### Checkout  
+  
+![checkout]()  
+The checkout is stripe enabled with redundancies built in to accomodate unexpected user action.  
+Logged in user's details are automatically filled in 
+  
+  
+
+  
+    
+  
+
+  
+  
+  
+  
+  
+</details>
   
  # Data Schema
  
