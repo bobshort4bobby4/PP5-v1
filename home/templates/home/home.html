@@ -3,9 +3,9 @@
 
 
 {% block content%}
-    <div id="stockbtn" class="container text-center" style="position:relative; bottom:-60px; line-height:2rem;">
-      <a href="{% url 'stock:stock' %}">
-       <button class="rounded-2 p-1">Check out our stock</button>
+    <div id="stockbtndiv" class="container text-center" style="position:relative; bottom:-60px; line-height:2rem;">
+      <a id="stockbtn" class="btn" href="{% url 'stock:stock' %}">
+       Check out our stock
       </a>
     </div>
     <div>
@@ -32,7 +32,7 @@
                                   </div>
                                   <div class="text-white text-center bg-dark cardetail">
                                       <h5>{{vehicle.maker}} {{vehicle.model}}</h5>
-                                      <p> Fuel: {{ vehicle.fuel }} ~  Year: {{ vehicle.year }}..</p>
+                                      <p> Fuel: {{ vehicle.fuel }} ~  Year: {{ vehicle.year|floatformat:"0u" }}..</p>
                                   </div>
                                 </a>
                               </div>
