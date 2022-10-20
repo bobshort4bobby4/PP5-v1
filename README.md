@@ -3,7 +3,7 @@
     
 (CTRL + CLICK to open Links in new window)  
 
-Deployed site can be found [here](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/css_tests/prefixedcssvalidationcheckout-pp5.png)  
+Deployed site can be found [here](https://pp5-carsales.herokuapp.com/)  
   
 Github repository can be found [here](https://github.com/bobshort4bobby4/PP5-v1)  
   
@@ -453,7 +453,13 @@ Results are shown below.  All errors were cleared.
  ![Checkout test result](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/css_tests/prefixedcssvalidationcheckout-pp5.png)  
  
  
+### Javascript Validation
 
+There was a small amount of Javascript used apart from the script supplied by Stripe.  
+Both were validated by jshint, image of results are shown below.  
+  
+![jshint fragment test]()
+![jshint stripe test]()   
   
 
 
@@ -508,12 +514,82 @@ Results are shown below.  All errors were cleared.
  ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual_tests/manual56-62.png)
   
  ### Automated Tests
- I implemented what tests I had time resources for, the coverage rate for the app is 80%.  
+ I implemented those tests I had time resources for, the coverage rate for the app is 80%.  
     
  ![coverage result]()
             
   
 </details>
+  
+    
+# Deployment and Version Control
+<details>  
+            
+<summary>Deployment</summary>    
+  
+  
+ ### Version Control
+  
+  Git is an open source version control system and was used for this project. Github was used to store the repository.   
+  Git is run locally whereas Github is cloud based.
+  
+  ###### Forking
+  Forking a Github repository is the process of making a copy of any repository that you can use without affecting the original, this original is known as the 
+  "upstream repository".
+  The process for forking a repository is set out below.
+  1. Go to the Github page that hosts the repository you wish to fork.
+  1. On the top-right of the page there is a button "Fork".
+  1. Click this button.
+  1. This creates a repository in your Github home page which is a copy of the original. You can submit and receive changes to the code by using pull requests 
+  and/or syncing with the upstream repository.
+    
+  (Taken from the Github Docs guide "Forking Projects")
+    
+###### Cloning 
+  Cloning a repository involves making a full copy of that repository on your local machine. This makes working on the code easier.  Changes can be pushed back up to the 
+  GitHub site or changes from other sources pulled to your local copy. To make a clone follow the process below.
+  1. Goto the repository page on GitHub.
+  1. Above the file list click on the green button titled "Code".
+  1. You can choose to download a zip file of the repository, unpack it on your local machine and open it in your IDE or,
+  1. Clone using HTTPS by copying the URL under the HTTPS tab.
+  1. Open a terminal window, set current directory to the one you want to contain the clone.
+  1. Type `git clone `and paste the URL copied from the GitHub page.
+  1. The repository clone will be created on your machine.
+    
+  (Taken from the Github Docs guide "Cloning a repository")
+  
+  ### Deployment
+  
+  ### Heroku
+
+Heroku is a cloud based platform that allows the user to deploy and manage apps easily. The completed version of this project was deployed using Heroku.   
+Heroku is fully managed meaning that all the hardware/server issues are taken care of.
+Heroku apps can be deployed either through the website or via the terminal command line. 
+  
+To deploy my project I followed the steps below.
+     
+  - Create a new Heroku app using your chosen app name and choosing appropriate region  
+  - Initialise Database.  
+  - Initialise env variables in heroku including Cloudinary, Database, Email Settings and Stripe Keys
+  - Link the Heroku app to the Github repository (automatic deploys can be enabled if desired)
+  - Remove the collectstatic variable from Heroku settings  
+  - Set debug to false in settings.py  
+  - Set email settings in Django settings.py.
+  - Set media and static paths in settings.py.
+  - Create a runtime.py in the root file of the app specifying python and version.
+  - Create a Profile file in the root file.  
+  - Ensure all sensitive passwords/keys are included in the gitignore file.
+  - Ensure requiremnets.txt file is updated.
+  - Push to Github.
+  - From the deploy tab in Heroku choose manual deploy.
+    
+      
+   ![heroku manual deploy]()
+ 
+ </details>
+
+
+  
 
 
 
