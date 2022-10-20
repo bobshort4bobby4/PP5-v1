@@ -515,9 +515,9 @@ Both were validated by jshint, image of results are shown below.
   
  ### Automated Tests
  I implemented those tests I had time resources for, the coverage rate for the app is 80%.  
- [coverage website](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/Coverage-report-webpage-pp5.html)
+ 
     
- ![coverage result]()
+ ![coverage result](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/coverageresult-pp5.png)
             
   
 </details>
