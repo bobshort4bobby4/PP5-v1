@@ -458,8 +458,8 @@ Results are shown below.  All errors were cleared.
 There was a small amount of Javascript used apart from the script supplied by Stripe.  
 Both were validated by jshint, image of results are shown below.  
   
-![jshint fragment test]()
-![jshint stripe test]()   
+![jshint fragment test](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/jhintfragment-pp5.png)
+![jshint stripe test](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/jshintstripe-pp5.png)   
   
 
 
@@ -515,6 +515,7 @@ Both were validated by jshint, image of results are shown below.
   
  ### Automated Tests
  I implemented those tests I had time resources for, the coverage rate for the app is 80%.  
+ [coverage website](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/Coverage-report-webpage-pp5.html)
     
  ![coverage result]()
             
@@ -584,7 +585,7 @@ To deploy my project I followed the steps below.
   - From the deploy tab in Heroku choose manual deploy.
     
       
-   ![heroku manual deploy]()
+   ![heroku manual deploy](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/herokumanualdeploy-pp5.png)
  
  </details>
 
