@@ -481,11 +481,11 @@ li.nav-item.dropdown {
    #image {
        -o-object-fit:fill;
           object-fit:fill;
-       width:60vw;
+       width:75vw;
        height:485px;
        margin-left:auto;
        margin-right:auto;
-       background-image:url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1400,h_485/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg")
+       background-image:url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1550,h_485/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg")
        /* background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1200,h_485/v1665592584/media/pp5/red-ferrari-side-1600_xesnrp.jpg"); */
    }
 
@@ -506,4 +506,12 @@ li.nav-item.dropdown {
       margin:0 auto;
   }
 
+}
+
+@media screen and (min-width:2300px) {
+
+   #image {
+      width:60vw;
+      background-image:url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1380,h_485/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg")
+   }
 }

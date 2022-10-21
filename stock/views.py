@@ -11,8 +11,6 @@ from stock.models import Vehicle, Maker, Tradein
 from .forms import VehicleForm, MakerForm
 from .trade_calc import calc_tradein
 
-# from stock.models import Vehicle
-
 
 class StockView(ListView):
     """
@@ -86,21 +84,6 @@ def add_stock(request):
     }
 
     return render(request, template, context)
-
-
-# class EditDeleteView(View):
-#     """
-#         Generic view to display
-#     """
-
-#     def get(self, request, stock_num):
-#         veh = get_object_or_404(Vehicle, pk=stock_num)
-#         template = 'stock/edit_delete.html'
-#         form = VehicleForm(instance=veh)
-#         context = {
-#             'form': form,
-#         }
-#         return render(request, template, context)
 
 
 def delete_vehicle(request, vehicle_id):
@@ -202,7 +185,8 @@ def trade_value(request):
             mess = f"We can offer €{ trade_val } (subject to inspection)\
                                     for your vehicle as credit on any purchase"
             lnk = """<div class="text-center"><a id="applytradebtn"
-                 class="btn greenbutton linkhover p-2" style="color:black;" href="/stock/take_trade/"
+                 class="btn greenbutton linkhover p-2" style="color:black;"
+                 href="/stock/take_trade/"
                  >Apply Amount to Your Bag</a></div>"""
 
         request.session['trade_details'] = trade_details
@@ -239,20 +223,6 @@ def take_trade(request):
     request.session['trade_flag'] = True
 
     return redirect(reverse("stock:stock"))
-
-    # return HttpResponse('<div><h1 class="text-center">ThankYou</h1></div>'
-    #                     """<div><h3 class="text-center">
-    #                      Trade has been applied to your bag</h3></div>"""
-    #                     ''' <div>
-    #                     <a id="allvehlink" href="/stock/trade_in/"
-    #                      class="btn btn-outline-black rounded-0 mt-2">
-    #                     <span class="icon">
-    #                     <i class="fas fa-chevron-left"></i>
-    #                     </span>
-    #                     <span class="text-uppercase">
-    #                     Value Another Vehicle</span>
-    #                     </a>
-    #                     </div>''')
 
 
 def clear_trade(request):
@@ -310,12 +280,8 @@ def adjust_tradein(request):
         mak.base_price = new_base
         mak.save()
 
-        # form = MakerForm(request.POST)
-        # if form.is_valid():
-        #     form.save()
         messages.success(request, 'Successfully Changed Price')
         return redirect(reverse('stock:stock'))
-
     else:
         form = MakerForm()
 

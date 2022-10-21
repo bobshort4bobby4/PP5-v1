@@ -16,7 +16,8 @@ class BagView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # check to see it trade-in has been made
+        # check to see if trade-in has been made
+        # and set session as appropriate
         flag = self.request.session['trade_flag']
         if flag is True:
             context['trade_value'] = self.request.session[
@@ -44,14 +45,14 @@ def add_to_bag(request, item_id):
                     request, f'This Vehicle  {veh.maker} {veh.model} \
                          is already in your bag')
         return redirect(reverse('stock:stock'))
+    # add item to bag if not already there
     else:
         bag.append(item_id)
 
     request.session['bag'] = bag
     listboughtveh = bag
     for item in listboughtveh:
-        car = get_object_or_404(Vehicle, pk=item)
-        print(f"{car.maker} {car.model}")
+        get_object_or_404(Vehicle, pk=item)
     messages.success(
                     request, f'Added {veh.maker} {veh.model} to your bag')
     return redirect(reverse('stock:stock'))
@@ -71,6 +72,7 @@ def remove_from_bag(request, item_id):
 
 
 def clear_trade_bag(request):
+    """clears current trade from session"""
     request.session['trade_flag'] = False
     messages.success(request, 'Cleared Trade-ins')
     return redirect(reverse('bag:bag'))

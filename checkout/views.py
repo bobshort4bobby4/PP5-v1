@@ -14,7 +14,6 @@ from django.shortcuts import (render,
 from django.contrib import messages
 from django.conf import settings
 from django.views.decorators.http import require_POST
-
 from bag.contexts import bag_contents
 from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
@@ -115,7 +114,7 @@ def checkout(request):
         total = current_bag['grand_total']
         if total <= 0:
             messages.error(request, ('Your total must be greater than zero. '
-                                      'Please check your shopping bag'))
+                                     'Please check your shopping bag'))
             return redirect(reverse('bag:bag'))
         else:
             stripe_total = round(total * 100)

@@ -32,7 +32,6 @@ card.mount('#card-element');
 card.addEventListener('change', function (event) {
     var errorDiv = document.getElementById('card-errors');
     if (event.error) {
-        console.log("error1")
         var html = `
             <span class="icon" role="alert">
                 <i class="fas fa-times"></i>
@@ -95,7 +94,6 @@ form.addEventListener('submit', function(ev) {
             },
         }).then(function(result) {
             if (result.error) {
-                console.log("error2")
                 var errorDiv = document.getElementById('card-errors');
                 var html = `
                     <span class="icon" role="alert">
@@ -110,7 +108,6 @@ form.addEventListener('submit', function(ev) {
             } else {
                 // submit if payment intent come back true
                 if (result.paymentIntent.status === 'succeeded') {
-                    console.log("formsubmit");
                     form.submit();
                 }
             }
@@ -118,5 +115,5 @@ form.addEventListener('submit', function(ev) {
     }).fail(function () {
         // just reload the page, the error will be in django messages
         location.reload();
-    })
+    });
 });

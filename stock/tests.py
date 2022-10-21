@@ -1,24 +1,21 @@
+"""test for stock app"""
 from django.test import TestCase
 from django.test import tag
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
-from django.http import HttpRequest
 from django.contrib.messages import get_messages
-from django.test import tag
 from django.contrib.auth.models import User
 from .models import Vehicle, FuelType, Maker, Tradein
-from .forms import VehicleForm
 from .trade_calc import calc_tradein
 
 
 @tag('views')
 class TestStockView(TestCase):
+    """test for stock app views"""
 
- 
-
-
-    def test_delete_vehicle_redirect_to_home_user_notstaff(self):
-        user1 = User.objects.create_user(
+    def setUp(self):
+        """create common variables/instances"""
+        User.objects.create_user(
             username='user1',
             password='1234',
             email="mail@mail.com",
@@ -26,37 +23,54 @@ class TestStockView(TestCase):
         )
         self.client.login(username='user1', password='1234')
 
-        m = Maker.objects.create(maker="Bmw")
-        f = FuelType.objects.create(fuel="Petrol")
-        veh = Vehicle.objects.create(stock_num=1, year="2010", preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
-        response = self.client.get(reverse('stock:delete_vehicle', kwargs={"vehicle_id":veh.stock_num}))
+        self.m = Maker.objects.create(maker="Bmw")
+        self.f = FuelType.objects.create(fuel="Petrol")
+        self.veh = Vehicle.objects.create(
+                                           stock_num=1,
+                                           year="2010",
+                                           preowned=True,
+                                           price=1000,
+                                           odometer=12000,
+                                           fuel=self.f,
+                                           maker=self.m)
+        session = self.client.session
+        session['trade_flag'] = False
+        session.save()
+
+    def test_delete_vehicle_redirect_to_home_user_notstaff(self):
+        """test_delete_vehicle_redirect_to_home_user_notstaff"""
+
+        response = self.client.get(
+            reverse('stock:delete_vehicle',
+                    kwargs={"vehicle_id": self.veh.stock_num}))
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(len(messages), 1)
-        self.assertEqual(str(messages[0]), 'Sorry, only store staff can do that.')
+        self.assertEqual(
+            str(messages[0]), 'Sorry, only store staff can do that.')
 
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('home:home'))
 
-
     def test_delete_vehicle(self):
+        """test_delete_vehicle"""
 
-        session = self.client.session
-        session['trade_flag'] = False
-        session.save()
-        user1 = User.objects.create_user(
-            username='user1',
+        User.objects.create_user(
+            username='user2',
             password='1234',
             email="mail@mail.com",
             is_staff=True,
         )
-        self.client.login(username='user1', password='1234')
+        self.client.login(username='user2', password='1234')
 
-        m = Maker.objects.create(maker="Bmw")
-        f = FuelType.objects.create(fuel="Petrol")
-        veh = Vehicle.objects.create(stock_num=1, year="2010",available_sale=True, preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
-        response = self.client.post(reverse('stock:delete_vehicle', kwargs={"vehicle_id":veh.stock_num}))
+        session = self.client.session
+        session['trade_flag'] = False
+        session.save()
+
+        response = self.client.post(
+            reverse('stock:delete_vehicle',
+                    kwargs={"vehicle_id": self.veh.stock_num}))
         messages = list(get_messages(response.wsgi_request))
-        
+
         avsaleveh = get_object_or_404(Vehicle, stock_num=1)
         self.assertFalse(avsaleveh.available_sale)
         self.assertEqual(len(messages), 1)
@@ -64,61 +78,52 @@ class TestStockView(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('stock:stock'))
 
-
     def test_edit_vehicle_redirect_to_home_user_notstaff(self):
-        user1 = User.objects.create_user(
-            username='user1',
-            password='1234',
-            email="mail@mail.com",
-            is_staff=False,
-        )
-        self.client.login(username='user1', password='1234')
+        """test_edit_vehicle_redirect_to_home_user_notstaff"""
 
-        m = Maker.objects.create(maker="Bmw")
-        f = FuelType.objects.create(fuel="Petrol")
-        veh = Vehicle.objects.create(stock_num=1, year="2010", preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
-        response = self.client.get(reverse('stock:edit_vehicle', kwargs={"vehicle_id":veh.stock_num}))
+        response = self.client.get(
+            reverse('stock:edit_vehicle',
+                    kwargs={"vehicle_id": self.veh.stock_num}))
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(len(messages), 1)
-        self.assertEqual(str(messages[0]), 'Sorry, only store staff can do that.')
+        self.assertEqual(
+            str(messages[0]), 'Sorry, only store staff can do that.')
 
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('home:home'))
 
-
     def test_edit_vehicle_displays_correct_message_if_invalid_form(self):
+        """test_edit_vehicle_displays_correct_message_if_invalid_form"""
 
-        user1 = User.objects.create_user(
-                                username='user1',
+        User.objects.create_user(
+                                username='user2',
                                 password='1234',
                                 email="mail@mail.com",
                                 is_staff=True,
                                 )
 
-        self.client.login(username='user1', password='1234')
+        self.client.login(username='user2', password='1234')
 
         session = self.client.session
         session['trade_flag'] = False
         session.save()
 
-        m = Maker.objects.create(maker="Bmw")
-        f = FuelType.objects.create(fuel="Petrol")
-        ve = Vehicle.objects.create(stock_num=1, year="2010", preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
-        form = VehicleForm()
-        response = self.client.post(reverse('stock:edit_vehicle', kwargs={"vehicle_id":ve.stock_num}))
+        response = self.client.post(
+            reverse('stock:edit_vehicle',
+                    kwargs={"vehicle_id": self.veh.stock_num}))
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(len(messages), 1)
         self.assertEqual(str(messages[0]), 'Failed to update Vehicle. '
-                                             'Please ensure the form is valid.')
+                         'Please ensure the form is valid.')
 
     def test_StockView_renders_correct_template_if_q_empty(self):
-        session = self.client.session
-        session['trade_flag'] = False
-        session.save()
+        """test_StockView_renders_correct_template_if_q_empty"""
+
         response = self.client.get(reverse('stock:stock'), {"q": ""})
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(len(messages), 1)
-        self.assertEqual(str(messages[0]), "You didn't enter any search criteria!")
+        self.assertEqual(
+            str(messages[0]), "You didn't enter any search criteria!")
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'stock/stock.html')
 
@@ -156,11 +161,11 @@ class TestStockView(TestCase):
 
             Expected output:
             trade_val == 12994
-            full_price == 
+            full_price == 19491
         """
-        m = Maker.objects.create(maker="Ford", base_price=25000)
+        Maker.objects.create(maker="Ford", base_price=25000)
         manu = "Ford"
-        manu = get_object_or_404(Maker,maker=manu)
+        manu = get_object_or_404(Maker, maker=manu)
         year = "2015"
         odo = "20000"
         condition = "3"
@@ -170,94 +175,31 @@ class TestStockView(TestCase):
         self.assertEqual(full_price, 19491)
 
 
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# #      def test_edit_vehicle_displays_correct_message_if_invalid_form(self):
-
-# #         user1 = User.objects.create_user(
-# #                                 username='user1',
-# #                                 password='1234',
-# #                                 email="mail@mail.com",
-# #                                 is_staff=True,
-# #                                 )
-
-# #         self.client.login(username='user1', password='1234')
-
-# #         session = self.client.session
-# #         session['trade_flag'] = False
-# #         session.save()
-
-# #         m = Maker.objects.create(maker="Bmw")
-# #         f = FuelType.objects.create(fuel="Petrol")
-# #         veh = Vehicle.objects.create(stock_num=1, year="2010", model="cartest", preowned=True, price=1000, odometer=12000, fuel=f, maker=m, featured=True, colour="testcolour", available_sale=True )
-        
-# #         # request = HttpRequest()
-# #         data = {
-# #             "stock_num": 1,
-# #             "maker": m,
-# #             "model": "cartest",
-# #             "year": "2011",
-# #             "fuel": f,
-# #             "featured": True,
-# #             "preowned": True,
-# #             "price": 1000,
-# #             "odometer": 12000,
-# #             "colour": "testcolour",
-# #             "available_sale": True,
-# #         }
-
-        
-# #         form = VehicleForm(data)
-# #         data = form.initial 
-# #         data['year'] = '2011'
-# #         response = self.client.post(reverse('stock:edit_vehicle', kwargs={"vehicle_id":veh.stock_num}), data)
-# #         form = response.context['form']
-# #         # form is unbound but contains data
-
-# # # manipulate some data
-        
-       
-# #         # messages = list(get_messages(response.wsgi_request))
-# #         # form.save()
-        
-# #         veh = Vehicle.objects.get(pk=1)
-# #         print(Vehicle.objects.count())
-# #         self.assertTrue(form.is_valid())
-
-
-
 @tag("models")
 class TestModels(TestCase):
+    """test models for stock app"""
+
+    def setUp(self):
+        """define common variables/instances"""
+
+        self.m = Maker.objects.create(maker="Bmw")
+        self.f = FuelType.objects.create(fuel="Petrol")
+        self.veh = Vehicle.objects.create(
+                                        stock_num=1,
+                                        model="3 series",
+                                        year="2010",
+                                        preowned=True,
+                                        price=1000,
+                                        odometer=12000,
+                                        fuel=self.f,
+                                        maker=self.m)
 
     def test_models_stringmethods_returns_correctstring(self):
-        m = Maker.objects.create(maker="Bmw")
-        f = FuelType.objects.create(fuel="Petrol")
-        ve = Vehicle.objects.create(stock_num=1, model="3 series", year="2010", preowned=True, price=1000, odometer=12000, fuel=f, maker=m)
-        self.assertEqual(str(ve), 'Bmw, 3 series')
-        self.assertEqual(str(m), "Bmw")
-        self.assertEqual(str(f), "Petrol")
+        """test_models_stringmethods_returns_correctstring"""
+
+        self.assertEqual(str(self.veh), 'Bmw, 3 series')
+        self.assertEqual(str(self.m), "Bmw")
+        self.assertEqual(str(self.f), "Petrol")
 
     def test_TradeIn_model_sring_method(self):
         tradeinitem = Tradein.objects.create(user="testuser",
@@ -268,4 +210,8 @@ class TestModels(TestCase):
                                              year="2010",
                                              trade_value=10000,
                                              full_price=12000,)
-        self.assertEqual(str(tradeinitem), f'{tradeinitem.manufacturer} {tradeinitem.mod} value {tradeinitem.trade_value}')
+
+        self.assertEqual(
+            str(tradeinitem),
+            f'{tradeinitem.manufacturer} {tradeinitem.mod}'
+            f' value {tradeinitem.trade_value}')

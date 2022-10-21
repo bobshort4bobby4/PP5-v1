@@ -22,7 +22,7 @@ def bag_contents(request):
 
     flag = request.session['trade_flag']
     if flag:
-        trade_value = request.session['trade_details']['trade_value'] 
+        trade_value = request.session['trade_details']['trade_value']
         grand_total -= trade_value
     minus_grand_total = grand_total * -1
     context = {

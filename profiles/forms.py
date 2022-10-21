@@ -1,8 +1,10 @@
+"""forms for profile app"""
 from django import forms
 from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
+    """form based on Profile model"""
     class Meta:
         model = UserProfile
         exclude = ('user',)
@@ -33,7 +35,7 @@ class UserProfileForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = ('border-black '
                                                         'rounded-0 '
                                                         'profile-form-input')
-            if field != 'default_country':                                          
+            if field != 'default_country':
                 self.fields[field].widget.attrs['aria-label'] = placeholder
             else:
                 self.fields[field].widget.attrs['aria-label'] = 'Country'

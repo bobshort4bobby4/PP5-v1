@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['pp5-carsales.herokuapp.com', 'localhost']
 
@@ -203,7 +203,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-USE_THOUSAND_SEPARATOR = True 
+USE_THOUSAND_SEPARATOR = True
 
 # leaving commented out code as is needed for testing locally run site
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -219,7 +219,6 @@ DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
 
 
 STATIC_URL = '/static/'

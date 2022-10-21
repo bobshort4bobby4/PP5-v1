@@ -102,6 +102,6 @@ select option[value=""] {
     height: 100%;
 }
 
-/* #payment-form label {
+#payment-form label {
     display:none;
-} */
+}

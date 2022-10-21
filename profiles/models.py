@@ -2,7 +2,6 @@
 Define model structure for profile app
 """
 
-
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
@@ -31,6 +30,8 @@ class UserProfile(models.Model):
                                         null=True, blank=True)
     default_country = CountryField(blank_label='Country',
                                    null=True, blank=True)
+
+    objects = models.Manager()
 
     def __str__(self):
         return self.user.username

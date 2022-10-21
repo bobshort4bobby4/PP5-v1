@@ -1,16 +1,13 @@
+"""handles stripe webhooks"""
 import json
 import time
-
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
-
-from .models import Order, OrderLineItem
 from stock.models import Vehicle
 from profiles.models import UserProfile
-
-
+from .models import Order, OrderLineItem
 
 
 class StripeWH_Handler:
@@ -21,7 +18,7 @@ class StripeWH_Handler:
 
     def _send_confirmation_email(self, order):
         """Send the user a confirmation email"""
-        
+
         cust_email = order.email
         if order.trade_in:
             trade_value = order.trade_in.trade_value
@@ -32,7 +29,9 @@ class StripeWH_Handler:
             {'order': order, })
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
-            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL, 'trade_value': trade_value})
+            {'order': order,
+             'contact_email': settings.DEFAULT_FROM_EMAIL,
+             'trade_value': trade_value})
 
         send_mail(
             subject,
@@ -53,41 +52,22 @@ class StripeWH_Handler:
         """
         Handle the payment_intent.succeeded webhook from Stripe
         """
-        print("succ01")
         le = Order.objects.all()
-        print(f"succ01 {len(le)}")
         intent = event.data.object
-        # print(intent)
         pid = intent.id
-        print(f"{pid} pid")
         bag = intent.metadata.bag
-        print(bag)
         save_info = intent.metadata.save_info
-        print(f"save_info {save_info}")
-        print("succ02")
         billing_details = intent.charges.data[0].billing_details
-        print(f"billing_details {billing_details}")
         shipping_details = intent.shipping
-        print(f"shipping_details {shipping_details}")
         grand_total = round(intent.charges.data[0].amount / 100, 2)
-        print(f" grand_total {grand_total}")
-        print("succ03")
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():
-            print("in shipping detailloop")
-            print(f"{field} {value} ")
             if value == "":
-                print("in if valur=")
                 shipping_details.address[field] = None
-        print("succ04")
         # Update profile information if save_info was checked
         profile = None
         username = intent.metadata.username
-        print(f" username {username}")
-    
-        print("succ05")
         if username != 'AnonymousUser':
-            print("in if username not anon")
             profile = UserProfile.objects.get(user__username=username)
             if save_info == 'false':
                 flag_info = False
@@ -106,7 +86,6 @@ class StripeWH_Handler:
         order_exists = False
         attempt = 1
         le = Order.objects.all()
-        print(f"succ06, {len(le)}")
         for ord in le:
             print(ord.full_name)
             print(ord.email)
@@ -164,12 +143,7 @@ class StripeWH_Handler:
                     original_bag=bag,
                     stripe_pid=pid,
                 )
-                print("succ07 order cretaed")
-                print(json.loads(bag))
-                print(type(json.loads(bag)))
-                for  item_data in json.loads(bag):
-                    print("injsobagloop")
-                    # print(f"{e} exception {item_id} {item_data}")
+                for item_data in json.loads(bag):
                     item_data = int(item_data)
                     product = Vehicle.objects.get(stock_num=item_data)
                     if isinstance(item_data, int):
@@ -177,19 +151,14 @@ class StripeWH_Handler:
                             order=order,
                             product=product,
                             quantity=1,
-                        ) 
+                        )
                         order_line_item.save()
-                    
             except Exception as e:
-                print("succ08 in exception")
                 if order:
                     order.delete()
-                    print("succ09")
-                print("succ10")
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
-        print("succ11")
         self._send_confirmation_email(order)
         return HttpResponse(
             content=(f'Webhook received: {event["type"]} | SUCCESS: '
@@ -198,9 +167,8 @@ class StripeWH_Handler:
 
     def handle_payment_intent_payment_failed(self, event):
         """
-        Handle the payment_intent.payment_failed webhook from Stripe
+        Handle the payment_intent.payment_fail webhook from Stripe
         """
-        print("payintfailed")
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)

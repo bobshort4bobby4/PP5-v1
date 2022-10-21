@@ -77,7 +77,7 @@
         </div>
         
         <div class="col-12 col-lg-6 p-1">
-            <p class=" text-white">Please fill out the form below to complete your order</p>
+            <p class=" text-white pl-3">Please fill out the form below to complete your order</p>
             <form action="{% url 'checkout:checkout' %}" method="POST" id="payment-form" aria-label="details delivery">
                 {% csrf_token %}
                 <fieldset class="rounded px-3 mb-5">
@@ -96,10 +96,10 @@
                     {{ order_form.country | as_crispy_field }}
                     <div class="form-check form-check-inline float-right mr-0">
                         {% if user.is_authenticated %}
-                            <label class="form-check-label text-white" for="id-save-info">Save this delivery information to my profile</label>
-                            <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" >
+                            <label class="form-check-label text-white d-block" for="id-save-info">Save this delivery information to my profile</label>
+                            <input class="form-check-input ml-2 mr-0 d-block" type="checkbox" id="id-save-info" name="save-info" >
                         {% else %}
-                            <label class="form-check-label text-white">
+                            <label class="form-check-label text-white d-block">
                                 <a class="text-info greenink" href="{% url 'account_signup' %}">Create an account</a> or 
                                 <a class="text-info greenink" href="{% url 'account_login' %}">login</a> to save this information
                             </label>
