@@ -453,6 +453,16 @@ Results are shown below.  All errors were cleared.
  ![Checkout test result](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/css_tests/prefixedcssvalidationcheckout-pp5.png)  
  
  
+### Python Validation  
+  The Flake 8 linter was used in the code editor to ensure the python code complied to standard. 
+  A few images are shown below of python code syntax checks.  
+    
+  ![python view check]()  
+  ![python view check]()  
+  ![python view check]()
+  
+  
+  
 ### Javascript Validation
 
 There was a small amount of Javascript used apart from the script supplied by Stripe.  
@@ -522,7 +532,62 @@ Both were validated by jshint, image of results are shown below.
   
 </details>
   
+      
+        
+        
+ # Technologies Used
+<details>
+  <summary>Technologies Used</summary>
+  
+  #### Languages Used
+  
+  - Python
+  - CSS  
+  - HTML  
+  - Javascript
+  
+  #### Development Environment
     
+  I used the gitpod-full-template for gitpod provided by Code Institute.  
+  The app was built using the Django framework.  
+  I used the Django setup cheat sheet provided as course material to start and set basic settings for the application.
+  
+  
+  #### Applications Used
+  
+  - [Balsamiq](https://www.balsamiq.com) was used to create wireframes for this project.
+  - [LucidChart](https://www.lucidchart.com) used for the ERD in readme file.
+  - [Git](https://git-scm.com/) Git was used for version control.
+  - [GitHub](https://github.com/) GitHub is used to store the projects code.
+  - [Heroku](http://www.heroku.com/) Heroku.com was used to deploy the site.
+  - [Chrome Developer Tools](https://developer.chrome.com/docs/devtools/) used for layout and responsive testing.
+  - [Wave](https://wave.webaim.org/) used for accessibility testing.
+  - [W3 Validator](https://jigsaw.w3.org/css-validator/) used to test css code.
+  - [w3 HTML Validator](https://validator.w3.org/) was used for html validation.
+  - [extendsclass](https://extendsclass.com/python-tester.html) extendsclass python code checker used to validate python code
+  - [Windows snip & sketch](https://www.microsoft.com/en-us/p/snip-sketch/9mz95kl8mr0l?activetab=pivot:overviewtab) used to capture screenshots for readme file.
+  - [techsini.com](https://techsini.com/) used to create the mock-up used in the readme file.  
+  - [autoprefixer.github.io](https://autoprefixer.github.io/) used to improve browser compatibility.  
+  - [Cloudinary.com](https://cloudinary.com/) used to store media and to transform images on download.
+  
+  #### Django/Python Libaries Used
+  I installed the following libraries.  
+  
+  - Django: The framework used to build the app.
+  - Pillow:used to handle image files.
+  - Cloudinary: used to serve/store media and css files.
+  - Coverage: used in testing to determine how comphrensive testing is.
+  - Gunicorn:WSGI application server (Web Server Gateway Interface)used to handle interaction between the web server and the app.
+  - Django-allauth: Handles user verification and authorisation.
+  - psycopg2:Library used to connect to database.
+  - dj-database-url: Django utility which allows database URLs to be used to configure the app.
+  - Django-crispy-forms: used to format forms within Django, I did not actually need to use this package.
+  - Stripe: enables secure payments.
+  - Django-htmx: 
+ 
+  
+  
+  </details>
 # Deployment and Version Control
 <details>  
             
