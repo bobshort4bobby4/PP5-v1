@@ -457,9 +457,9 @@ Results are shown below.  All errors were cleared.
   The Flake 8 linter was used in the code editor to ensure the python code complied to standard. 
   A few images are shown below of python code syntax checks.  
     
-  ![python view check]()  
-  ![python view check]()  
-  ![python view check]()
+  ![python checkout view check](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/checkoutviewspythonvalidation.png)  
+  ![python profile view check](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/profileviewpythonvalidation.png)  
+  ![python stock view check](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/stockapppythonvalidation.png)
   
   
   
