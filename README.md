@@ -557,7 +557,18 @@ Both were validated by jshint, image of results are shown below.
    | to enable staff members to perform certain admin tasks from the frontend  |  Required admin tasks acccessible to staff from front-end.        |
      
  
-            
+          
+  ### Security Issue
+  
+  In error I exposed a Stripe webhook signing secret to github.. Fortunately I had the GIT Guardian feature enabled which sent me an email immediately informing me of my error.  I was then immediately able to expire the signing secret via the Stripe dashboard thus minimising any security risk.  
+   [Relevant Github commit](https://github.com/bobshort4bobby4/PP5-v1/commit/1ed667a6b7d1e6867baf1b762f1da6d4b4117ddb) 
+   
+  Email from Git Guardian 
+  
+  ![git guardian email]()
+  
+  
+  ### Known Bugs Remaining 
   
 </details>
   
