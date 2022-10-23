@@ -503,7 +503,24 @@ Both were validated by jshint, image of results are shown below.
     
   ![responsive test results](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsivetests-pp5.png)
   
-  [link to responsive tests pdf](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive-pp5.pdf)
+  [link to responsive tests pdf](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive-pp5.pdf)  
+    
+  ### Table Showing Responsiveness test for various devices.  
+  
+  I used the device emulator built into Google Chrome to test the site on various devices on both portrait and landscape orientation. 
+  The home page only has been tested  thourghly due to time constaints.  Other pages have been tested on an adhoc basis.
+    
+  |        Device                           | Portrait Issues                          | Landscape Issues                           | Results |
+  |-----------------------------------------|------------------------------------------|--------------------------------------------|---------|
+  |  IPhone 5/se                            |        None                              |           None                             | Pass    |
+  |  IPhone6/7/8                            |        None                              |           None                             | Pass    |
+  |  IPhone6/7/8 Plus                       |        None                              |           None                             | Pass    |
+  |  Microsoft Lumina 550                   |        N/A                               |           None                             | Pass    |
+  |  Blackberry Z30                         |Active image in caro 8px larger then rest.|Active image in caro 8px larger then rest.  | Fail    |
+  |  Nokia Lumina 520                       |        None                              | Top Image slightly off-center to the right | Fail    |
+  |  Ipad                                   |        None                              |           None                             | Pass    |
+  |  Ipad Air                               |        None                              |           None                             | Pass    |
+  |  Nest Hub Max                           |        N/A                               |           None                             | Pass    |
               
   ### Manual Testing of User Inputs and Functions.  
          
@@ -521,7 +538,9 @@ Both were validated by jshint, image of results are shown below.
  ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual_tests/manual30-35.png)
  ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual_tests/manual36-46.png)
  ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual_tests/manual47-55.png)
- ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual_tests/manual56-62.png)
+ ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual_tests/manual56-62.png)  
+   
+ 
   
  ### Automated Tests
  I implemented those tests I had time resources for, the coverage rate for the app is 80%.  
