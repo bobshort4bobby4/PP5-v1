@@ -9,7 +9,7 @@ Github repository can be found [here](https://github.com/bobshort4bobby4/PP5-v1)
   
   
   
-![site mock-up](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/mock-up-pp5.png)  
+![site mock-up](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/mockupnew-pp5.jpg)  
   
   
   
@@ -197,7 +197,7 @@ In the bottom right corner there is a button which automatically scrolls the use
   
 The Home page of the site features an image of a car with a prominent button linking to the stock page.  
 There is also a carousel of featured vehicles.  
-  ![home page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/home-pp5.png)  
+  ![home page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/homepagefeaturenew-pp5.jpg)  
   
 
 ### Stock Page  
@@ -479,25 +479,25 @@ Both were validated by jshint, image of results are shown below.
   A set of images of the homepage at each breakpoint is shown.  
    
   #### 320px home page
-  ![320px-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-320px.png)
+  ![320px-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive_new_images/home320new-pp5.jpg)
   
   #### 375px home page
-  ![375px-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-375px.png)
+  ![375px-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive_new_images/home375new-pp5.jpg)
   
   #### 425px home page
-  ![425px-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/ppp5-home-425px.png)
+  ![425px-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive_new_images/home420new-pp5.jpg)
   
   #### 768px home page
-  ![768-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-768px.png)
+  ![768-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive_new_images/home768new-pp5.jpg)
   
   #### 1024px home page
-  ![1024-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-1024px.png)
+  ![1024-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive_new_images/home1024new-pp5.jpg)
   
   #### 1440px home page
-  ![1440-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-1440px.png)
+  ![1440-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive_new_images/home1440new-pp5.jpg)
   
   #### 2000px home page
-  ![2000-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-2000px.png)
+  ![2000-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive_new_images/home2000new-pp5.jpg)
             
   #### Table showing responiveness testing.
     
@@ -580,11 +580,11 @@ Both were validated by jshint, image of results are shown below.
   ### Security Issue
   
   In error I exposed a Stripe webhook signing secret to github.. Fortunately I had the GIT Guardian feature enabled which sent me an email immediately informing me of my error.  I was then immediately able to expire the signing secret via the Stripe dashboard thus minimising any security risk.  
-   [Relevant Github commit](https://github.com/bobshort4bobby4/PP5-v1/commit/1ed667a6b7d1e6867baf1b762f1da6d4b4117ddb) 
+   ![Relevant Github commit](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/gitcommit%20.jpg) 
    
   Email from Git Guardian 
   
-  ![git guardian email]()
+  ![git guardian email](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/gitguardian-pp5.jpg)
   
   
   ### Known Bugs Remaining 
