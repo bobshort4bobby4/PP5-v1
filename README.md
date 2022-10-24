@@ -15,12 +15,12 @@ Github repository can be found [here](https://github.com/bobshort4bobby4/PP5-v1)
   
 # **Introduction**
 
-This is the fifth project I have completed as part of the[Code Institute Full Stack Diploma Course](https://codeinstitute.net).  
+This is the fifth project I have completed as part of the [Code Institute Full Stack Diploma Course](https://codeinstitute.net).  
   
 This project sets out to create an ecommerce site for a fictitious car-sales business based in Dublin, Ireland.  
 The site will display all available stock, allow a search of same.  Each item of stock should have a specific page giving more information on that vehicle.  
 The site will have a shopping bag function where users can store items before purchasing them in the stripe enabled checkout.  
-Users should be able to value a vehicle  for possible trade-in, accept this value if desrired and apply it as a credit to their shopping bag total.
+Users should be able to value a vehicle  for possible trade-in, accept this value if desired and apply it as a credit to their shopping bag total.
 Staff members will need to be able to add, delete and edit stock items and also to change the trade-in base price for each manufacturer from the front-end.
 
 
@@ -457,9 +457,9 @@ Results are shown below.  All errors were cleared.
   The Flake 8 linter was used in the code editor to ensure the python code complied to standard. 
   A few images are shown below of python code syntax checks.  
     
-  ![python view check]()  
-  ![python view check]()  
-  ![python view check]()
+  ![python checkout view check](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/checkoutviewspythonvalidation.png)  
+  ![python profile view check](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/profileviewpythonvalidation.png)  
+  ![python stock view check](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/stockapppythonvalidation.png)
   
   
   
@@ -503,7 +503,24 @@ Both were validated by jshint, image of results are shown below.
     
   ![responsive test results](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsivetests-pp5.png)
   
-  [link to responsive tests pdf](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive-pp5.pdf)
+  [link to responsive tests pdf](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive-pp5.pdf)  
+    
+  ### Table Showing Responsiveness test for various devices.  
+  
+  I used the device emulator built into Google Chrome to test the site on various devices on both portrait and landscape orientation. 
+  The home page only has been tested  thourghly due to time constaints.  Other pages have been tested on an adhoc basis.
+    
+  |        Device                           | Portrait Issues                          | Landscape Issues                           | Results |
+  |-----------------------------------------|------------------------------------------|--------------------------------------------|---------|
+  |  IPhone 5/se                            |        None                              |           None                             | Pass    |
+  |  IPhone6/7/8                            |        None                              |           None                             | Pass    |
+  |  IPhone6/7/8 Plus                       |        None                              |           None                             | Pass    |
+  |  Microsoft Lumina 550                   |        N/A                               |           None                             | Pass    |
+  |  Blackberry Z30                         |Active image in caro 8px larger then rest.|Active image in caro 8px larger then rest.  | Fail    |
+  |  Nokia Lumina 520                       |        None                              | Top Image slightly off-center to the right | Fail    |
+  |  Ipad                                   |        None                              |           None                             | Pass    |
+  |  Ipad Air                               |        None                              |           None                             | Pass    |
+  |  Nest Hub Max                           |        N/A                               |           None                             | Pass    |
               
   ### Manual Testing of User Inputs and Functions.  
          
@@ -521,14 +538,56 @@ Both were validated by jshint, image of results are shown below.
  ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual_tests/manual30-35.png)
  ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual_tests/manual36-46.png)
  ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual_tests/manual47-55.png)
- ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual_tests/manual56-62.png)
+ ![manual test image](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/manual_tests/manual56-62.png)  
+   
+ 
   
  ### Automated Tests
  I implemented those tests I had time resources for, the coverage rate for the app is 80%.  
  
     
- ![coverage result](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/coverageresult-pp5.png)
-            
+ ![coverage result](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/coverageresult-pp5.png)  
+   
+      
+ ### Testing Application For Achievement of User Goals.  
+     
+     
+     
+     
+   |                                          User  story                      |                              Outcome                              |
+   |---------------------------------------------------------------------------|-------------------------------------------------------------------|
+   | to be easily able to ascertain information on the business                |  Social, telephone and location info provided                     |
+   | to be able to easily browse and search stock                              |  Link to Stock page prominent, Search function provided           |
+   | to navigate easily around the site                                        |  Forwards and backwards link on all pages                         |
+   | to have any incorrect input rejected and the error explained clearly      |  All Inputs validated and message displayed                       |
+   | site to be responsive                                                     |  Site responsive at all screen sizes                              |
+   | to be able to value any vehicle as a trade-in                             |  Vehicle valuation facility provided                              |
+   | to easily add a vehicle to my order                                       |  One ckick addition to bag, bag easily adjustable                 |
+   | to easily trade-in a vehicle                                              |  Vehicle trade-in facility provided                               |
+   | to easily pay for my order                                                |  Stripe enabled checkout                                          |
+   | to securely pay for my order                                              |  Stripe enabled checkout                                          |
+   | to be able to create a user account                                       |  All-auth  functionality implemented                              |
+   | to be able to manage my user profile                                      |  Profile details editable from profile app                        |
+   | to review my profile details and order details                            |  Profile and order history viewable from Profile app              |
+   | to have all orders confirmed by email                                     |  Order and account actions confirmred by email                    |
+   | to provide an easy to use website                                         |  All actions intuitive                                            |
+   | to engage potential customers                                             |  Newsletter,social media links to engage users                    |
+   | to use the site as a marketing tool                                       |  SEO used to promote the site to users                            |
+   | to enable staff members to perform certain admin tasks from the frontend  |  Required admin tasks acccessible to staff from front-end.        |
+     
+ 
+          
+  ### Security Issue
+  
+  In error I exposed a Stripe webhook signing secret to github.. Fortunately I had the GIT Guardian feature enabled which sent me an email immediately informing me of my error.  I was then immediately able to expire the signing secret via the Stripe dashboard thus minimising any security risk.  
+   [Relevant Github commit](https://github.com/bobshort4bobby4/PP5-v1/commit/1ed667a6b7d1e6867baf1b762f1da6d4b4117ddb) 
+   
+  Email from Git Guardian 
+  
+  ![git guardian email]()
+  
+  
+  ### Known Bugs Remaining 
   
 </details>
   
@@ -581,13 +640,16 @@ Both were validated by jshint, image of results are shown below.
   - Django-allauth: Handles user verification and authorisation.
   - psycopg2:Library used to connect to database.
   - dj-database-url: Django utility which allows database URLs to be used to configure the app.
-  - Django-crispy-forms: used to format forms within Django, I did not actually need to use this package.
+  - Django-crispy-forms: used to format forms within Django.
   - Stripe: enables secure payments.
-  - Django-htmx: 
+  - Django-htmx: allows ajax calls without using javascript.
  
   
   
-  </details>
+  </details>  
+    
+      
+      
 # Deployment and Version Control
 <details>  
             
