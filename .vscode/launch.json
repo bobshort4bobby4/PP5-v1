@@ -31,14 +31,16 @@
 
 {
   "version": "0.2.0",
-  "configurations": [{
+  "configurations": [
+    
+    {
       "name": "Python: Django",
       "type": "python",
       "request": "launch",
       "program": "${workspaceFolder}/manage.py",
       "args": ["runserver"],
       "django": true,
-      "justMyCode": true
+      "justMyCode": false
     },
     {
       "name": "Python: Current File (Integrated Terminal)",
@@ -55,7 +57,8 @@
       "request": "launch",
       "program": "manage.py",
       "console": "internalConsole",
-      "args": ["runserver"]
+      "args": ["runserver"],
+      "justMyCode": false
     },
 
     {
