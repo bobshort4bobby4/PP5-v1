@@ -25,14 +25,14 @@
                           
                           {% for vehicle in vehicles %}
                             {% if forloop.first %}
-                              <div class="carousel-item active">
+                              <div class="carousel-item active" >
                                 <a href="{% url 'stock:stock_detail' vehicle.pk %}">
                                   <div class="imagewrap">
-                                  <img class="d-block w-100 img-height" src="{{vehicle.image_url}}" alt=" slide">
+                                  <img class="d-block w-100 img-height" src="{{vehicle.image_url}}" alt="{{ vehicle.maker }} {{ vehicle.model }}">
                                   </div>
                                   <div class="text-white text-center bg-dark cardetail">
                                       <h5>{{vehicle.maker}} {{vehicle.model}}</h5>
-                                      <p> Fuel: {{ vehicle.fuel }} ~  Year: {{ vehicle.year|floatformat:"0u" }}..</p>
+                                      <p> Fuel: {{ vehicle.fuel }} ~  Year: {{ vehicle.year }}..</p>
                                   </div>
                                 </a>
                               </div>
@@ -41,11 +41,11 @@
                               <div class="carousel-item " aria-label="vehicle {{forloop.counter}}">
                                 <a href="{% url 'stock:stock_detail' vehicle.pk %}">
                                   <div class="imagewrap">
-                                    <img class="d-block w-100 img-height" src="{{vehicle.image_url}}" alt=" slide">
+                                    <img class="d-block w-100 img-height" src="{{vehicle.image_url}}" alt=" {{ vehicle.maker }} {{ vehicle.model }}">
                                   </div>
                                   <div class="text-white text-center bg-dark cardetail">
                                     <h5>{{vehicle.maker}} {{vehicle.model}}</h5>
-                                    <p> Fuel: {{ vehicle.fuel }} ~  Year: {{ vehicle.year }}</p>
+                                    <p> Fuel: {{ vehicle.fuel }} ~  Year: {{ vehicle.year|floatformat:"0u" }}</p>
                                   </div>
                                 </a>
                               </div>

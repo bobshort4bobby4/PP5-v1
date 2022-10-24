@@ -172,7 +172,7 @@ li.nav-item.dropdown {
 #image {
    background-color: aliceblue;
    vertical-align: top;
-   height:35vh;
+   min-height:300px;
    width:100vw;
    background-size: cover;
    background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_300,h_288/v1664279796/media/pp5/greenlambo-small-pp5_foazm6.jpg");
@@ -312,6 +312,7 @@ li.nav-item.dropdown {
    }
 
    #image {
+      min-height:347px;
       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/v1664279796/media/pp5/greenlambo-small-pp5_foazm6.jpg");
    }
 
@@ -321,11 +322,10 @@ li.nav-item.dropdown {
    #image {
        /* background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/v1664102996/media/pp5/ferrari-wide-landscwebp_lc2y5f.webp"); */
        /* background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/v1664278142/media/pp5/lotusside_gz8rb5.jpg"); */
-       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_520,h_288/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg");
+       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_620,h_300/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg");
        -o-object-position: 50% -10%;
           object-position: 50% -10%;
-       
-       
+       min-height:340px;
        width:90%;
        margin-left: 5%;
        margin-right: 5%;
@@ -392,6 +392,7 @@ li.nav-item.dropdown {
    }
 
    #image{
+      min-height: 318px;
       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_800,h_308/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg");
    }
    
@@ -449,6 +450,7 @@ li.nav-item.dropdown {
 
    #image {
        width:80vw;
+       min-height: 318px;
        margin-left:10vw;
        margin-right:10vw;
        -o-object-fit: cover;
@@ -514,4 +516,83 @@ li.nav-item.dropdown {
       width:60vw;
       background-image:url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1380,h_485/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg")
    }
+}
+
+
+
+/*    landscape queries  */
+
+@media screen and (orientation:landscape) and (min-height:281px)  and (max-height:300px){
+
+
+   #image {
+      /* background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_750,h_350/v1664279796/media/pp5/greenlambo-small-pp5_foazm6.jpg"); */
+      min-height:350px;
+     
+   }
+
+}
+
+@media screen and (orientation:landscape) and (min-height:301px)  and (max-height:374px){
+
+
+   #image {
+      /* background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_700,h_290/v1664279796/media/pp5/greenlambo-small-pp5_foazm6.jpg"); */
+      min-height:194px; 
+      background-image:url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_550,h_200/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg");
+      width:80%;
+      margin-left: 10%;
+      margin-right:10%;
+      object-fit: contain;
+     
+   }
+
+}
+
+@media screen and (orientation:landscape) and (min-height:375px)  and (max-height:430px){
+
+
+   #image {
+      background-image:url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_560,h_200/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg");
+      /* background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_700,h_350/v1664279796/media/pp5/greenlambo-small-pp5_foazm6.jpg"); */
+      background-color: aqua;
+      min-height:195px;
+      width:80%;
+      margin-left: 10%;
+      margin-right:10%;
+   }
+
+}
+
+@media screen and (orientation:landscape) and (min-height:431px)  and (max-height:540px){
+
+
+   #image {
+      background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_760,h_450/v1664279796/media/pp5/greenlambo-small-pp5_foazm6.jpg");
+      background-color: aqua;
+      min-height:490px;
+   }
+
+}
+
+@media screen and (orientation:landscape) and (min-height:541px)  and (max-height:750px){
+
+
+   #image {
+      background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_760,h_450/v1664279796/media/pp5/greenlambo-small-pp5_foazm6.jpg");
+      background-color: aqua;
+      min-height:330px;
+   }
+}
+
+@media screen and (min-width:1200px) and (orientation:landscape) and (min-height:751px)  and (max-height:821px){
+
+
+   #image {
+      background-image:url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fit,w_700,h_260,/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg");
+     
+      background-color: aqua;
+      min-height:410px;
+   }
+
 }
