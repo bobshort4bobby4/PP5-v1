@@ -203,6 +203,12 @@ li.nav-item.dropdown {
 
 }
 
+#stockbtndiv {
+   position: relative!important;
+   bottom: -65px!important;
+   line-height: 2.2rem!important;
+}
+
 
 /* bag */
 
