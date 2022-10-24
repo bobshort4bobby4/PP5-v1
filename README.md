@@ -516,8 +516,8 @@ Both were validated by jshint, image of results are shown below.
   |  IPhone6/7/8                            |        None                              |           None                             | Pass    |
   |  IPhone6/7/8 Plus                       |        None                              |           None                             | Pass    |
   |  Microsoft Lumina 550                   |        N/A                               |           None                             | Pass    |
-  |  Blackberry Z30                         |Active image in caro 8px larger then rest.|Active image in caro 8px larger then rest.  | Fail    |
-  |  Nokia Lumina 520                       |        None                              | Top Image slightly off-center to the right | Fail    |
+  |  Blackberry Z30                         |        None                              |           None                             | Pass    |
+  |  Nokia Lumina 520                       |        None                              |           None                             | Pass    |
   |  Ipad                                   |        None                              |           None                             | Pass    |
   |  Ipad Air                               |        None                              |           None                             | Pass    |
   |  Nest Hub Max                           |        N/A                               |           None                             | Pass    |
