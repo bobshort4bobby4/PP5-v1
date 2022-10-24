@@ -9,8 +9,8 @@
       </a>
     </div>
     <div>
-        <div class="d-flex">
-          <div id="image" >
+        <div id="image-container" class="d-flex">
+          <div id="" >
           <!-- <img src="https://res.cloudinary.com/dpudxnll7/image/upload/v1664102996/media/pp5/ferrari-wide-landscwebp_lc2y5f.webp" alt="luxury car" height="400px">  -->
           </div>
         </div>
@@ -32,7 +32,7 @@
                                   </div>
                                   <div class="text-white text-center bg-dark cardetail">
                                       <h5>{{vehicle.maker}} {{vehicle.model}}</h5>
-                                      <p> Fuel: {{ vehicle.fuel }} ~  Year: {{ vehicle.year }}..</p>
+                                      <p> Fuel: {{ vehicle.fuel }} ~  Year: {{ vehicle.year|floatformat:"0u" }}</p>
                                   </div>
                                 </a>
                               </div>

@@ -169,6 +169,18 @@ li.nav-item.dropdown {
 
 /* home image */
 
+#image-container {
+   width:96vw;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   height:300px;
+   margin:2vw;
+   margin-top:2px;
+   
+   background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/v1666630194/media/Car-dealership_yc0x4c.jpg");
+}
+
 #image {
    background-color: aliceblue;
    vertical-align: top;
@@ -290,6 +302,10 @@ li.nav-item.dropdown {
           object-fit: fill;
    }
 
+   #image-container {
+      height:350px;
+   }
+
    #image {
        background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_375,h_288/v1664279796/media/pp5/greenlambo-small-pp5_foazm6.jpg");
    }
@@ -309,6 +325,10 @@ li.nav-item.dropdown {
        min-height:350px;
        -o-object-fit: contain;
           object-fit: contain;
+   }
+
+   #image-container {
+      height:360px;
    }
 
    #image {
@@ -332,6 +352,10 @@ li.nav-item.dropdown {
        margin-top: 5px;
        border:2px #28a745 solid;
        
+   }
+
+   #image-container {
+      height:400px;
    }
 
    .radiob {
@@ -394,6 +418,11 @@ li.nav-item.dropdown {
    #image{
       min-height: 318px;
       background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_scale,w_800,h_308/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg");
+   }
+
+   #image-container {
+      height:600px;
+      background-image:url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,h_600/v1666640775/media/dealerinterior-pp5_mbmhns.webp");
    }
    
    .img-height {
@@ -470,6 +499,12 @@ li.nav-item.dropdown {
         */
       background-image:url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1500,h_485/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg")
    }  
+
+   #image-container {
+      width:90vw;
+      margin-left: 5vw;
+      margin-right:5vw;
+   }
        
 }
 
@@ -489,6 +524,10 @@ li.nav-item.dropdown {
        margin-right:auto;
        background-image:url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1550,h_485/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg")
        /* background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1200,h_485/v1665592584/media/pp5/red-ferrari-side-1600_xesnrp.jpg"); */
+   }
+
+   #image-container {
+      height:725px;
    }
 
    #carowrap{
@@ -516,6 +555,8 @@ li.nav-item.dropdown {
       width:60vw;
       background-image:url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_1380,h_485/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg")
    }
+
+   
 }
 
 
@@ -537,9 +578,9 @@ li.nav-item.dropdown {
 
 
    #image {
-      /* background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_700,h_290/v1664279796/media/pp5/greenlambo-small-pp5_foazm6.jpg"); */
+      background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_400,h_290/v1664279796/media/pp5/greenlambo-small-pp5_foazm6.jpg");
       min-height:194px; 
-      background-image:url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_550,h_200/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg");
+      /* background-image:url("https://res.cloudinary.com/dpudxnll7/image/upload/c_fill,w_550,h_200/v1664278412/media/pp5/Lamborghini-side-view_mjephz.jpg"); */
       width:80%;
       margin-left: 10%;
       margin-right:10%;
