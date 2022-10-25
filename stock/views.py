@@ -12,6 +12,8 @@ from .forms import VehicleForm, MakerForm
 from .trade_calc import calc_tradein
 
 
+
+
 class StockView(ListView):
     """
     Generic class used to display vehicle display page

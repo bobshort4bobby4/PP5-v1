@@ -38,11 +38,15 @@ class VehicleAdmin(admin.ModelAdmin):
                     'available_sale',)
 
     actions = [
-               'set_available_sale_to_true'
+               'set_available_sale_to_true',
+               'set_available_sale_to_false'
                ]
 
     def set_available_sale_to_true(self, request, queryset):
         queryset.update(available_sale=True)
+
+    def set_available_sale_to_false(self, request, queryset):
+        queryset.update(available_sale=False)
 
 
 @admin.register(Tradein)
