@@ -577,17 +577,32 @@ Both were validated by jshint, image of results are shown below.
      
  
           
-  ### Security Issue
+ 
+  
+  
+  ### Bugs And Issues  
+  
+   ##### Security Issue
   
   In error I exposed a Stripe webhook signing secret to github.. Fortunately I had the GIT Guardian feature enabled which sent me an email immediately informing me of my error.  I was then immediately able to expire the signing secret via the Stripe dashboard thus minimising any security risk.  
    ![Relevant Github commit](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/gitcommit%20.jpg) 
    
   Email from Git Guardian 
   
-  ![git guardian email](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/gitguardian-pp5.jpg)
+  ![git guardian email](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/gitguardian-pp5.jpg)  
+  
+ ##### Clearing Session Variables  
+  
+  I had a issue when a registered user logged in after an anon user had been using the site(on the same machine).  Any bag or trade-in information from the anon user would still be present in the new user's bag.  
+To fix this I needed to clear the session variables at the point of a successful login.  After referencing the allauth documentation [here](https://django-allauth.readthedocs.io/en/latest/forms.html) I over-rode the default login and added in some code to clear the session variables at login.
+  
+##### Poor Lighthouse Score (stock page)
+  
+  The stock page which contains many images has a poor performance score on mobile.  I have tried several methods to improve this score with limitied success.  
+  ![poor stock lighthouse mobile score]()  
   
   
-  ### Known Bugs Remaining 
+
   
 </details>
   
