@@ -595,25 +595,25 @@ Both were validated by jshint, image of results are shown below.
  ##### Clearing Session Variables  
   
   I had a issue when a registered user logged in after an anon user had been using the site(on the same machine).  Any bag or trade-in information from the anon user would still be present in the new user's bag.  
-To fix this I needed to clear the session variables at the point of a successful login.  After referencing the allauth documentation [here](https://django-allauth.readthedocs.io/en/latest/forms.html) I over-rode the default login and added in some code to clear the session variables at login.
+To fix this I needed to clear the session variables at the point of a successful login.  After referencing the allauth documentation [here](https://django-allauth.readthedocs.io/en/latest/forms.html) I created a custom login form which inherited the allauth view and added in some code to clear the session variables at login.
   
 ##### Poor Lighthouse Score (stock page)
   
   The stock page which contains many images has a poor performance score on mobile.  I have tried several methods to improve this score with limitied success.  
-  ![poor stock lighthouse mobile score]()  
+  ![poor stock lighthouse mobile score](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/mobilestocklighthouse-pp5.jpg)  
   
   ##### CRSF Token /Htmx  
   
   I had a problem getting htmx post requests to work. Django was returning the 403 error. After an internet search I added a script which ensures that htmx AJAX requests include a csrf token.  
   
   `<script>
-
     document.body.addEventListener('htmx:configRequest', function(evt) {
         evt.detail.headers['X-CSRFToken'] = '{{csrf_token}}'; // add a new header into the request
     });
-
   </script>`  
+    
   
+
 
   
 </details>
