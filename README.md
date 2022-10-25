@@ -9,7 +9,7 @@ Github repository can be found [here](https://github.com/bobshort4bobby4/PP5-v1)
   
   
   
-![site mock-up](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/mock-up-pp5.png)  
+![site mock-up](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/mockupnew-pp5.jpg)  
   
   
   
@@ -85,11 +85,11 @@ The AGILE methodology for project development will be used to produce this proje
   
    
   The user stories were prioritised using the MoSCoW technique and the Kanban Board feature built-in to Github will be used as an information radiator.
-  The user stories were broken down into tasks and these were listed under their respective issue in the initial Kanban Board.  
-  The acceptance criteria for each user story are listed in each issue in the github project board.
+  The user stories were broken down into tasks and these were listed under their respective user story in the initial Kanban Board.  
+  The acceptance criteria for each user story are listed in each story in the github project board.
   Care was taken to ensure should-have prioritised user stories are not greater than 60% of the total.  
     
-  An image of the first issue is shown below for illustrative purposes.  
+  An image of the first user story is shown below for illustrative purposes.  
     
    ![issue 1 ](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/issue1-pp5.png)
     
@@ -126,6 +126,7 @@ The AGILE methodology for project development will be used to produce this proje
 (CTRL + Click to open in new window) [link to wireframes pdf](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/wireframes/pp5-wireframes-correct.pdf)
 
 A full set of wire frames for this Project was produced and can be viewed at the above link, A sample of them are shown below.  
+Please note some the images have been changed over the development process, the layout reamins as shown below.  
     
  #### Home Page Wireframe
 ![home page wireframe](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/wireframes/pp5-Home.png)  
@@ -197,7 +198,7 @@ In the bottom right corner there is a button which automatically scrolls the use
   
 The Home page of the site features an image of a car with a prominent button linking to the stock page.  
 There is also a carousel of featured vehicles.  
-  ![home page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/home-pp5.png)  
+  ![home page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/homepagefeaturenew-pp5.jpg)  
   
 
 ### Stock Page  
@@ -479,25 +480,25 @@ Both were validated by jshint, image of results are shown below.
   A set of images of the homepage at each breakpoint is shown.  
    
   #### 320px home page
-  ![320px-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-320px.png)
+  ![320px-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive_new_images/home320new-pp5.jpg)
   
   #### 375px home page
-  ![375px-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-375px.png)
+  ![375px-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive_new_images/home375new-pp5.jpg)
   
   #### 425px home page
-  ![425px-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/ppp5-home-425px.png)
+  ![425px-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive_new_images/home420new-pp5.jpg)
   
   #### 768px home page
-  ![768-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-768px.png)
+  ![768-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive_new_images/home768new-pp5.jpg)
   
   #### 1024px home page
-  ![1024-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-1024px.png)
+  ![1024-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive_new_images/home1024new-pp5.jpg)
   
   #### 1440px home page
-  ![1440-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-1440px.png)
+  ![1440-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive_new_images/home1440new-pp5.jpg)
   
   #### 2000px home page
-  ![2000-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/pp5-home-2000px.png)
+  ![2000-home](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/responsive_new_images/home2000new-pp5.jpg)
             
   #### Table showing responiveness testing.
     
@@ -577,17 +578,43 @@ Both were validated by jshint, image of results are shown below.
      
  
           
-  ### Security Issue
+ 
+  
+  
+  ### Bugs And Issues  
+  
+   ##### Security Issue
   
   In error I exposed a Stripe webhook signing secret to github.. Fortunately I had the GIT Guardian feature enabled which sent me an email immediately informing me of my error.  I was then immediately able to expire the signing secret via the Stripe dashboard thus minimising any security risk.  
-   [Relevant Github commit](https://github.com/bobshort4bobby4/PP5-v1/commit/1ed667a6b7d1e6867baf1b762f1da6d4b4117ddb) 
+   ![Relevant Github commit](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/gitcommit%20.jpg) 
    
   Email from Git Guardian 
   
-  ![git guardian email]()
+  ![git guardian email](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/gitguardian-pp5.jpg)  
   
+ ##### Clearing Session Variables  
   
-  ### Known Bugs Remaining 
+  I had a issue when a registered user logged in after an anon user had been using the site(on the same machine).  Any bag or trade-in information from the anon user would still be present in the new user's bag.  
+To fix this I needed to clear the session variables at the point of a successful login.  After referencing the allauth documentation [here](https://django-allauth.readthedocs.io/en/latest/forms.html) I over-rode the default login and added in some code to clear the session variables at login.
+  
+##### Poor Lighthouse Score (stock page)
+  
+  The stock page which contains many images has a poor performance score on mobile.  I have tried several methods to improve this score with limitied success.  
+  ![poor stock lighthouse mobile score]()  
+  
+  ##### CRSF Token /Htmx  
+  
+  I had a problem getting htmx post requests to work. Django was returning the 403 error. After an internet search I added a script which ensures that htmx AJAX requests include a csrf token.  
+  
+  `<script>
+
+    document.body.addEventListener('htmx:configRequest', function(evt) {
+        evt.detail.headers['X-CSRFToken'] = '{{csrf_token}}'; // add a new header into the request
+    });
+
+  </script>`  
+  
+
   
 </details>
   
