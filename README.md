@@ -600,7 +600,11 @@ To fix this I needed to clear the session variables at the point of a successful
 ##### Poor Lighthouse Score (stock page)
   
   The stock page which contains many images has a poor performance score on mobile.  I have tried several methods to improve this score with limitied success.  
-  ![poor stock lighthouse mobile score](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/mobilestocklighthouse-pp5.jpg)  
+  ![poor stock lighthouse mobile score](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/mobilelighthousestock-pp5.jpg)  
+  
+  I used the critical path css generator [here](https://www.sitelocity.com/critical-path-css-generator) and when incorporated on the base templates improved the scores quite a bit.  
+    
+  ![better lighthouse scores for stock page mobile](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/stocklighthousegoog-pp5.jpg)
   
   ##### CRSF Token /Htmx  
   
@@ -660,6 +664,8 @@ This was overcome by using the `|floatformat:"0u"` template tag on any figures w
   - [techsini.com](https://techsini.com/) used to create the mock-up used in the readme file.  
   - [autoprefixer.github.io](https://autoprefixer.github.io/) used to improve browser compatibility.  
   - [Cloudinary.com](https://cloudinary.com/) used to store media and to transform images on download.
+  - [sitelocity.com](https://www.sitelocity.com/critical-path-css-generator) used to generate critical css and js.  
+  
   
   #### Django/Python Libaries Used
   I installed the following libraries.  
@@ -675,6 +681,7 @@ This was overcome by using the `|floatformat:"0u"` template tag on any figures w
   - Django-crispy-forms: used to format forms within Django.
   - Stripe: enables secure payments.
   - Django-htmx: allows ajax calls without using javascript.
+
  
   
   
@@ -751,7 +758,23 @@ To deploy my project I followed the steps below.
 
   
 
+# Credit  
 
+ <details>
+  <summary>Credits</summary>
+  
+  - Bootstrap; I used standard bootstrap templates for several of the elements on the site, these were adapted to suit as needed. The Nav-bar, Review-Slider and the table on the My Account page are all taken from the [Bootstrap site](https://getbootstrap.com/).  
+  - The Css used to format the embedded google map on the information page was taken from this blog [blog.duda](https://blog.duda.co/responsive-google-maps-for-your-website). 
+  - Stackoverflow for general information [](https://stackoverflow.com/).  
+  - Javascript script used to close the Django messages was taken from one of the course material examples.   
+  - Script  used to include csrf token with htmx requests was taken from [Matt Layman Blog](https://www.mattlayman.com/blog).  
+  - Information on how to implement Postgress text search was taken from the [django documentation](https://docs.djangoproject.com/en/4.1/ref/contrib/postgres/search/).  
+  - How to use critical path css generator was taken from the [sitelocity website](https://www.sitelocity.com/critical-path-css-generator).  
+  - Slack users for help regarding getting htmx to pass validation.  
+  - The C.I. tutor team.  
+  - My C.I. Mentor Mr Ben Kavanagh.  
+  
+  </details>
 
 
 
