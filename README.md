@@ -613,6 +613,11 @@ To fix this I needed to clear the session variables at the point of a successful
   </script>`  
     
   
+##### Separating comma in Vehicle year  
+
+I used the `USE_THOUSAND_SEPARATOR = True` setting in the settings.py to place a separating comma in all the numbers used on the site.  
+This had the unwanted side-effect of placing a comma in all the vehicles year of manufacture also.  
+This was overcome by using the `|floatformat:"0u"` template tag on any figures which were not numerical amounts.  
 
 
   
