@@ -92,7 +92,7 @@ The AGILE methodology for project development will be used to produce this proje
     
   An image of the first user story is shown below for illustrative purposes.  
     
-   ![issue 1 ](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/issue1-pp5.png)
+   ![user story #1](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/issue%20%231-pp5.jpg)
     
       
   ### Table Showing User Story Allocation to Epics  
