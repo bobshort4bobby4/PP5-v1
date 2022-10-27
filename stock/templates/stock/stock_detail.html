@@ -22,7 +22,7 @@
             <div class="container d-none d-md-block">
                 {% if request.user.is_staff %}
                 <a class ="mx-1" href="{% url 'stock:edit_vehicle' object.pk %}">Edit</a>
-                <a class="text-danger mx-1" href="{% url 'stock:delete_vehicle' object.pk %}" hx-confirm="Are You Sure?">Delete</a>
+                <a class="text-danger mx-1" href="{% url 'stock:delete_vehicle' object.pk %}" >Delete</a>
                 {% endif %}
             </div>
 

@@ -6,13 +6,14 @@ from .views import (StockView,
                     StockDetailView,
                     # EditDeleteView,
                     add_stock,
-                    delete_vehicle,
+                    # delete_vehicle,
                     clear_trade,
                     edit_vehicle,
                     trade_in,
                     trade_value,
                     take_trade,
-                    adjust_tradein)
+                    adjust_tradein,
+                    DeleteVehicleView)
 
 
 app_name = 'stock'
@@ -23,7 +24,7 @@ urlpatterns = [
     path('add_stock/', add_stock, name='add_stock'),
     path('edit/<int:vehicle_id>/', edit_vehicle, name='edit_vehicle'),
     path('delete/<int:vehicle_id>/',
-         delete_vehicle,
+         DeleteVehicleView.as_view(),
          name='delete_vehicle'),
     path('trade_in/', trade_in, name='trade_in'),
     path('trade_value/', trade_value, name='trade_value'),

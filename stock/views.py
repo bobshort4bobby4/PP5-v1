@@ -1,7 +1,9 @@
 """
 View logic for stock app
 """
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, DeleteView
+from django.contrib.messages.views import SuccessMessageMixin
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404, render, redirect, reverse
 from django.contrib import messages
 from django.contrib.postgres.search import (SearchQuery,
@@ -88,17 +90,42 @@ def add_stock(request):
     return render(request, template, context)
 
 
-def delete_vehicle(request, vehicle_id):
-    """ Delete a vehicle from the store """
-    if not request.user.is_staff:
-        messages.error(request, 'Sorry, only store staff can do that.')
-        return redirect(reverse('home:home'))
+class DeleteVehicleView(SuccessMessageMixin, DeleteView):
+    model = Vehicle
+    template_name = 'stock/delete_vehicle.html'
+    success_url = '/'
+    success_message = 'Thank you Vehicle deleted'
 
-    veh = get_object_or_404(Vehicle, pk=vehicle_id)
-    veh.available_sale = False
-    veh.save()
-    messages.success(request, 'Vehicle Deleted!')
-    return redirect(reverse('stock:stock'))
+    def get_object(self):
+        vehpk = self.kwargs.get('vehicle_id')
+        object = get_object_or_404(Vehicle, pk=vehpk)
+        return object
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(DeleteVehicleView, self).delete(request, *args, **kwargs)
+
+    def get(self, request, **kwargs):
+
+        user = self.request.user
+        # checking to ensure user has right to view this booking details
+        if not user.is_staff:
+            raise PermissionDenied()
+        else:
+            object = self.kwargs['vehicle_id']
+            return render(request, self.template_name)
+
+# def delete_vehicle(request, vehicle_id):
+#     """ Delete a vehicle from the store """
+#     if not request.user.is_staff:
+#         messages.error(request, 'Sorry, only store staff can do that.')
+#         return redirect(reverse('home:home'))
+
+#     veh = get_object_or_404(Vehicle, pk=vehicle_id)
+#     veh.available_sale = False
+#     veh.save()
+#     messages.success(request, 'Vehicle Deleted!')
+#     return redirect(reverse('stock:stock'))
 
 
 def edit_vehicle(request, vehicle_id):
