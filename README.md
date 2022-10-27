@@ -628,6 +628,12 @@ I used the `USE_THOUSAND_SEPARATOR = True` setting in the settings.py to place a
 This had the unwanted side-effect of placing a comma in all the vehicles year of manufacture also.  
 This was overcome by using the `|floatformat:"0u"` template tag on any figures which were not numerical amounts.  
 
+##### Delete Vehicle Confirnmation
+
+There should be a confirmation which would affirm that the staff member definitely wanted to delete that vehicle.  As it is the link is highlighted in red but vehicle is deleted on clicking on the button.  
+
+
+
 
   
 </details>
