@@ -74,12 +74,13 @@ class StripeWH_Handler:
             else:
                 flag_info = True
             if flag_info:
+                shipdetail = shipping_details
                 profile.default_phone_number = shipping_details.phone
                 profile.default_country = shipping_details.address.country
                 profile.default_postcode = shipping_details.address.postal_code
                 profile.default_town_or_city = shipping_details.address.city
-                profile.default_street_address1 = shipping_details.address.line1 # !pep8
-                profile.default_street_address2 = shipping_details.address.line2 # !pep8
+                profile.default_street_address1 = shipdetail.address.line1
+                profile.default_street_address2 = shipdetail.address.line2
                 profile.default_county = shipping_details.address.state
                 profile.save()
 
@@ -165,7 +166,7 @@ class StripeWH_Handler:
                      'Created order in webhook'),
             status=200)
 
-    def handle_payment_intent_payment_failed(self, event):
+    def handle_payment_intent_failed(self, event):
         """
         Handle the payment_intent.payment_fail webhook from Stripe
         """
