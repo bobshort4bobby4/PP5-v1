@@ -59,7 +59,7 @@ The AGILE methodology for project development will be used to produce this proje
    - [#11](https://github.com/bobshort4bobby4/PP5-v1/issues/11) to be able to create a user account, to track my interaction with the site.
    - [#12](https://github.com/bobshort4bobby4/PP5-v1/issues/12) to be able to manage my user profile, to make site use easy.
    - [#13](https://github.com/bobshort4bobby4/PP5-v1/issues/13) to review my profile details and order details, to engender trust and provide as transparent process as possible.
-   - [#14](https://github.com/bobshort4bobby4/PP5-v1/issues/14) to have all orders confirmed by email, to engender trust and provide as transparent process as possible.
+   - [#14](https://github.com/bobshort4bobby4/PP5-v1/issues/14) to have all orders confirmed by email, to engender trust and provide a transparent process as possible.
    
    
    #### Site Owner Goals
@@ -86,7 +86,8 @@ The AGILE methodology for project development will be used to produce this proje
    
   The user stories were prioritised using the MoSCoW technique and the Kanban Board feature built-in to Github will be used as an information radiator.
   The user stories were broken down into tasks and these were listed under their respective user story in the initial Kanban Board.  
-  The acceptance criteria for each user story are listed in each story in the github project board.
+  The acceptance criteria for each user story are listed in each story in the github project board.  
+  
   Care was taken to ensure should-have prioritised user stories are not greater than 60% of the total.  
     
   An image of the first user story is shown below for illustrative purposes.  
@@ -187,7 +188,7 @@ All all-auth templates are customised to match the appearance of the site.
 ### Footer  
    
 The footer is displayed on all pages.  
-There is a links section which links to the business's social media pages, to trade representative bodies and to the businesses privacy policy.  
+There is a links section which links to the business's social media pages, to trade representative bodies and to the businesses's privacy policy.  
 The hours of business are shown on larger screens.  
 There is a sign-up form for the business newsletter.  
 In the bottom right corner there is a button which automatically scrolls the user to the top of the page.  
@@ -359,14 +360,17 @@ Whilst there is plenty of scope for content marketing such as articles/guides to
   
 Similar websites serving the same market will be looked at and features that are considered to work well will be implemented as a first step.  
 
-Paid adds for social media sites and search engines were not considered at this stage due to the cost/value.  
+Paid ads for social media sites and search engines were not considered at this stage due to the cost/value.  
 
-The Facebook page is linked from the site and is also shown below. The Mailchimp app is used to facilitate the newsletter.
+The Facebook page is linked from the site and is also shown below.  
+The Mailchimp app is used to facilitate the newsletter.
 
 
 ![facebookscreenshot top](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/images/facebook-top-pp5.png)
 ![facebookscreen shot middle](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/images/facebook-middle-pp5.png)
-![facebookscreenshot bottom](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/images/facebook-bottom-pp5.png)
+![facebookscreenshot bottom](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/images/facebook-bottom-pp5.png)  
+  
+  [FaceBook Page](https://www.facebook.com/profile.php?id=100085035463050)
 
 
 
@@ -602,9 +606,10 @@ To fix this I needed to clear the session variables at the point of a successful
   The stock page which contains many images has a poor performance score on mobile.  I have tried several methods to improve this score with limitied success.  
   ![poor stock lighthouse mobile score](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/mobilelighthousestock-pp5.jpg)  
   
-  I used the critical path css generator [here](https://www.sitelocity.com/critical-path-css-generator) and when incorporated on the base templates improved the scores quite a bit.  
+  I reduced the image files size as much as possible whilst retaining a good quality image, this improved the score but it is still very variable/inconsistent.  
+  However load times on my personal mobile phone appear ok to me.  
     
-  ![better lighthouse scores for stock page mobile](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/stocklighthousegoog-pp5.jpg)
+
   
   ##### CRSF Token /Htmx  
   
