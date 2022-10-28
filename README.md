@@ -59,7 +59,7 @@ The AGILE methodology for project development will be used to produce this proje
    - [#11](https://github.com/bobshort4bobby4/PP5-v1/issues/11) to be able to create a user account, to track my interaction with the site.
    - [#12](https://github.com/bobshort4bobby4/PP5-v1/issues/12) to be able to manage my user profile, to make site use easy.
    - [#13](https://github.com/bobshort4bobby4/PP5-v1/issues/13) to review my profile details and order details, to engender trust and provide as transparent process as possible.
-   - [#14](https://github.com/bobshort4bobby4/PP5-v1/issues/14) to have all orders confirmed by email, to engender trust and provide a transparent process as possible.
+   - [#14](https://github.com/bobshort4bobby4/PP5-v1/issues/14) to have all orders confirmed by email, to engender trust and provide as transparent a process as possible.
    
    
    #### Site Owner Goals
@@ -127,7 +127,7 @@ The AGILE methodology for project development will be used to produce this proje
 (CTRL + Click to open in new window) [link to wireframes pdf](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/wireframes/pp5-wireframes-correct.pdf)
 
 A full set of wire frames for this Project was produced and can be viewed at the above link, A sample of them are shown below.  
-Please note some the images have been changed over the development process, the layout reamins as shown below.  
+*Please note some the images have been changed over the development process, the layout reamins as shown below.*   
     
  #### Home Page Wireframe
 ![home page wireframe](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/wireframes/pp5-Home.png)  
@@ -164,24 +164,27 @@ There are contact/location links at the top of each page. The telephone link ini
    
 The business name is displayed top center on all pages, this title acts as a link to the home page to aid site navigation.  
     
-There is a search facility which allows user to search the current stock.  The postgress text search is used to implement this search function. 
+There is a search facility which allows users to search the current stock.  The postgress text search is used to implement this search function. 
   
 Login/Register links and links to stock page and trade in page are contained in the nav-bar.  This nav-bar is responsive and collaspes on smaller screen sizes, it is a standard bootstrap element.  
     
 When a user logs in, a user icon is displayed, which is a drop-down menu with links relevant to the authorisation level of the user.  
-  
+    
+    
 ![logged in nav-bar](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/signedin-navbar_featured-pp5.png)  
   
 There is a link to the user's shopping cart and the value of goods in it.  
 If there is a un-used trade-in credit amount, this is also displayed in the nav-bar.  
-![trade-in credit amount](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/tradein-credit-pp5.png)
   
   
+![trade-in credit amount](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/tradein-credit-pp5.png)  
+  
+    
 ### User Authorisation  
   
 The Django all-auth package is used to handle user registration, login and access levels.  
 All all-auth templates are customised to match the appearance of the site.  
-    
+      
 ![all-auth register page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/signup-pp5.png)  
     
     
@@ -192,26 +195,36 @@ There is a links section which links to the business's social media pages, to tr
 The hours of business are shown on larger screens.  
 There is a sign-up form for the business newsletter.  
 In the bottom right corner there is a button which automatically scrolls the user to the top of the page.  
-    
+      
+      
 ![Footer ](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/footer-large-pp5.png)  
-    
+      
+      
 ### Home Page  
   
-The Home page of the site features an image of a car with a prominent button linking to the stock page.  
+The Home page of the site features an image of a car-dealship with a prominent button linking to the stock page.  
 There is also a carousel of featured vehicles.  
+  
+  
   ![home page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/homepagefeaturenew-pp5.jpg)  
   
 
 ### Stock Page  
   
 The stock page displays all available vehicles in a layout suitable for the viewing device, one per row on smaller screens, two on larger.  
-  
+    
+    
 ![stock page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/stock-pp5.png)
+    
+    
+Each vehicle image when clicked, links to a page giving more details on that particular vehicle. 
+ The item can be added to the cart from this page.  
+ If the user is staff the item can be edited or deleted from this page.  
+   
+   
+![stockdetail](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/stockdetail-pp5.png)    
   
-Each vehicle image when clicked links to a page giving more details on that particular vehicle. 
- The item can be added to the cart from this page.
- If the user is staff the item can be edited or deleted from this page.
-![stockdetail](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/stockdetail-pp5.png)  
+  
   
 ### Checkout  
     
@@ -244,14 +257,19 @@ The maker and fuel fields are drop down menus and form fields are validated.
   
   
 ### Adjust Trade-in Base Price.  
- Only available to staff members.  It is used to change the price used to value vehicles for trade-in credit.  
+ Only available to staff members.  
+ It is used to change the price used to value vehicles for trade-in credit.  
  The Maker field is prepoulated with manufacturers listed in the Maker datatable.  
   Htmx is used to populate the price field on a change in the maker field.  
+    
+    
  ![adjust base price](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/adjust-price-pp5.png)
   
   
 ### Trade-In
- This page takes data from the user concerning a vehicle they wish to value as a tradein.  The site returns a value to the user who then decides if they want to accept this figure or not.  The user can clear the form and value another vehicle if needed. The form is validated.  
+ This page takes data from the user concerning a vehicle they wish to value as a tradein.  The site returns a value to the user who then decides if they want to accept this figure or not.  
+ The user can clear the form and value another vehicle if needed.  
+ The form is validated.  
   
 NB. The value returned from the site for each vehicle is calculated using the information input by the user and the base price for that particular manufacturer.  
   This function was based on several I found online and gives a very approximate value for each vehicle.  
@@ -259,13 +277,6 @@ NB. The value returned from the site for each vehicle is calculated using the in
     
   
 ![tradein page](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/features/trade-in-pp5.png)
-  
-    
-  
-
-  
-  
-  
   
   
 </details>
@@ -280,7 +291,8 @@ NB. The value returned from the site for each vehicle is calculated using the in
             
 ![erd](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/erd_pp5.png)  
 
-Note: As I review this ERD, it seems to be redundant to have a separate relation for the fuel-type as there is only one field. It may prove useful in a hypothethical future version of the software if other features such as fuel efficency or environmental impact of each fuel needed to be calculated for each vechicle.  
+*Note: As I review this ERD, it seems to be redundant to have a separate relation for the fuel-type as there is only one field. It may prove useful in a hypothethical future version of the software if other features such as fuel efficency or environmental impact of each fuel needed to be calculated for each vechicle.*  
+
 
               
 </details>
@@ -320,7 +332,7 @@ The 10  best of these were selected based on relevance, authority and volume to 
     
 The next step in SEO optimisation was to include as many as possible of the keywords into the text of the website. This was done to ensure the language was still relevant and natural. Keywords placed in semantic elements were given higher priority as search engines give these elements greater weight.  
 
-As resources allow it is planned to add articles and blog entries which will enhance the websites authority on our area of business, this should boost our ranking further.  A website that displays authority, expertise and trustworthiness will rank highly in search engine results, this metric is more important now that pure keyword matching. Relevant articles should also reduce bounce rate and increase session time.
+As resources allow it is planned to add articles and blog entries which will enhance the websites authority on our area of business, this should boost our ranking further.  A website that displays authority, expertise and trustworthiness will rank highly in search engine results, this metric is more important now than pure keyword matching. Relevant articles should also reduce bounce rate and increase session time.
 
 The alt text for all the images on the stock page was changed to give each car a description of its make and model and a used or new classification.    
 
@@ -330,7 +342,7 @@ A link to SIMI (Motor-Dealers representation body)  was provided to further boos
 
 The meta data tags were created in the html head.    
 
-A sitemap.xml file was created using the xml-sitemaps.com website and placed in the root directory of the project.  The sitemap file helps search engines to access and analyse the website. It has not been registered with Google as per requirements for this project.  
+A sitemap.xml file was created using the [xml-sitemaps.com](https://www.xml-sitemaps.com/) website and placed in the root directory of the project.  The sitemap file helps search engines to access and analyse the website. It has not been registered with Google as per requirements for this project.  
   
 A robots.txt file was created and saved in the root directory. This file specifies which search engines are allowed to crawl the site and which parts should be accessible.  
   
@@ -353,14 +365,14 @@ The privacy policy was generated using [privacypolicygenerator.info](https://www
   
 The site is a business to customer model. It will sell new and used vehicles directly to the end-user.  
 
-It is planned that the main methods of marketing the business will be through SEO, via  organic social media marketing, principally Facebook and a weekly email newsletter.  
+It is planned that the main methods of marketing the business will be through SEO and via  organic social media marketing, principally Facebook and a weekly email newsletter.  
 
 The reasons these methods were choosen was largely due to budget constraints.
 Whilst there is plenty of scope for content marketing such as articles/guides to buying vehicles, maintainance tips,  weekly video's of new stock, a valuer for trade-in vehicles (api), there are insufficent resources available currently to implement all of these.    
   
 Similar websites serving the same market will be looked at and features that are considered to work well will be implemented as a first step.  
 
-Paid ads for social media sites and search engines were not considered at this stage due to the cost/value.  
+Paid ads for social media sites and search engines were not considered at this stage due to the cost/value  for money.  It can be difficult to efficiently target these ads to a relevant audience and the costs can mount up quickly.
 
 The Facebook page is linked from the site and is also shown below.  
 The Mailchimp app is used to facilitate the newsletter.
@@ -747,34 +759,48 @@ Heroku apps can be deployed either through the website or via the terminal comma
 To deploy my project I followed the steps below.
      
   - Create a new Heroku app using your chosen app name and choosing appropriate region  
-  - Initialise Database.  
-  - Initialise env variables in heroku including Cloudinary, Database, Email Settings and Stripe Keys
+  - ADD heroku to the list of allowed hosts in settings.py file, `ALLOWED_HOSTS = ['pp5-carsales.herokuapp.com', 'localhost']`
+  - Initialise and attach Database, from the Resources tab in Heroku, under add-ons, choose the Heroku Postgress option.  
+    In the project IDE install [dj_database_url](https://github.com/jazzband/dj-database-url) and [psycopy2](https://pypi.org/project/psycopg2/)using  
+    `pip3 install dj_database_url psycopg2`  
+    Add the following to the settings.py `import dj_database_url`  
+    `DATABASES = {
+    'default':
+        dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}`   and comment out default db.sqlite3 configuration.  
+    copy the database secret key from the heroku app and place it in the env.py file  
+    `os.environ["DATABASE_URL"] = "postgres://tniesqbarwhtjg:******KEY HERE *******"  
+    
+  - Initialise env variables in heroku such as Cloudinary, Database, Email Settings and Stripe Keys.
+    See below for settings for this project.
   - Link the Heroku app to the Github repository (automatic deploys can be enabled if desired)
   - Remove the collectstatic variable from Heroku settings  
   - Set debug to false in settings.py  
   - Set email settings in Django settings.py.
   - Set media and static paths in settings.py.
-  - Create a runtime.py in the root file of the app specifying python and version.
-  - Create a Profile file in the root file.  
+  - Create a runtime.py in the root file of the app specifying python and version, `python-3.8.10 `
+  - Create a Profile file in the root file containing `web: gunicorn pp5_carsales.wsgi` 
   - Ensure all sensitive passwords/keys are included in the gitignore file.
-  - Ensure requiremnets.txt file is updated.
+  - Ensure requiremnets.txt file is updated, using `pip3 freeze --local > requirements.txt` in the terminal.
   - Push to Github.
   - From the deploy tab in Heroku choose manual deploy.
     
       
-   ![heroku manual deploy](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/herokumanualdeploy-pp5.png)
+   ![heroku manual deploy](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/herokumanualdeploy-pp5.png)  
+     
+   ![Config Vars Heroku]()
  
  </details>
 
 
   
 
-# Credit  
+# Credits  
 
  <details>
   <summary>Credits</summary>
   
-  - Bootstrap; I used standard bootstrap templates for several of the elements on the site, these were adapted to suit as needed. The Nav-bar, Review-Slider and the table on the My Account page are all taken from the [Bootstrap site](https://getbootstrap.com/).  
+  - Bootstrap; I used standard bootstrap templates for several of the elements on the site, these were adapted to suit as needed. The Nav-bar and featured vehicles-Slider are all taken from the [Bootstrap site](https://getbootstrap.com/).  
   - The Css used to format the embedded google map on the information page was taken from this blog [blog.duda](https://blog.duda.co/responsive-google-maps-for-your-website). 
   - Stackoverflow for general information [](https://stackoverflow.com/).  
   - Javascript script used to close the Django messages was taken from one of the course material examples.   
@@ -787,7 +813,3 @@ To deploy my project I followed the steps below.
   
   </details>
 
-
-
-
-https://docs.djangoproject.com/en/4.1/ref/contrib/postgres/search/
