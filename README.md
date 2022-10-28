@@ -788,7 +788,20 @@ To deploy my project I followed the steps below.
       
    ![heroku manual deploy](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/herokumanualdeploy-pp5.png)  
      
-   ![Config Vars Heroku]()
+     
+       
+These are the configuration variables set on my project, I have not shown the values for obvious reasons.  
+
+
+|            Variable            |          Source                                  |
+|--------------------------------|--------------------------------------------------|
+|  CLOUDINARY_URL                | Cloudinary Dashboard                             |
+|  DATABASE_URL                  | Heroku generated                                 |
+|  
+      
+        
+        
+   ![Config Vars Heroku](https://github.com/bobshort4bobby4/PP5-v1/blob/main/media/readme_docs/herokuconfig-pp5.jpg)
  
  </details>
 
