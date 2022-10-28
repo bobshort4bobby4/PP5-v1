@@ -175,7 +175,6 @@ li.nav-item.dropdown {
    height:300px;
    margin:2vw;
    margin-top:2px;
-   
    background-image: url("https://res.cloudinary.com/dpudxnll7/image/upload/v1666630194/media/Car-dealership_yc0x4c.jpg");
 }
 
@@ -241,35 +240,23 @@ li.nav-item.dropdown {
    width: 100%;
    -o-object-fit: fill;
       object-fit: fill;
-
 }
 
 /* google map */
 
 .map-responsive{
-
    overflow:hidden;
-
    padding-bottom:56%;
-
    position:relative;
-
    height:0;
-
 }
 
 .map-responsive iframe{
-
    left:0;
-
    top:0;
-
    height:100%;
-
    width:100%;
-
    position:absolute;
-
 }
 /* order history page sytles */
 
@@ -321,11 +308,9 @@ li.nav-item.dropdown {
    #image-container {
       height:360px;
    }
-
 }
 
 @media screen and (min-width:768px) {
-
    #image-container {
       height:400px;
    }
@@ -354,7 +339,6 @@ li.nav-item.dropdown {
            -ms-flex:auto;
                flex:auto;
    }
-
 }
 
 @media screen and (min-width:1024px) {
@@ -407,11 +391,9 @@ li.nav-item.dropdown {
    .topmarlg {
        margin-top:7% !important;
    }
-
 }
 
 @media screen and (min-width:1440px) {
-
    #carowrap{
        min-height: 700px;
        max-height: 700px;
@@ -447,18 +429,15 @@ li.nav-item.dropdown {
    #card-container {
        min-height:400px;
        max-height:400px;
-   }
-   
+   } 
 }
 
 @media screen and (min-width:1850px){ 
-
    #image-container {
       width:90vw;
       margin-left: 5vw;
       margin-right:5vw;
-   }
-       
+   }     
 }
 
 
@@ -482,18 +461,14 @@ li.nav-item.dropdown {
       max-height:600px;
   }
  
-
   #carousel{
       height:auto;
       width:45%;
       margin:0 auto;
   }
-
 }
 
-@media screen and (min-width:2300px) {
 
-}
 
 
 

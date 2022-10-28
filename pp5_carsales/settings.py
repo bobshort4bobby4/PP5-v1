@@ -16,7 +16,7 @@ import dj_database_url
 from django.contrib.messages import constants as messages
 
 
-if os.path.isfile("env.py"):
+if os.path.isfile("env.py"):  # pep8
     import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -151,6 +151,7 @@ WSGI_APPLICATION = 'pp5_carsales.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+# leaving sqlite seting commented out in case needed for tests later
 
 # DATABASES = {
 #     'default': {
@@ -202,7 +203,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
+# puts a separating comma in all numbers
 USE_THOUSAND_SEPARATOR = True
 
 # leaving commented out code as is needed for testing locally run site

@@ -14,8 +14,6 @@ from .forms import VehicleForm, MakerForm
 from .trade_calc import calc_tradein
 
 
-
-
 class StockView(ListView):
     """
     Generic class used to display vehicle display page
@@ -117,18 +115,6 @@ class DeleteVehicleView(SuccessMessageMixin, DeleteView):
                 'object': object
             }
             return render(request, self.template_name, context)
-
-# def delete_vehicle(request, vehicle_id):
-#     """ Delete a vehicle from the store """
-#     if not request.user.is_staff:
-#         messages.error(request, 'Sorry, only store staff can do that.')
-#         return redirect(reverse('home:home'))
-
-#     veh = get_object_or_404(Vehicle, pk=vehicle_id)
-#     veh.available_sale = False
-#     veh.save()
-#     messages.success(request, 'Vehicle Deleted!')
-#     return redirect(reverse('stock:stock'))
 
 
 def edit_vehicle(request, vehicle_id):

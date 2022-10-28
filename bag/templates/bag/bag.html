@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 {% extends "base.html" %}
 {% block title%}Shopping Bag{% endblock title %}
 
@@ -23,30 +23,30 @@
                     </thead>
                     
                     <tbody id="body-bag">
-                    {% for item in bag_items %}
-                        <tr>
-                            <td class="py-3  text-white align-middle">
-                                {{ item.maker|upper}}
-                            </td>
-                            <td class="py-3 text-white align-middle">
-                                {{ item.model|upper }}
-                            </td>
-                            <td class="py-3 text-white align-middle text-center">
-                                €{{ item.price|upper|floatformat:0}}
-                            </td>
-                            <td class="p-3  text-white d-none d-lg-block text-center">
-                                {% if item.image_url %}
-                                    <img class="d-block ml-5 mx-auto"  style="width:120px;" src="{{item.image_url}}" alt="pic">
-                                {% else %}
-                                <img class="d-block ml-5 mx-auto"  style="width:120px;" src="https://res.cloudinary.com/dpudxnll7/image/upload/v1660076458/media/pp5/noimage-pp5_wohtub.png" alt="pic">
-                                {% endif %}
-                            </td>
-                            <td class="py-3 text-white align-middle text-center">
-                                <span><a href="{% url 'bag:remove_from_bag' item.pk %}" aria-label=""><u>REMOVE</u></a></span>
-                            </td>  
-                        </tr>
-                       
-                    {% endfor %}
+                        {% for item in bag_items %}
+                            <tr>
+                                <td class="py-3  text-white align-middle">
+                                    {{ item.maker|upper}}
+                                </td>
+                                <td class="py-3 text-white align-middle">
+                                    {{ item.model|upper }}
+                                </td>
+                                <td class="py-3 text-white align-middle text-center">
+                                    €{{ item.price|upper|floatformat:0}}
+                                </td>
+                                <td class="p-3  text-white d-none d-lg-block text-center">
+                                    {% if item.image_url %}
+                                        <img class="d-block ml-5 mx-auto"  style="width:120px;" src="{{item.image_url}}" alt="pic">
+                                    {% else %}
+                                    <img class="d-block ml-5 mx-auto"  style="width:120px;" src="https://res.cloudinary.com/dpudxnll7/image/upload/v1660076458/media/pp5/noimage-pp5_wohtub.png" alt="pic">
+                                    {% endif %}
+                                </td>
+                                <td class="py-3 text-white align-middle text-center">
+                                    <span><a href="{% url 'bag:remove_from_bag' item.pk %}" aria-label=""><u>REMOVE</u></a></span>
+                                </td>  
+                            </tr>
+                        
+                        {% endfor %}
                         <tr>
                             <td class="  text-white align-middle">
                                 Sub-Total
@@ -91,17 +91,13 @@
                             </td>
                         </tr>
                     </tbody>
-
+                </table>
             {% else %}
                 <h3 class="text-white text-center ">No Vehicles in Bag Yet.</h3>
             {% endif %}
 
-                </table>
         </div>
-      
-
     </div>
-    
 </div>
 <div class="row no-gutters align-items-center">
     <div class="w-50  offset-1  col-10 col-md-5 d-md-flex">
@@ -118,7 +114,7 @@
     </div> 
     <div class="w-50 offset-1  col-10 col-md-5 d-md-flex">
         <a id="checkout-btn" href="{% url 'checkout:checkout' %}"  class="mt-2 rounded-1" >
-            <p class="greenbutton btn linkhover p-2 rounded-1 mt-3" style="" >&nbsp;&nbsp;Secure Checkout&nbsp;&nbsp;  
+            <p class="greenbutton btn linkhover p-2 rounded-1 mt-3">&nbsp;&nbsp;Secure Checkout&nbsp;&nbsp;  
                 <span class="icon ">
                     <i class="fas fa-lock" style="color: black !important;"></i>
                 </span>

@@ -16,7 +16,6 @@ from .views import (StockView,
                     DeleteVehicleView)
 
 
-
 app_name = 'stock'
 
 urlpatterns = [

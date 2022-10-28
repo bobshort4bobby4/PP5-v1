@@ -8,7 +8,6 @@ from django.views.generic import TemplateView
 from stock.models import Vehicle
 
 
-
 class HomeView(TemplateView):
     """
     Generic class used to display home page

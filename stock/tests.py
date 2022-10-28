@@ -43,13 +43,7 @@ class TestStockView(TestCase):
         response = self.client.get(
             reverse('stock:delete_vehicle',
                     kwargs={"vehicle_id": self.veh.stock_num}))
-        messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(len(messages), 1)
-        self.assertEqual(
-            str(messages[0]), 'Sorry, only store staff can do that.')
-
-        self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('home:home'))
+        self.assertEqual(response.status_code, 403)
 
     def test_delete_vehicle(self):
         """test_delete_vehicle"""
@@ -69,14 +63,10 @@ class TestStockView(TestCase):
         response = self.client.post(
             reverse('stock:delete_vehicle',
                     kwargs={"vehicle_id": self.veh.stock_num}))
-        messages = list(get_messages(response.wsgi_request))
-
-        avsaleveh = get_object_or_404(Vehicle, stock_num=1)
-        self.assertFalse(avsaleveh.available_sale)
-        self.assertEqual(len(messages), 1)
-        self.assertEqual(str(messages[0]), 'Vehicle Deleted!')
+        avsaleveh = Vehicle.objects.all()
+        self.assertEqual(len(avsaleveh), 0)
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('stock:stock'))
+        self.assertRedirects(response, reverse('home:home'))
 
     def test_edit_vehicle_redirect_to_home_user_notstaff(self):
         """test_edit_vehicle_redirect_to_home_user_notstaff"""

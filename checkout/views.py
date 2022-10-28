@@ -204,7 +204,7 @@ def checkout_success(request, order_number):
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
     big = order.original_bag
-    pattern = re.compile('\d{1,4}')
+    pattern = re.compile('\d{1,4}') # pep8
     matches = pattern.finditer(big)
     matches_lst = [i.group(0) for i in matches]
     for r in matches_lst:
