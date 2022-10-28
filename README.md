@@ -797,7 +797,18 @@ These are the configuration variables set on my project, I have not shown the va
 |--------------------------------|--------------------------------------------------|
 |  CLOUDINARY_URL                | Cloudinary Dashboard                             |
 |  DATABASE_URL                  | Heroku generated                                 |
-|  
+|  DEBUG                         | Set by User                                      |
+|  DEVELOPEMENT                  | Set by User                                      |
+|  DISABLE_COLLECTSTATIC         | Set by User                                      |
+|  EMAIL_HOST_PASS               | Pass from email client                           |
+|  EMAIL_HOST_USER               | Sites email address                              |
+|  SECRET_KEY                    | Django random key generated online               |
+|  STRIPE_PUBLIC_KEY             | API key from Stripe dashboard                    |
+|  STRIPE_SECRET_KEY             | API key from Stripe dashboard                    |
+|  STRIPE_WH_SECRET              | Stripe webhook page in dashboard                 |
+| -------------------------------|--------------------------------------------------|
+
+
       
         
         
