@@ -90,45 +90,45 @@ def add_stock(request):
     return render(request, template, context)
 
 
-class DeleteVehicleView(SuccessMessageMixin, DeleteView):
-    model = Vehicle
-    template_name = 'stock/delete_vehicle.html'
-    success_url = '/'
-    success_message = 'Thank you Vehicle deleted'
+# class DeleteVehicleView(SuccessMessageMixin, DeleteView):
+#     model = Vehicle
+#     template_name = 'stock/delete_vehicle.html'
+#     success_url = '/'
+#     success_message = 'Thank you Vehicle deleted'
 
-    def get_object(self):
-        vehpk = self.kwargs.get('vehicle_id')
-        object = get_object_or_404(Vehicle, pk=vehpk)
-        return object
+#     def get_object(self):
+#         vehpk = self.kwargs.get('vehicle_id')
+#         object = get_object_or_404(Vehicle, pk=vehpk)
+#         return object
 
-    def delete(self, request, *args, **kwargs):
-        messages.success(self.request, self.success_message)
-        return super(DeleteVehicleView, self).delete(request, *args, **kwargs)
+#     def delete(self, request, *args, **kwargs):
+#         messages.success(self.request, self.success_message)
+#         return super(DeleteVehicleView, self).delete(request, *args, **kwargs)
 
-    def get(self, request, **kwargs):
+#     def get(self, request, **kwargs):
 
-        user = self.request.user
-        # checking to ensure user has right to view this booking details
-        if not user.is_staff:
-            raise PermissionDenied()
-        else:
-            object = self.kwargs['vehicle_id']
-            context = {
-                'object': object
-            }
-            return render(request, self.template_name, context)
+#         user = self.request.user
+#         # checking to ensure user has right to view this booking details
+#         if not user.is_staff:
+#             raise PermissionDenied()
+#         else:
+#             object = self.kwargs['vehicle_id']
+#             context = {
+#                 'object': object
+#             }
+#             return render(request, self.template_name, context)
 
-# def delete_vehicle(request, vehicle_id):
-#     """ Delete a vehicle from the store """
-#     if not request.user.is_staff:
-#         messages.error(request, 'Sorry, only store staff can do that.')
-#         return redirect(reverse('home:home'))
+def delete_vehicle(request, vehicle_id):
+    """ Delete a vehicle from the store """
+    if not request.user.is_staff:
+        messages.error(request, 'Sorry, only store staff can do that.')
+        return redirect(reverse('home:home'))
 
-#     veh = get_object_or_404(Vehicle, pk=vehicle_id)
-#     veh.available_sale = False
-#     veh.save()
-#     messages.success(request, 'Vehicle Deleted!')
-#     return redirect(reverse('stock:stock'))
+    veh = get_object_or_404(Vehicle, pk=vehicle_id)
+    veh.available_sale = False
+    veh.save()
+    messages.success(request, 'Vehicle Deleted!')
+    return redirect(reverse('stock:stock'))
 
 
 def edit_vehicle(request, vehicle_id):
