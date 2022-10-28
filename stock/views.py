@@ -113,7 +113,10 @@ class DeleteVehicleView(SuccessMessageMixin, DeleteView):
             raise PermissionDenied()
         else:
             object = self.kwargs['vehicle_id']
-            return render(request, self.template_name)
+            context = {
+                'object': object
+            }
+            return render(request, self.template_name, context)
 
 # def delete_vehicle(request, vehicle_id):
 #     """ Delete a vehicle from the store """
