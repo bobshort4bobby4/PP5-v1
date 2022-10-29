@@ -86,7 +86,7 @@ class StripeWH_Handler:
 
         order_exists = False
         attempt = 1
-        le = Order.objects.all()
+        # le = Order.objects.all()
         
         while attempt <= 5:
             try:
@@ -108,7 +108,7 @@ class StripeWH_Handler:
                 break
             except Order.DoesNotExist:
                 attempt += 1
-                time.sleep(30)
+                time.sleep(1)
         if order_exists:
             self._send_confirmation_email(order)
             return HttpResponse(
