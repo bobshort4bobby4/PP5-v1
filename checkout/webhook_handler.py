@@ -52,7 +52,6 @@ class StripeWH_Handler:
         """
         Handle the payment_intent.succeeded webhook from Stripe
         """
-        le = Order.objects.all()
         intent = event.data.object
         pid = intent.id
         bag = intent.metadata.bag
@@ -86,8 +85,7 @@ class StripeWH_Handler:
 
         order_exists = False
         attempt = 1
-        # le = Order.objects.all()
-        
+
         while attempt <= 5:
             try:
                 order = Order.objects.get(
