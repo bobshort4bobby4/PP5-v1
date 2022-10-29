@@ -14,6 +14,8 @@ class MyCustomLoginForm(LoginForm):
         """ over-ride the login method"""
         if "trade_flag" in self.request.session:
             self.request.session['trade_flag'] = {}
+        if "trade_details" in self.request.session:
+            del self.request.session["trade_details"]
         if "bag" in self.request.session:
             del self.request.session["bag"]
 

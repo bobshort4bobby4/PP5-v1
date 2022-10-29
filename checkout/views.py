@@ -73,7 +73,8 @@ def checkout(request):
             order.original_bag = json.dumps(bag)
             order.stripe_pid = pid
             tradein_id = request.session.get('trade_id', "")
-            if tradein_id:
+            flag = request.session['trade_flag']
+            if tradein_id and flag:
                 t_in = get_object_or_404(Tradein, pk=tradein_id)
                 order.trade_in = t_in
                 order.grand_total -= t_in.trade_value

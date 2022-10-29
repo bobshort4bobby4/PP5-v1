@@ -87,19 +87,7 @@ class StripeWH_Handler:
         order_exists = False
         attempt = 1
         le = Order.objects.all()
-        for ord in le:
-            print(ord.full_name)
-            print(ord.email)
-            print(ord.phone_number)
-            print(ord.country)
-            print(ord.postcode)
-            print(ord.town_or_city)
-            print(ord.street_address1)
-            print(ord.street_address2)
-            print(ord.county)
-            print(ord.grand_total)
-            print(ord.original_bag)
-            print(ord.stripe_pid)
+        
         while attempt <= 5:
             try:
                 order = Order.objects.get(
