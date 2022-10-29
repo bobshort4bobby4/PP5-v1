@@ -18,7 +18,7 @@ Github repository can be found [here](https://github.com/bobshort4bobby4/PP5-v1)
 This is the fifth project I have completed as part of the [Code Institute Full Stack Diploma Course](https://codeinstitute.net).  
   
 This project sets out to create an ecommerce site for a fictitious car-sales business based in Dublin, Ireland.  
-The site will display all available stock, allow a search of same.  Each item of stock should have a specific page giving more information on that vehicle.  
+The site will display all available stock and allow a search of same.  Each item of stock should have a specific page giving more information on that vehicle.  
 The site will have a shopping bag function where users can store items before purchasing them in the stripe enabled checkout.  
 Users should be able to value a vehicle  for possible trade-in, accept this value if desired and apply it as a credit to their shopping bag total.
 Staff members will need to be able to add, delete and edit stock items and also to change the trade-in base price for each manufacturer from the front-end.
@@ -597,7 +597,7 @@ Both were validated by jshint, image of results are shown below.
  
   
   
-  ### Bugs And Issues  
+  ###  Known Bugs And Issues  
   
    ##### Security Issue
   
@@ -640,9 +640,24 @@ I used the `USE_THOUSAND_SEPARATOR = True` setting in the settings.py to place a
 This had the unwanted side-effect of placing a comma in all the vehicles year of manufacture also.  
 This was overcome by using the `|floatformat:"0u"` template tag on any figures which were not numerical amounts.  
 
-##### Delete Vehicle Confirnmation
+##### Slight Mis-alignment  
 
-There should be a confirmation which would affirm that the staff member definitely wanted to delete that vehicle.  As it is the link is highlighted in red but vehicle is deleted on clicking on the button.  
+There is a slight mis-alignment in the checkout success page, if there is more than one item in the order and these orders have a different number of digits in their price.  The prices are aligned to right which means the left edge will be one character mis-aligned.  
+
+
+##### Navigation Links  
+
+There is some inconsistency in the styling of the navigation links at the bottom of various pages on the site.  I did not have time to standardise these.  
+
+##### Telephone Link
+
+It would be preferable for this link to become an ordinary span at larger screen sizes as these generaly will not make telephone calls.
+
+
+
+
+
+
 
 
 
@@ -774,7 +789,8 @@ To deploy my project I followed the steps below.
   - Initialise env variables in heroku such as Cloudinary, Database, Email Settings and Stripe Keys.
     See below for settings for this project.
   - Link the Heroku app to the Github repository (automatic deploys can be enabled if desired)
-  - Remove the collectstatic variable from Heroku settings  
+  - Remove the collectstatic variable from Heroku settings.
+  - Moved the sqlite3 database into gitignore so its not visible on the github repo.  `git rm --cached` should be used on the file according to my internet research to remove them from github butI will not attempt this as submission time is imminent.
   - Set debug to false in settings.py  
   - Set email settings in Django settings.py.
   - Set media and static paths in settings.py.
